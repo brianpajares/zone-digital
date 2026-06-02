@@ -19,10 +19,868 @@
   <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 
-  <script src="zone-digital/data.js"></script>
-  <script type="text/babel" src="zone-digital/components.jsx"></script>
-  <script type="text/babel" src="zone-digital/sections-top.jsx"></script>
-  <script type="text/babel" src="zone-digital/sections-bottom.jsx"></script>
-  <script type="text/babel" src="zone-digital/app.jsx"></script>
+  <script type="text/babel">
+// Zone Digital — catálogo real (Google Sheet, 27 títulos en Amazon)
+// Portadas: CDN de imágenes de Amazon por ASIN, con respaldo tipográfico.
+
+const CATEGORIES = [
+  { id: 'all',     label: 'Todos' },
+  { id: 'mining',  label: 'Minería' },
+  { id: 'tech',    label: 'IA & Tech' },
+  { id: 'business',label: 'Negocios' },
+  { id: 'cert',    label: 'Certificación' },
+  { id: 'startup', label: 'Start Ups' },
+];
+
+const LANGS = [
+  { id: 'all', label: 'Idioma' },
+  { id: 'es',  label: 'Español' },
+  { id: 'en',  label: 'English' },
+];
+
+// Paletas de portada — todas dentro de los tokens del sistema
+const COVERS = {
+  mining:   { bg: 'linear-gradient(155deg,#11141C 0%,#0B0E14 60%,#1A1D24 100%)', fg: '#F4F1EA', accent: '#D8FF3D' },
+  tech:     { bg: 'linear-gradient(155deg,#1830B0 0%,#2547F0 55%,#0B1A78 100%)', fg: '#FFFFFF', accent: '#D8FF3D' },
+  business: { bg: 'linear-gradient(155deg,#2A2E37 0%,#11141C 70%)',             fg: '#F4F1EA', accent: '#D8FF3D' },
+  cert:     { bg: 'linear-gradient(155deg,#0B0E14 0%,#11141C 100%)',           fg: '#F4F1EA', accent: '#2547F0' },
+  startup:  { bg: 'linear-gradient(155deg,#1A1D24 0%,#0B0E14 70%)',            fg: '#F4F1EA', accent: '#D8FF3D' },
+};
+
+const CAT_LABEL = { mining: 'Minería', tech: 'IA & Tech', business: 'Negocios', cert: 'Certificación', startup: 'Start Ups' };
+
+// helper de URL Amazon por ASIN
+const AMZ = (asin) => `https://www.amazon.com/dp/${asin}`;
+
+const BOOKS = [
+  { id:'L25', cat:'mining', lang:'en', short:'The Digital Twin Mine',
+    title:'The Digital Twin Mine', featured:true,
+    sub:'How AI, real-time data and operational intelligence redefine productivity and safety in mining.',
+    asin:'B0H381YN82',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B0H381YN82')} ] },
+
+  { id:'L24', cat:'mining', lang:'en', short:'Designing Robots for Mining',
+    title:'Designing Robots for Mining', featured:true,
+    sub:'The engineering handbook for autonomous drilling, hauling, inspection and underground robotics.',
+    asin:'B0H3891219',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B0H3891219')} ] },
+
+  { id:'L27', cat:'mining', lang:'en', short:'Open-Pit IoT Revolution',
+    title:'Open-Pit IoT Revolution',
+    sub:'How satellites, drones, 5G and edge AI are rewiring the world’s largest open-pit mines.',
+    asin:'B0H3CS4K38',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B0H3CS4K38')} ] },
+
+  { id:'L26', cat:'mining', lang:'en', short:'Battery-Electric Underground Mining',
+    title:'Battery-Electric Underground Mining',
+    sub:'Engineering the diesel-free mine: powertrains, charging infrastructure and the new economics.',
+    asin:'B0H3CDGH5F',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B0H3CDGH5F')} ] },
+
+  { id:'L23', cat:'tech', lang:'en', short:'The AI Growth Operating System',
+    title:'The AI Growth Operating System', featured:true,
+    sub:'How leaders build agentic workflows, data foundations and new revenue engines.',
+    asin:'B0H2KJ15ZX',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B0H2KJ15ZX')}, {k:'Tapa blanda', p:'USD 29.99', u:AMZ('B0H2PWP6HX')} ] },
+
+  { id:'L22', cat:'tech', lang:'es', short:'Chief AI Officer',
+    title:'Chief AI Officer', featured:true,
+    sub:'El nuevo líder de la empresa inteligente. Gobernanza, estrategia y adopción real de IA.',
+    asin:'B0GYZYK1G7',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B0GYZYK1G7')}, {k:'Tapa blanda', p:'USD 29.99', u:AMZ('B0GZ3BRP2K')} ] },
+
+  { id:'L21', cat:'business', lang:'es', short:'CEO Aumentado',
+    title:'CEO Aumentado', featured:true,
+    sub:'Cómo líderes y profesionales convierten la IA en estrategia, productividad y ventaja competitiva.',
+    asin:'B0GYTJ466Y',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B0GYTJ466Y')}, {k:'Tapa blanda', p:'USD 29.99', u:AMZ('B0GZ316BHH')} ] },
+
+  { id:'L06', cat:'business', lang:'es', short:'Domina la IA Generativa',
+    title:'Domina la Era de la IA Generativa',
+    sub:'La guía definitiva para data scientists del futuro. De la curiosidad al dominio.',
+    asin:'B0F5NV8NY5',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:'https://www.amazon.com/-/es/Brian-Pajares-ebook/dp/B0F5NV8NY5'}, {k:'Tapa blanda', p:'USD 24.99', u:AMZ('B0F7FRTVQ7')}, {k:'Tapa dura', p:'USD 49.99', u:AMZ('B0F7QXNR4S')}, {k:'PDF', p:'USD 7.99', u:'https://zonedigital0.gumroad.com/l/ebookia'} ] },
+
+  { id:'L08', cat:'mining', lang:'es', short:'Tecnología Minera en Acción',
+    title:'Tecnología Minera en Acción',
+    sub:'Instalar, automatizar y sostener soluciones con data e inteligencia artificial.',
+    asin:'B0F59MNMN2',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B0F59MNMN2')}, {k:'Tapa blanda', p:'USD 24.99', u:AMZ('B0F7GCBL2Q')}, {k:'Tapa dura', p:'USD 49.99', u:AMZ('B0F7GHVB7Q')}, {k:'PDF', p:'USD 7.99', u:'https://zonedigital0.gumroad.com/l/ebooktecnologiaminera'} ] },
+
+  { id:'L01', cat:'cert', lang:'es', short:'La Ruta Maestra hacia el PMP',
+    title:'La Ruta Maestra hacia la Certificación PMP', featured:true,
+    sub:'Guía práctica para profesionales exitosos. El plan que aprueba el PMP a la primera.',
+    asin:'B0DWPB9MML',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B0DWPB9MML')}, {k:'PDF', p:'USD 7.99', u:'https://zonedigital0.gumroad.com/l/ebookpmp'} ] },
+
+  { id:'L02', cat:'cert', lang:'es', short:'CFA: El Camino al Éxito Financiero',
+    title:'CFA: El Camino Certificado al Éxito Financiero Global',
+    sub:'La guía definitiva para aprobar y triunfar en el examen más prestigioso del mundo.',
+    asin:'B0DWT17LCJ',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B0DWT17LCJ')}, {k:'PDF', p:'USD 7.99', u:'https://zonedigital0.gumroad.com/l/ebookcfa'} ] },
+
+  { id:'L03', cat:'cert', lang:'es', short:'AWS Solutions Architect Associate',
+    title:'AWS Solutions Architect Associate',
+    sub:'Certifícate y transforma tu carrera en la nube.',
+    asin:'B0DWT8XXXD',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B0DWT8XXXD')}, {k:'Tapa blanda', p:'USD 24.99', u:AMZ('B0F79WNWYM')}, {k:'Tapa dura', p:'USD 49.99', u:AMZ('B0F7LD9ZQM')}, {k:'PDF', p:'USD 7.99', u:'https://zonedigital0.gumroad.com/l/ebookaws'} ] },
+
+  { id:'L04', cat:'business', lang:'es', short:'MBA Rediseñado',
+    title:'MBA Rediseñado',
+    sub:'Aprende, lidera y triunfa con las estrategias que funcionan hoy.',
+    asin:'B0F5QR9FNZ',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B0F5QR9FNZ')}, {k:'Tapa blanda', p:'USD 24.99', u:AMZ('B0F7FG4QZT')}, {k:'Tapa dura', p:'USD 49.99', u:AMZ('B0F7QX5PV1')}, {k:'PDF', p:'USD 7.99', u:'https://zonedigital0.gumroad.com/l/ebookmba'} ] },
+
+  { id:'L05', cat:'business', lang:'es', short:'Arquitectura de Soluciones',
+    title:'Arquitectura de Soluciones para Líderes Tecnológicos',
+    sub:'Diseña, escala y transforma. El manual del líder técnico moderno.',
+    asin:'B0F5NWGYNY',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B0F5NWGYNY')}, {k:'Tapa blanda', p:'USD 24.99', u:AMZ('B0F6YJ1235')}, {k:'Tapa dura', p:'USD 49.99', u:AMZ('B0F7GGJVGP')}, {k:'PDF', p:'USD 7.99', u:'https://zonedigital0.gumroad.com/l/ebookarquitectura'} ] },
+
+  { id:'L07', cat:'mining', lang:'es', short:'El ABC de la Innovación Minera',
+    title:'El ABC de la Innovación Minera',
+    sub:'Los fundamentos de la transformación tecnológica en minería, explicados con claridad.',
+    asin:'B08W8G9J9J',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B08W8G9J9J')}, {k:'Tapa blanda', p:'USD 24.99', u:AMZ('B08W6QDCX3')}, {k:'PDF', p:'USD 7.99', u:'https://zonedigital0.gumroad.com/l/ebookABC'} ] },
+
+  { id:'L09', cat:'mining', lang:'es', short:'Transformación Digital y Minería 4.0',
+    title:'La Transformación Digital y la Minería 4.0',
+    sub:'La guía de todo profesional del futuro para entender la minería conectada.',
+    asin:'B08XGDJWF6',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B08XGDJWF6')}, {k:'Tapa blanda', p:'USD 20.00', u:AMZ('B08XNDNPDT')}, {k:'PDF', p:'USD 7.99', u:'https://zonedigital0.gumroad.com/l/ebookmineria'} ] },
+
+  { id:'L10', cat:'startup', lang:'es', short:'Liderando Start Ups del Futuro',
+    title:'Liderando Start Ups del Futuro',
+    sub:'La guía para ser un emprendedor exitoso, del primer cliente al crecimiento.',
+    asin:'B08XHDW2P5',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B08XHDW2P5')}, {k:'Tapa blanda', p:'USD 16.00', u:AMZ('B08XL7ZG3H')} ] },
+
+  { id:'L11', cat:'mining', lang:'en', short:'ABC of Mining Innovation',
+    title:'ABC of the Mining Innovation',
+    sub:'The fundamentals of technological transformation in mining, clearly explained.',
+    asin:'B08XLMDF6S',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B08XLMDF6S')}, {k:'Tapa blanda', p:'USD 25.00', u:AMZ('B08XGSTPCQ')} ] },
+
+  { id:'L12', cat:'mining', lang:'en', short:'Digital Transformation & Mining 4.0',
+    title:'All About Digital Transformation and Mining 4.0',
+    sub:'The guide every future professional needs to understand connected mining.',
+    asin:'B08XLMLDQW',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B08XLMLDQW')}, {k:'Tapa blanda', p:'USD 25.00', u:AMZ('B08XLLDZ8Y')} ] },
+
+  { id:'L13', cat:'startup', lang:'en', short:'Leading Start Ups of the Future',
+    title:'Leading Start Ups of the Future',
+    sub:'The guide to being a successful entrepreneur, from first client to growth.',
+    asin:'B08XJV1222',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B08XJV1222')}, {k:'Tapa blanda', p:'USD 25.00', u:AMZ('B08XL7ZFCP')} ] },
+
+  { id:'L14', cat:'cert', lang:'en', short:'The Master Path to PMP',
+    title:'The Master Path to PMP Certification',
+    sub:'A practical guide for successful professionals.',
+    asin:'B0DWM13M4P',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B0DWM13M4P')} ] },
+
+  { id:'L15', cat:'cert', lang:'en', short:'CFA: The Certified Path',
+    title:'CFA: The Certified Path to Global Financial Success',
+    sub:'The ultimate guide to passing the world’s most prestigious exam.',
+    asin:'B0DWQM4B7Z',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B0DWQM4B7Z')} ] },
+
+  { id:'L16', cat:'mining', lang:'en', short:'Mining Technology in Action',
+    title:'Mining Technology in Action',
+    sub:'A complete guide to installing, automating and sustaining solutions with data and AI.',
+    asin:'B0F3VB8K2N',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B0F3VB8K2N')} ] },
+
+  { id:'L17', cat:'tech', lang:'en', short:'Master the Age of Generative AI',
+    title:'Master the Age of Generative AI',
+    sub:'The ultimate guide for data scientists of the future.',
+    asin:'B0F5NTJ55Q',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B0F5NTJ55Q')} ] },
+
+  { id:'L18', cat:'business', lang:'en', short:'Solutions Architecture for Leaders',
+    title:'Solutions Architecture for Technology Leaders',
+    sub:'Design, scale and transform.',
+    asin:'B0F5QKYCJV',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B0F5QKYCJV')} ] },
+
+  { id:'L19', cat:'business', lang:'en', short:'MBA Redesigned',
+    title:'MBA Redesigned',
+    sub:'Learn, lead and succeed with strategies that work today.',
+    asin:'B0F4ZMBB8W',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B0F4ZMBB8W')} ] },
+
+  { id:'L20', cat:'cert', lang:'en', short:'AWS Solutions Architect Associate',
+    title:'AWS Solutions Architect Associate',
+    sub:'Get certified and transform your career in the cloud.',
+    asin:'B0DWTB2V3R',
+    formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B0DWTB2V3R')} ] },
+];
+
+const INTERESTS = ['Minería', 'IA & Tecnología', 'Negocios', 'Certificaciones', 'Start Ups'];
+const COUNTRIES = ['México', 'Colombia', 'Perú', 'Chile', 'España', 'Argentina', 'Estados Unidos', 'Otro'];
+
+Object.assign(window, { CATEGORIES, LANGS, COVERS, CAT_LABEL, BOOKS, INTERESTS, COUNTRIES, AMZ });
+// components.jsx — átomos compartidos de Zone Digital
+const { useState, useEffect, useRef } = React;
+
+/* ---------- Iconos (Lucide-style, stroke 1.75) ---------- */
+function Icon({ name, size = 18, style }) {
+  const p = { width: size, height: size, viewBox: '0 0 24 24', fill: 'none',
+    stroke: 'currentColor', strokeWidth: 1.75, strokeLinecap: 'round', strokeLinejoin: 'round', style };
+  const paths = {
+    arrow:        <><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></>,
+    download:     <><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></>,
+    cart:         <><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></>,
+    check:        <><path d="M20 6 9 17l-5-5"/></>,
+    checkCircle:  <><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m22 4-10 10.01-3-3"/></>,
+    x:            <><path d="M18 6 6 18"/><path d="M6 6l12 12"/></>,
+    send:         <><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></>,
+    trending:     <><path d="M22 7 13.5 15.5l-5-5L2 17"/><path d="M16 7h6v6"/></>,
+    target:       <><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></>,
+    layers:       <><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 12.91-9.17 4.16a2 2 0 0 1-1.66 0L2 12.91"/><path d="m22 17.91-9.17 4.16a2 2 0 0 1-1.66 0L2 17.91"/></>,
+    globe:        <><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></>,
+    book:         <><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></>,
+    mail:         <><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></>,
+    sparkles:     <><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></>,
+    gauge:        <><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></>,
+    play:         <><polygon points="6 3 20 12 6 21 6 3"/></>,
+  };
+  return <svg {...p}>{paths[name] || null}</svg>;
+}
+
+/* ---------- ✦ sello de IA ---------- */
+function AISeal({ size = 28 }) {
+  return <span className="zd-ai-seal" style={{ width: size, height: size, fontSize: size * 0.5 }}>✦</span>;
+}
+
+/* ---------- Marca Zone Digital (en el ADN del DS) ---------- */
+function Logo({ height = 30, light = true }) {
+  const ink = '#F4F1EA';
+  return (
+    <div className="zd-brand">
+      <svg width={height} height={height} viewBox="0 0 44 44" aria-label="Zone Digital">
+        <circle cx="22" cy="22" r="20" fill="none" stroke={light ? 'rgba(244,241,234,0.35)' : '#0B0E14'} strokeWidth="2.5"/>
+        <circle cx="22" cy="22" r="8" fill="#2547F0"/>
+        <path d="M22 11 a11 11 0 0 1 11 11" fill="none" stroke="#D8FF3D" strokeWidth="3" strokeLinecap="round"/>
+        <circle cx="33" cy="22" r="2.6" fill="#D8FF3D"/>
+      </svg>
+      <span className="zd-brand-name" style={{ color: light ? ink : '#0B0E14' }}>
+        Zone<span className="dim"> Digital</span>
+      </span>
+    </div>
+  );
+}
+
+/* ---------- Botón ---------- */
+function Button({ variant = 'cobalt', size, icon, iconRight, children, onClick, type = 'button', style }) {
+  const cls = ['zd-btn', `zd-btn-${variant}`, size && `zd-btn-${size}`].filter(Boolean).join(' ');
+  return (
+    <button type={type} className={cls} onClick={onClick} style={style}>
+      {icon && <Icon name={icon} size={size === 'lg' ? 19 : 17} />}
+      {children}
+      {iconRight && <Icon name={iconRight} size={size === 'lg' ? 19 : 17} />}
+    </button>
+  );
+}
+
+/* ---------- Portada tipográfica (respaldo) ---------- */
+function TypoCover({ book }) {
+  const c = COVERS[book.cat];
+  return (
+    <div className="zd-typo-book" style={{ background: c.bg, color: c.fg }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+        <span className="c-kicker" style={{ color: c.accent }}>{CAT_LABEL[book.cat]}</span>
+        <svg className="c-mark" viewBox="0 0 44 44">
+          <circle cx="22" cy="22" r="19" fill="none" stroke={c.fg} strokeWidth="2" opacity="0.4"/>
+          <circle cx="22" cy="22" r="7" fill={c.accent}/>
+        </svg>
+      </div>
+      <div className="c-title" style={{ color: c.fg }}>{book.short || book.title}</div>
+      <div className="c-foot" style={{ color: c.fg }}>
+        <span>{book.lang.toUpperCase()}</span>
+        <span>Zone Digital</span>
+      </div>
+    </div>
+  );
+}
+
+// Portada real desde el CDN de imágenes de Amazon (por ASIN), encuadrada con object-fit: contain
+function BookCover({ book }) {
+  const [failed, setFailed] = useState(false);
+  const src = `https://images-na.ssl-images-amazon.com/images/P/${book.asin}.01._SCLZZZZZZZ_.jpg`;
+  return (
+    <div className="zd-cover-stage">
+      {(failed || !book.asin) ? (
+        <TypoCover book={book} />
+      ) : (
+        <img
+          className="zd-cover-img"
+          src={src}
+          alt={book.title}
+          loading="lazy"
+          onError={() => setFailed(true)}
+          onLoad={(e) => { if (e.target.naturalWidth < 30) setFailed(true); }}
+        />
+      )}
+    </div>
+  );
+}
+
+/* ---------- Reveal on scroll ---------- */
+function Reveal({ children, delay = 0, as = 'div', className = '', style }) {
+  const ref = useRef(null);
+  const [seen, setSeen] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { setSeen(true); io.disconnect(); }
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  const Tag = as;
+  return (
+    <Tag ref={ref} className={`zd-reveal ${seen ? 'in' : ''} ${className}`}
+         style={{ transitionDelay: `${delay}ms`, ...style }}>
+      {children}
+    </Tag>
+  );
+}
+
+Object.assign(window, { Icon, AISeal, Logo, Button, BookCover, TypoCover, Reveal });
+// sections-top.jsx — Header (con toggle ES/EN), Hero, Strip, Books
+const { useState: useStateT, useEffect: useEffectT } = React;
+
+/* ============ LANGUAGE TOGGLE ============ */
+function LangToggle({ lang, setLang }) {
+  return (
+    <div className="zd-langtoggle" role="group" aria-label="Idioma / Language">
+      <button className={lang === 'es' ? 'on' : ''} onClick={() => setLang('es')}>ES</button>
+      <button className={lang === 'en' ? 'on' : ''} onClick={() => setLang('en')}>EN</button>
+    </div>
+  );
+}
+
+/* ============ HEADER ============ */
+function Header({ onLead, t, lang, setLang }) {
+  const [scrolled, setScrolled] = useStateT(false);
+  useEffectT(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+  return (
+    <header className={`zd-header ${scrolled ? 'scrolled' : ''}`}>
+      <div className="zd-wrap">
+        <a href="#top"><Logo height={30} /></a>
+        <nav className="zd-nav">
+          <a href="#books">{t('Libros', 'Books')}</a>
+          <a href="#labs">{t('Cursos & Apps', 'Courses & Apps')}</a>
+          <a href="#about">{t('Brian', 'About Brian')}</a>
+        </nav>
+        <div className="zd-header-cta">
+          <LangToggle lang={lang} setLang={setLang} />
+          <Button variant="ghost" size="sm" onClick={() => onLead(null)}>{t('Capítulo gratis', 'Free chapter')}</Button>
+          <Button variant="lime" size="sm" icon="cart" onClick={() => document.getElementById('books').scrollIntoView({ behavior: 'smooth' })}>{t('Ver libros', 'Browse')}</Button>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+/* ============ HERO ============ */
+function Hero({ onLead, t }) {
+  return (
+    <section className="zd-section zd-hero" id="top">
+      <div className="zd-hero-glow"></div>
+      <div className="zd-hero-grid"></div>
+      <div className="zd-wrap zd-hero-inner">
+        <div className="zd-hero-badge">
+          <span className="pill">{t('27 títulos', '27 titles')}</span>
+          <span>{t('Libros, cursos y apps para el profesional potenciado por IA', 'Books, apps & courses for the AI-powered professional')}</span>
+        </div>
+        <h1 className="zd-h1">
+          {t('Convierte conocimiento técnico', 'Turn deep technical know-how')}<br/>
+          {t('en ', 'into a real ')}<span className="zd-serif zd-lime-text">{t('ventaja', 'competitive')}</span> <span className="accent">{t('competitiva.', 'edge.')}</span>
+        </h1>
+        <p className="zd-hero-sub">
+          {t(
+            'Zone Digital publica libros, cursos y herramientas sobre inteligencia artificial, minería, negocios y certificaciones. Empieza con un capítulo gratis y avanza a tu ritmo.',
+            'Zone Digital publishes books, courses and tools on artificial intelligence, mining, business and certifications. Start with a free chapter and move at your own pace.'
+          )}
+        </p>
+        <div className="zd-hero-actions">
+          <Button variant="lime" size="lg" icon="book" onClick={() => document.getElementById('books').scrollIntoView({ behavior: 'smooth' })}>
+            {t('Explorar la biblioteca', 'Explore the library')}
+          </Button>
+          <Button variant="ghost" size="lg" icon="download" onClick={() => onLead(null)}>
+            {t('Descargar capítulo gratis', 'Get a free chapter')}
+          </Button>
+        </div>
+
+        <div className="zd-hero-metrics">
+          <div className="zd-metric">
+            <div className="num">27</div>
+            <div className="lbl">{t('libros publicados en Amazon y Gumroad', 'books published on Amazon and Gumroad')}</div>
+          </div>
+          <div className="zd-metric">
+            <div className="num">5</div>
+            <div className="lbl">{t('áreas: minería, IA, negocios, certificación y start ups', 'areas: mining, AI, business, certification and start ups')}</div>
+          </div>
+          <div className="zd-metric">
+            <div className="num cobalt">2</div>
+            <div className="lbl">{t('idiomas para una audiencia global', 'languages for a global audience')}</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ STRIP ============ */
+function Strip({ t }) {
+  const items = t(
+    ['Inteligencia Artificial', 'Minería Digital', 'Robótica', 'Certificación PMP', 'IoT Industrial', 'Liderazgo Ejecutivo', 'IA Generativa', 'Transformación Digital'],
+    ['Artificial Intelligence', 'Digital Mining', 'Robotics', 'PMP Certification', 'Industrial IoT', 'Executive Leadership', 'Generative AI', 'Digital Transformation']
+  );
+  const row = [...items, ...items];
+  return (
+    <div className="zd-strip">
+      <div className="zd-strip-track">
+        {row.map((it, i) => (
+          <span className="zd-strip-item" key={i}><span className="dot"></span>{it}</span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ============ BOOKS ============ */
+function Books({ onLead, t, lang }) {
+  const [cat, setCat] = useStateT('all');
+  const [blang, setBlang] = useStateT('all');
+  const catLabels = {
+    all: t('Todos', 'All'), mining: t('Minería', 'Mining'), tech: t('IA & Tech', 'AI & Tech'),
+    business: t('Negocios', 'Business'), cert: t('Certificación', 'Certification'), startup: t('Start Ups', 'Start Ups'),
+  };
+  const langLabels = { all: t('Idioma', 'Language'), es: 'Español', en: 'English' };
+  const list = BOOKS.filter(b => (cat === 'all' || b.cat === cat) && (blang === 'all' || b.lang === blang));
+  return (
+    <section className="zd-section" id="books">
+      <div className="zd-wrap">
+        <Reveal>
+          <div className="zd-sec-top">
+            <div className="zd-sec-head">
+              <span className="zd-overline">{t('La biblioteca', 'The library')}</span>
+              <h2 className="zd-h2">
+                {t('Cada libro, dos caminos: ', 'Every book, two ways: ')}
+                <span className="zd-serif zd-lime-text">{t('cómpralo', 'buy it')}</span>
+                {t(' o léelo gratis.', ' or read it free.')}
+              </h2>
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal delay={80}>
+          <div className="zd-filters" style={{ marginTop: 32 }}>
+            {CATEGORIES.map(c => (
+              <button key={c.id} className={`zd-chip ${cat === c.id ? 'active' : ''}`} onClick={() => setCat(c.id)}>{catLabels[c.id]}</button>
+            ))}
+            <span className="zd-chip-sep"></span>
+            {LANGS.map(l => (
+              <button key={l.id} className={`zd-chip ${blang === l.id ? 'active' : ''}`} onClick={() => setBlang(l.id)}>{langLabels[l.id]}</button>
+            ))}
+          </div>
+        </Reveal>
+
+        <div className="zd-book-grid">
+          {list.map((b, i) => (
+            <Reveal key={b.id} delay={(i % 4) * 60}>
+              <article className="zd-book">
+                <div className="zd-book-cover">
+                  <span className="lang">{b.lang.toUpperCase()}</span>
+                  <BookCover book={b} />
+                </div>
+                <div className="zd-book-body">
+                  <span className="zd-book-cat">{catLabels[b.cat]}</span>
+                  <h3 className="zd-book-title">{b.title}</h3>
+                  <p className="zd-book-desc">{b.sub}</p>
+                  <div className="zd-book-formats">
+                    {b.formats.map((f) => (
+                      <a key={f.k} className="zd-fmt" href={f.u} target="_blank" rel="noopener">
+                        {f.k} · <span className="zd-mono">{f.p}</span>
+                      </a>
+                    ))}
+                  </div>
+                  <div className="zd-book-actions">
+                    <Button variant="light" size="sm" icon="cart" style={{ width: '100%', justifyContent: 'center' }}
+                      onClick={() => window.open(b.formats[0].u, '_blank')}>{t('Comprar en Amazon', 'Buy on Amazon')}</Button>
+                    <Button variant="ghost" size="sm" icon="download" style={{ width: '100%', justifyContent: 'center' }}
+                      onClick={() => onLead(b)}>{t('Capítulo gratis', 'Free chapter')}</Button>
+                  </div>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal>
+          <p className="zd-mono" style={{ marginTop: 28, color: 'var(--zd-text-3)', fontSize: 12 }}>
+            {list.length} {t('títulos · Kindle, tapa blanda, tapa dura y PDF · disponibles en Amazon y Gumroad', 'titles · Kindle, paperback, hardcover and PDF · available on Amazon and Gumroad')}
+          </p>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+Object.assign(window, { Header, Hero, Strip, Books, LangToggle });
+// sections-bottom.jsx — Labs, About, Newsletter CTA, Footer (i18n)
+const { useState: useStateB } = React;
+
+/* ============ COURSES & APPS ============ */
+function Labs({ t }) {
+  return (
+    <section className="zd-section" id="labs">
+      <div className="zd-wrap">
+        <Reveal>
+          <div className="zd-sec-head">
+            <span className="zd-overline">{t('Lo que viene', 'What’s next')}</span>
+            <h2 className="zd-h2">{t('Cursos y apps en construcción.', 'Courses and apps in the works.')}</h2>
+            <p>{t('Próximos lanzamientos con lista de espera, preventa y acceso anticipado para la comunidad.', 'Upcoming launches with waitlists, pre-sales and early access for the community.')}</p>
+          </div>
+        </Reveal>
+        <div className="zd-cards">
+          <Reveal>
+            <Soon t={t} tag={t('Curso · Próximamente', 'Course · Coming soon')} icon="play"
+              title={t('IA aplicada para profesionales', 'Applied AI for professionals')}
+              desc={t('De cero a flujos reales con IA en tu trabajo. Plantillas, prompts y casos prácticos por industria.', 'From zero to real AI workflows in your job. Templates, prompts and practical cases by industry.')} />
+          </Reveal>
+          <Reveal delay={90}>
+            <Soon t={t} tag={t('App · Acceso anticipado', 'App · Early access')} icon="layers"
+              title={t('Zone Mining Intelligence', 'Zone Mining Intelligence')}
+              desc={t('Herramienta de inteligencia minera: gemelos digitales y datos de faena en un solo panel.', 'A mining intelligence tool: digital twins and operational data in a single dashboard.')} />
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Soon({ tag, title, desc, icon, t }) {
+  const [sent, setSent] = useStateB(false);
+  const [email, setEmail] = useStateB('');
+  return (
+    <div className="zd-soon">
+      <span className="zd-soon-tag">{tag}</span>
+      <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+        <span className="zd-ai-seal" style={{ background: 'rgba(244,241,234,0.06)', color: 'var(--zd-lime)' }}><Icon name={icon} size={16} /></span>
+        <h3 className="zd-h3">{title}</h3>
+      </div>
+      <p>{desc}</p>
+      {sent ? (
+        <div className="zd-ai-chip" style={{ color: 'var(--zd-lime)', marginTop: 4 }}><Icon name="checkCircle" size={18} /> {t('Estás en la lista. Te avisamos primero.', 'You’re on the list. We’ll tell you first.')}</div>
+      ) : (
+        <form className="zd-waitlist" onSubmit={(e) => { e.preventDefault(); if (email.includes('@')) setSent(true); }}>
+          <input className="zd-input" type="email" placeholder={t('tu@email.com', 'you@email.com')} value={email} onChange={e => setEmail(e.target.value)} required />
+          <Button variant="cobalt" type="submit" iconRight="arrow">{t('Unirme', 'Join')}</Button>
+        </form>
+      )}
+    </div>
+  );
+}
+
+/* ============ ABOUT BRIAN ============ */
+const BRIAN_PHOTO = 'https://drive.google.com/thumbnail?id=1u-fDIX8-TpEInAfCWTuX6advF7rH5GFm&sz=w1400';
+
+function About({ t }) {
+  const creds = t(
+    ['IA & Negocios', 'Minería Digital', 'PMP · Certificaciones', 'Autor publicado', 'Speaker', 'Consultor'],
+    ['AI & Business', 'Digital Mining', 'PMP · Certifications', 'Published author', 'Speaker', 'Consultant']
+  );
+  return (
+    <section className="zd-section" id="about" style={{ paddingTop: 0 }}>
+      <div className="zd-wrap">
+        <div className="zd-about">
+          <Reveal>
+            <div className="zd-portrait">
+              <img
+                src={BRIAN_PHOTO}
+                alt="Brian Pajares"
+                style={{ position: ‘absolute’, inset: 0, width: ‘100%’, height: ‘100%’, objectFit: ‘cover’, objectPosition: ‘center top’ }}
+              />
+            </div>
+          </Reveal>
+          <Reveal delay={100}>
+            <div>
+              <span className="zd-overline">{t('El autor', 'The author')}</span>
+              <h2 className="zd-h2" style={{ marginTop: 18 }}>
+                {t('Brian Pajares convierte tecnología compleja en ', 'Brian Pajares turns complex technology into ')}
+                <span className="zd-serif zd-lime-text">{t('decisiones claras.', 'clear decisions.')}</span>
+              </h2>
+              <p className="zd-lead" style={{ marginTop: 22 }}>
+                {t(
+                  'Una marca global creada para que profesionales de habla hispana e inglesa dominen la inteligencia artificial, la minería y los negocios — y los traduzcan en ingresos, autoridad y ventaja competitiva real.',
+                  'A global brand built so Spanish- and English-speaking professionals can master artificial intelligence, mining and business — and turn them into income, authority and a real competitive edge.'
+                )}
+              </p>
+              <div className="zd-cred">
+                {creds.map(c => <span key={c} className="zd-mono">{c}</span>)}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============ NEWSLETTER CTA ============ */
+function NewsletterCTA({ t }) {
+  const [sent, setSent] = useStateB(false);
+  const [email, setEmail] = useStateB('');
+  return (
+    <section className="zd-section" style={{ paddingTop: 0 }}>
+      <div className="zd-wrap">
+        <Reveal>
+          <div className="zd-cta-band">
+            <div className="glow"></div>
+            <div className="zd-cta-inner">
+              <span className="zd-overline no-rule" style={{ color: 'rgba(255,255,255,0.7)' }}>{t('Newsletter Zone Digital', 'Zone Digital newsletter')}</span>
+              <h2 className="zd-h2" style={{ marginTop: 16 }}>{t('Un email útil por semana. Cero relleno.', 'One useful email a week. Zero filler.')}</h2>
+              <p style={{ marginTop: 14, fontSize: 'var(--text-lg)' }}>
+                {t('Ideas sobre IA, minería y negocios, más avisos de capítulos y lanzamientos antes que nadie.', 'Ideas on AI, mining and business, plus chapter drops and launches before anyone else.')}
+              </p>
+              {sent ? (
+                <div style={{ marginTop: 26, display: 'flex', alignItems: 'center', gap: 10, color: '#fff', fontWeight: 600 }}>
+                  <Icon name="checkCircle" size={22} /> {t('Listo. Revisa tu correo para confirmar.', 'Done. Check your inbox to confirm.')}
+                </div>
+              ) : (
+                <form className="zd-cta-form" onSubmit={(e) => { e.preventDefault(); if (email.includes('@')) setSent(true); }}>
+                  <input className="zd-input" type="email" placeholder={t('tu@email.com', 'you@email.com')} value={email} onChange={e => setEmail(e.target.value)} required />
+                  <Button variant="lime" type="submit" iconRight="send">{t('Suscribirme', 'Subscribe')}</Button>
+                </form>
+              )}
+              <p className="zd-cta-note">{t('Sin spam. Te das de baja con un clic. Enviado con autenticación SPF, DKIM y DMARC.', 'No spam. One-click unsubscribe. Sent with SPF, DKIM and DMARC authentication.')}</p>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ============ FOOTER ============ */
+function Footer({ t }) {
+  const cols = [
+    { h: t('Catálogo', 'Catalog'), items: [t('Libros', 'Books'), t('Recursos gratis', 'Free resources'), t('Cursos', 'Courses'), 'Apps'] },
+    { h: t('Compañía', 'Company'), items: [t('Sobre Brian', 'About Brian'), t('Contacto', 'Contact'), t('Alianzas', 'Partnerships'), t('Prensa', 'Press')] },
+    { h: 'Legal', items: [t('Privacidad', 'Privacy Policy'), t('Términos de uso', 'Terms of Use'), t('Aviso de afiliados', 'Affiliate Disclosure'), t('Cookies', 'Cookie Notice')] },
+  ];
+  return (
+    <footer className="zd-footer">
+      <div className="zd-wrap">
+        <div className="zd-footer-grid">
+          <div>
+            <Logo height={30} />
+            <p style={{ marginTop: 18, maxWidth: 300, color: 'var(--zd-text-2)', fontSize: 'var(--text-sm)', lineHeight: 1.6 }}>
+              {t('Libros, apps y cursos para el profesional potenciado por IA. Una marca global de Brian Pajares.', 'Books, apps & courses for the AI-powered professional. A global brand by Brian Pajares.')}
+            </p>
+            <div className="zd-mono" style={{ marginTop: 18, fontSize: 12, color: 'var(--zd-text-3)' }}>brian@zone-digital.com</div>
+          </div>
+          {cols.map(c => (
+            <div key={c.h}>
+              <h5>{c.h}</h5>
+              <ul>{c.items.map(it => <li key={it}><a href="#">{it}</a></li>)}</ul>
+            </div>
+          ))}
+        </div>
+        <div className="zd-footer-foot">
+          <span className="zd-mono">© 2026 Zone Digital · www.zone-digital.com</span>
+          <span className="zd-mono">{t('Hecho para una audiencia global · ES / EN', 'Built for a global audience · ES / EN')}</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+Object.assign(window, { Labs, About, NewsletterCTA, Footer });
+// app.jsx — LeadModal, ExitIntent, App (i18n)
+const { useState: useStateA, useEffect: useEffectA, useRef: useRefA } = React;
+
+/* ============ LEAD MODAL ============ */
+function LeadModal({ book, onClose, t, lang }) {
+  const interests = t(
+    ['Minería', 'IA & Tecnología', 'Negocios', 'Certificaciones', 'Start Ups'],
+    ['Mining', 'AI & Technology', 'Business', 'Certifications', 'Start Ups']
+  );
+  const countries = t(COUNTRIES, ['Mexico', 'Colombia', 'Peru', 'Chile', 'Spain', 'Argentina', 'United States', 'Other']);
+  const CAT_TO_IDX = { mining: 0, tech: 1, business: 2, cert: 3, startup: 4 };
+  const initInterest = book ? interests[CAT_TO_IDX[book.cat]] : interests[0];
+  const [form, setForm] = useStateA({ name: '', email: '', interest: initInterest, country: countries[0], consent: false });
+  const [done, setDone] = useStateA(false);
+  const [err, setErr] = useStateA('');
+  const set = (k, v) => setForm(f => ({ ...f, [k]: v }));
+
+  useEffectA(() => {
+    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => { document.removeEventListener('keydown', onKey); document.body.style.overflow = ''; };
+  }, []);
+
+  const submit = (e) => {
+    e.preventDefault();
+    if (!form.name.trim()) return setErr(t('Escribe tu nombre.', 'Enter your name.'));
+    if (!form.email.includes('@')) return setErr(t('El email no es válido. Revísalo e intenta de nuevo.', 'That email isn’t valid. Check it and try again.'));
+    if (!form.consent) return setErr(t('Marca el consentimiento para recibir el capítulo.', 'Tick the consent box to receive the chapter.'));
+    setErr(''); setDone(true);
+  };
+
+  return (
+    <div className="zd-modal-overlay" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+      <div className="zd-modal">
+        <aside className="zd-modal-aside">
+          <div className="glow"></div>
+          <div style={{ position: 'relative', zIndex: 2 }}>
+            <div className="zd-ai-chip"><span className="star">✦</span> {t('Capítulo gratis', 'Free chapter')}</div>
+            {book ? (
+              <div style={{ marginTop: 24, borderRadius: 'var(--radius-md)', overflow: 'hidden', aspectRatio: '4/5', maxWidth: 190, position: 'relative' }}>
+                <BookCover book={book} />
+              </div>
+            ) : null}
+          </div>
+          <div style={{ position: 'relative', zIndex: 2 }}>
+            <h3 className="zd-h3" style={{ color: 'var(--bone)' }}>{book ? book.title : t('Elige por dónde empezar', 'Choose where to start')}</h3>
+            <p style={{ color: 'var(--zd-text-2)', fontSize: 'var(--text-sm)', marginTop: 10, lineHeight: 1.5 }}>
+              {book
+                ? t('Te enviamos un capítulo gratis de este libro. Solo necesitamos a dónde mandarlo.', 'We’ll send you a free chapter of this book. We just need where to send it.')
+                : t('Te enviamos un capítulo gratis según el área que más te interese.', 'We’ll send you a free chapter based on the area you care about most.')}
+            </p>
+          </div>
+        </aside>
+
+        <div className="zd-modal-body">
+          <button className="zd-modal-close" onClick={onClose} aria-label="Cerrar"><Icon name="x" size={18} /></button>
+          {done ? (
+            <div className="zd-success">
+              <div className="ring"><Icon name="check" /></div>
+              <h3 className="zd-h3" style={{ color: 'var(--ink)' }}>{t('Revisa tu correo.', 'Check your inbox.')}</h3>
+              <p style={{ color: 'var(--stone-600)', marginTop: 10 }}>
+                {t('Enviamos tu capítulo a ', 'We sent your chapter to ')}<strong style={{ color: 'var(--ink)' }}>{form.email}</strong>{t('. Si no llega en unos minutos, mira en spam.', '. If it doesn’t arrive in a few minutes, check spam.')}
+              </p>
+              <div style={{ marginTop: 26 }}>
+                <Button variant="ink" onClick={onClose} style={{ width: '100%', justifyContent: 'center' }}>{t('Seguir explorando', 'Keep exploring')}</Button>
+              </div>
+            </div>
+          ) : (
+            <form onSubmit={submit}>
+              <div style={{ marginBottom: 20 }}>
+                <span className="zd-overline" style={{ color: 'var(--stone-500)' }}>{t('Descarga gratis', 'Free download')}</span>
+                <h3 className="zd-h3" style={{ color: 'var(--ink)', marginTop: 10 }}>{t('Te lo enviamos al correo.', 'We’ll email it to you.')}</h3>
+              </div>
+              <div className="zd-field">
+                <label>{t('Nombre', 'Name')}</label>
+                <input className="zd-input on-light" value={form.name} onChange={e => set('name', e.target.value)} placeholder={t('Tu nombre', 'Your name')} />
+              </div>
+              <div className="zd-field">
+                <label>Email</label>
+                <input className="zd-input on-light" type="email" value={form.email} onChange={e => set('email', e.target.value)} placeholder={t('tu@email.com', 'you@email.com')} />
+              </div>
+              <div className="zd-row2">
+                <div className="zd-field">
+                  <label>{t('Interés', 'Interest')}</label>
+                  <select className="zd-input on-light" value={form.interest} onChange={e => set('interest', e.target.value)}>
+                    {interests.map(i => <option key={i}>{i}</option>)}
+                  </select>
+                </div>
+                <div className="zd-field">
+                  <label>{t('País', 'Country')}</label>
+                  <select className="zd-input on-light" value={form.country} onChange={e => set('country', e.target.value)}>
+                    {countries.map(c => <option key={c}>{c}</option>)}
+                  </select>
+                </div>
+              </div>
+              <label className="zd-check" style={{ marginTop: 4, marginBottom: 18 }}>
+                <input type="checkbox" checked={form.consent} onChange={e => set('consent', e.target.checked)} />
+                <span>{t('Acepto recibir el capítulo y emails de Zone Digital. Me doy de baja cuando quiera.', 'I agree to receive the chapter and emails from Zone Digital. I can unsubscribe anytime.')}</span>
+              </label>
+              {err && <div style={{ color: 'var(--danger)', fontSize: 'var(--text-sm)', marginBottom: 14 }}>{err}</div>}
+              <Button variant="cobalt" size="lg" type="submit" icon="download" style={{ width: '100%', justifyContent: 'center' }}>
+                {t('Enviarme el capítulo', 'Send me the chapter')}
+              </Button>
+              <p className="zd-mono" style={{ fontSize: 11, color: 'var(--stone-500)', marginTop: 14, textAlign: 'center' }}>
+                {t('Sin spam · consentimiento explícito', 'No spam · explicit consent')}
+              </p>
+            </form>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ============ EXIT INTENT ============ */
+function ExitIntent({ onLead, t }) {
+  const [show, setShow] = useStateA(false);
+  const fired = useRefA(false);
+  useEffectA(() => {
+    const onLeave = (e) => {
+      if (fired.current) return;
+      if (e.clientY <= 0) { fired.current = true; setShow(true); }
+    };
+    const tm = setTimeout(() => document.addEventListener('mouseout', onLeave), 6000);
+    return () => { clearTimeout(tm); document.removeEventListener('mouseout', onLeave); };
+  }, []);
+  if (!show) return null;
+  return (
+    <div className="zd-exit">
+      <button className="zd-exit-close" onClick={() => setShow(false)}><Icon name="x" size={16} /></button>
+      <div className="zd-ai-chip"><span className="star">✦</span> {t('Antes de irte', 'Before you go')}</div>
+      <h4 style={{ margin: '10px 0 6px', font: '600 var(--text-lg) var(--font-display)', letterSpacing: '-0.01em' }}>{t('Llévate un capítulo gratis.', 'Take a free chapter with you.')}</h4>
+      <p style={{ margin: 0, color: 'var(--zd-text-2)', fontSize: 'var(--text-sm)', lineHeight: 1.5 }}>{t('Elige tu área de interés y te lo enviamos al correo.', 'Pick your area of interest and we’ll email it to you.')}</p>
+      <div style={{ marginTop: 14 }}>
+        <Button variant="lime" size="sm" icon="download" onClick={() => { setShow(false); onLead(null); }}>{t('Quiero el capítulo', 'I want the chapter')}</Button>
+      </div>
+    </div>
+  );
+}
+
+/* ============ APP ============ */
+function App() {
+  const [lang, setLangState] = useStateA(() => {
+    try { return localStorage.getItem('zd-lang') || 'es'; } catch (e) { return 'es'; }
+  });
+  const setLang = (l) => { setLangState(l); try { localStorage.setItem('zd-lang', l); } catch (e) {} };
+  const t = (es, en) => (lang === 'en' ? en : es);
+
+  useEffectA(() => { document.documentElement.lang = lang; }, [lang]);
+
+  const [lead, setLead] = useStateA({ open: false, book: null });
+  const openLead = (book) => setLead({ open: true, book });
+  const closeLead = () => setLead({ open: false, book: null });
+
+  return (
+    <>
+      <Header onLead={openLead} t={t} lang={lang} setLang={setLang} />
+      <main>
+        <Hero onLead={openLead} t={t} />
+        <Strip t={t} />
+        <Books onLead={openLead} t={t} lang={lang} />
+        <Labs t={t} />
+        <About t={t} />
+        <NewsletterCTA t={t} />
+      </main>
+      <Footer t={t} />
+      {lead.open && <LeadModal book={lead.book} onClose={closeLead} t={t} lang={lang} />}
+      <ExitIntent onLead={openLead} t={t} />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+
+  </script>
 </body>
 </html>

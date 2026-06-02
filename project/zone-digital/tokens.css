@@ -1,0 +1,218 @@
+/* ============================================================
+   QuotePilot AI — Design Tokens
+   Color + Type + Spacing + Elevation
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Geist+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap');
+
+:root {
+  /* ----------------------------------------------------------
+     COLOR — Brand
+     ---------------------------------------------------------- */
+  --brand-cobalt:        #2547F0;  /* primary action, "Pilot blue" */
+  --brand-cobalt-hover:  #1E3BD4;
+  --brand-cobalt-press:  #1830B0;
+  --brand-cobalt-soft:   #E8ECFE;  /* tinted backgrounds */
+  --brand-cobalt-ink:    #0B1A78;  /* text on cobalt-soft */
+
+  --brand-lime:          #D8FF3D;  /* signature accent, AI highlights */
+  --brand-lime-deep:     #B7E020;  /* hover / text on lime */
+  --brand-lime-soft:     #F2FFB8;
+
+  /* ----------------------------------------------------------
+     COLOR — Neutrals (warm stone scale)
+     ---------------------------------------------------------- */
+  --ink:                 #0B0E14;  /* primary text */
+  --stone-900:           #1A1D24;
+  --stone-800:           #2A2E37;
+  --stone-700:           #4A4F5A;
+  --stone-600:           #6B7280;  /* secondary text */
+  --stone-500:           #8B919C;
+  --stone-400:           #B5B9C2;  /* placeholder text, disabled */
+  --stone-300:           #D6D8DD;  /* borders */
+  --stone-200:           #E6E7EB;  /* dividers */
+  --stone-100:           #F1F0EC;  /* subtle surface */
+  --stone-50:            #F8F6F1;
+  --bone:                #F4F1EA;  /* warm app background */
+  --white:               #FFFFFF;
+
+  /* ----------------------------------------------------------
+     COLOR — Semantic
+     ---------------------------------------------------------- */
+  --success:             #1F8A5B;  /* won, sent, paid */
+  --success-soft:        #DEF5E7;
+  --warning:             #C77B0A;  /* pending, expiring */
+  --warning-soft:        #FDF1D8;
+  --danger:              #C8341F;  /* rejected, error */
+  --danger-soft:         #FBE4DF;
+  --info:                #1F6FD6;
+  --info-soft:           #DCEAFB;
+
+  /* ----------------------------------------------------------
+     COLOR — Foreground (semantic aliases)
+     ---------------------------------------------------------- */
+  --fg-1:                var(--ink);
+  --fg-2:                var(--stone-700);
+  --fg-3:                var(--stone-600);
+  --fg-4:                var(--stone-500);
+  --fg-inverse:          var(--white);
+
+  /* ----------------------------------------------------------
+     COLOR — Background (semantic aliases)
+     ---------------------------------------------------------- */
+  --bg-canvas:           var(--bone);
+  --bg-surface:          var(--white);
+  --bg-sunken:           var(--stone-100);
+  --bg-inverse:          var(--ink);
+
+  /* ----------------------------------------------------------
+     COLOR — Border
+     ---------------------------------------------------------- */
+  --border-subtle:       var(--stone-200);
+  --border-default:      var(--stone-300);
+  --border-strong:       var(--stone-700);
+  --border-focus:        var(--brand-cobalt);
+
+  /* ----------------------------------------------------------
+     TYPE — Families
+     ---------------------------------------------------------- */
+  --font-display:        'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+  --font-body:           'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+  --font-mono:           'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --font-serif:          'Instrument Serif', Georgia, serif;     /* accents only */
+
+  /* ----------------------------------------------------------
+     TYPE — Scale (rem-based, 16px root)
+     ---------------------------------------------------------- */
+  --text-xs:             0.75rem;    /* 12 */
+  --text-sm:             0.8125rem;  /* 13 */
+  --text-base:           0.9375rem;  /* 15 — default body */
+  --text-md:             1rem;       /* 16 */
+  --text-lg:             1.125rem;   /* 18 */
+  --text-xl:             1.375rem;   /* 22 */
+  --text-2xl:            1.75rem;    /* 28 */
+  --text-3xl:            2.25rem;    /* 36 */
+  --text-4xl:            3rem;       /* 48 */
+  --text-5xl:            4rem;       /* 64 */
+  --text-6xl:            5.5rem;     /* 88 */
+
+  /* ----------------------------------------------------------
+     TYPE — Weight
+     ---------------------------------------------------------- */
+  --weight-regular:      400;
+  --weight-medium:       500;
+  --weight-semibold:     600;
+  --weight-bold:         700;
+  --weight-black:        800;
+
+  /* ----------------------------------------------------------
+     TYPE — Line height
+     ---------------------------------------------------------- */
+  --leading-tight:       1.05;
+  --leading-snug:        1.2;
+  --leading-normal:      1.45;
+  --leading-relaxed:     1.6;
+
+  /* ----------------------------------------------------------
+     TYPE — Tracking
+     ---------------------------------------------------------- */
+  --tracking-tight:      -0.02em;
+  --tracking-normal:     0;
+  --tracking-wide:       0.04em;
+  --tracking-mono:       -0.01em;
+
+  /* ----------------------------------------------------------
+     SPACING — 4px base
+     ---------------------------------------------------------- */
+  --space-1:             4px;
+  --space-2:             8px;
+  --space-3:             12px;
+  --space-4:             16px;
+  --space-5:             20px;
+  --space-6:             24px;
+  --space-8:             32px;
+  --space-10:            40px;
+  --space-12:            48px;
+  --space-16:            64px;
+  --space-20:            80px;
+  --space-24:            96px;
+
+  /* ----------------------------------------------------------
+     RADII
+     ---------------------------------------------------------- */
+  --radius-xs:           4px;    /* tight controls, tags */
+  --radius-sm:           6px;    /* inputs, small buttons */
+  --radius-md:           10px;   /* default cards */
+  --radius-lg:           14px;   /* large cards, modals */
+  --radius-xl:           20px;   /* hero containers */
+  --radius-full:         9999px; /* pills, avatars */
+
+  /* ----------------------------------------------------------
+     ELEVATION
+     ---------------------------------------------------------- */
+  --shadow-sm:           0 1px 2px rgba(11, 14, 20, 0.04),
+                         0 1px 1px rgba(11, 14, 20, 0.02);
+  --shadow-md:           0 4px 12px -2px rgba(11, 14, 20, 0.06),
+                         0 2px 4px rgba(11, 14, 20, 0.04);
+  --shadow-lg:           0 12px 32px -6px rgba(11, 14, 20, 0.10),
+                         0 4px 8px rgba(11, 14, 20, 0.04);
+  --shadow-xl:           0 24px 56px -12px rgba(11, 14, 20, 0.18),
+                         0 8px 16px rgba(11, 14, 20, 0.06);
+  --shadow-focus:        0 0 0 3px rgba(37, 71, 240, 0.20);
+  --shadow-focus-danger: 0 0 0 3px rgba(200, 52, 31, 0.20);
+
+  /* Inner shadows for inputs, sunken surfaces */
+  --shadow-inset:        inset 0 1px 0 rgba(11, 14, 20, 0.04);
+
+  /* ----------------------------------------------------------
+     MOTION
+     ---------------------------------------------------------- */
+  --ease-out:            cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out:         cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring:         cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast:       120ms;
+  --duration-base:       180ms;
+  --duration-slow:       320ms;
+}
+
+/* ============================================================
+   SEMANTIC TYPE — apply directly to elements
+   ============================================================ */
+
+.t-display-1,
+.t-display-1 * { font: var(--weight-semibold) var(--text-6xl)/var(--leading-tight) var(--font-display); letter-spacing: var(--tracking-tight); }
+.t-display-2 { font: var(--weight-semibold) var(--text-5xl)/var(--leading-tight) var(--font-display); letter-spacing: var(--tracking-tight); }
+.t-h1        { font: var(--weight-semibold) var(--text-4xl)/var(--leading-snug) var(--font-display); letter-spacing: var(--tracking-tight); }
+.t-h2        { font: var(--weight-semibold) var(--text-3xl)/var(--leading-snug) var(--font-display); letter-spacing: var(--tracking-tight); }
+.t-h3        { font: var(--weight-semibold) var(--text-2xl)/var(--leading-snug) var(--font-display); letter-spacing: var(--tracking-tight); }
+.t-h4        { font: var(--weight-semibold) var(--text-xl)/var(--leading-snug) var(--font-display); }
+.t-lead      { font: var(--weight-regular) var(--text-lg)/var(--leading-relaxed) var(--font-body); color: var(--fg-2); }
+.t-body      { font: var(--weight-regular) var(--text-base)/var(--leading-normal) var(--font-body); }
+.t-body-md   { font: var(--weight-regular) var(--text-md)/var(--leading-normal) var(--font-body); }
+.t-body-sm   { font: var(--weight-regular) var(--text-sm)/var(--leading-normal) var(--font-body); }
+.t-caption   { font: var(--weight-medium) var(--text-xs)/var(--leading-normal) var(--font-body); color: var(--fg-3); }
+.t-label     { font: var(--weight-medium) var(--text-sm)/var(--leading-snug) var(--font-body); }
+.t-overline  { font: var(--weight-semibold) var(--text-xs)/1.2 var(--font-body); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--fg-3); }
+.t-mono      { font: var(--weight-regular) var(--text-sm)/var(--leading-normal) var(--font-mono); letter-spacing: var(--tracking-mono); }
+.t-mono-lg   { font: var(--weight-medium) var(--text-base)/var(--leading-snug) var(--font-mono); letter-spacing: var(--tracking-mono); }
+.t-serif     { font: 400 var(--text-3xl)/var(--leading-snug) var(--font-serif); font-style: italic; }
+.t-serif-lg  { font: 400 var(--text-5xl)/var(--leading-tight) var(--font-serif); font-style: italic; letter-spacing: -0.01em; }
+
+/* ============================================================
+   BASE RESET — apply to demo pages
+   ============================================================ */
+
+.qp-reset { box-sizing: border-box; margin: 0; padding: 0; }
+.qp-reset *, .qp-reset *::before, .qp-reset *::after { box-sizing: inherit; }
+
+body.qp-app {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--fg-1);
+  background: var(--bg-canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}

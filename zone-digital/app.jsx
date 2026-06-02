@@ -24,10 +24,23 @@ function LeadModal({ book, onClose, t, lang }) {
 
   const submit = (e) => {
     e.preventDefault();
-    if (!form.name.trim()) return setErr(t('Escribe tu nombre.', 'Enter your name.'));
-    if (!form.email.includes('@')) return setErr(t('El email no es válido. Revísalo e intenta de nuevo.', 'That email isn’t valid. Check it and try again.'));
-    if (!form.consent) return setErr(t('Marca el consentimiento para recibir el capítulo.', 'Tick the consent box to receive the chapter.'));
-    setErr(''); setDone(true);
+    if (!form.name.trim()) return setErr(t(‘Escribe tu nombre.’, ‘Enter your name.’));
+    if (!form.email.includes(‘@’)) return setErr(t(‘El email no es válido. Revísalo e intenta de nuevo.’, ‘That email isn\’t valid. Check it and try again.’));
+    if (!form.consent) return setErr(t(‘Marca el consentimiento para recibir el capítulo.’, ‘Tick the consent box to receive the chapter.’));
+    setErr(‘’);
+    fetch(‘/’, {
+      method: ‘POST’,
+      headers: { ‘Content-Type’: ‘application/x-www-form-urlencoded’ },
+      body: new URLSearchParams({
+        ‘form-name’: ‘lead-capture’,
+        name: form.name,
+        email: form.email,
+        interest: form.interest,
+        country: form.country,
+        book: book ? book.title : ‘’,
+      }).toString()
+    }).catch(() => {});
+    setDone(true);
   };
 
   return (

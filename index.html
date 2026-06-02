@@ -15,6 +15,15 @@
 <body>
   <div id="root"></div>
 
+  <!-- Hidden form for Netlify Forms detection -->
+  <form name="lead-capture" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="text" name="interest" />
+    <input type="text" name="country" />
+    <input type="text" name="book" />
+  </form>
+
   <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
@@ -220,6 +229,7 @@ const INTERESTS = ['Minería', 'IA & Tecnología', 'Negocios', 'Certificaciones'
 const COUNTRIES = ['México', 'Colombia', 'Perú', 'Chile', 'España', 'Argentina', 'Estados Unidos', 'Otro'];
 
 Object.assign(window, { CATEGORIES, LANGS, COVERS, CAT_LABEL, BOOKS, INTERESTS, COUNTRIES, AMZ });
+
 // components.jsx — átomos compartidos de Zone Digital
 const { useState, useEffect, useRef } = React;
 
@@ -349,6 +359,7 @@ function Reveal({ children, delay = 0, as = 'div', className = '', style }) {
 }
 
 Object.assign(window, { Icon, AISeal, Logo, Button, BookCover, TypoCover, Reveal });
+
 // sections-top.jsx — Header (con toggle ES/EN), Hero, Strip, Books
 const { useState: useStateT, useEffect: useEffectT } = React;
 
@@ -536,6 +547,7 @@ function Books({ onLead, t, lang }) {
 }
 
 Object.assign(window, { Header, Hero, Strip, Books, LangToggle });
+
 // sections-bottom.jsx — Labs, About, Newsletter CTA, Footer (i18n)
 const { useState: useStateB } = React;
 
@@ -706,6 +718,7 @@ function Footer({ t }) {
 }
 
 Object.assign(window, { Labs, About, NewsletterCTA, Footer });
+
 // app.jsx — LeadModal, ExitIntent, App (i18n)
 const { useState: useStateA, useEffect: useEffectA, useRef: useRefA } = React;
 
@@ -732,10 +745,23 @@ function LeadModal({ book, onClose, t, lang }) {
 
   const submit = (e) => {
     e.preventDefault();
-    if (!form.name.trim()) return setErr(t('Escribe tu nombre.', 'Enter your name.'));
-    if (!form.email.includes('@')) return setErr(t('El email no es válido. Revísalo e intenta de nuevo.', 'That email isn’t valid. Check it and try again.'));
-    if (!form.consent) return setErr(t('Marca el consentimiento para recibir el capítulo.', 'Tick the consent box to receive the chapter.'));
-    setErr(''); setDone(true);
+    if (!form.name.trim()) return setErr(t(‘Escribe tu nombre.’, ‘Enter your name.’));
+    if (!form.email.includes(‘@’)) return setErr(t(‘El email no es válido. Revísalo e intenta de nuevo.’, ‘That email isn\’t valid. Check it and try again.’));
+    if (!form.consent) return setErr(t(‘Marca el consentimiento para recibir el capítulo.’, ‘Tick the consent box to receive the chapter.’));
+    setErr(‘’);
+    fetch(‘/’, {
+      method: ‘POST’,
+      headers: { ‘Content-Type’: ‘application/x-www-form-urlencoded’ },
+      body: new URLSearchParams({
+        ‘form-name’: ‘lead-capture’,
+        name: form.name,
+        email: form.email,
+        interest: form.interest,
+        country: form.country,
+        book: book ? book.title : ‘’,
+      }).toString()
+    }).catch(() => {});
+    setDone(true);
   };
 
   return (

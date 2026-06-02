@@ -1,0 +1,43 @@
+name: Deploy to Netlify
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create site if needed & deploy
+        run: |
+          # Look up site by name
+          SITE_ID=$(curl -s \
+            -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
+            "https://api.netlify.com/api/v1/sites?filter=all" \
+            | jq -r '.[] | select(.name=="zone-digital-brian") | .id' | head -1)
+
+          # Create site if it doesn't exist yet
+          if [ -z "$SITE_ID" ]; then
+            echo "Creating new Netlify site..."
+            SITE_ID=$(curl -s -X POST \
+              -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
+              -H "Content-Type: application/json" \
+              https://api.netlify.com/api/v1/sites \
+              -d '{"name":"zone-digital-brian"}' \
+              | jq -r '.id')
+            echo "Created site ID: $SITE_ID"
+          else
+            echo "Found existing site ID: $SITE_ID"
+          fi
+
+          # Deploy
+          npx --yes netlify-cli deploy \
+            --dir=. \
+            --prod \
+            --auth "$NETLIFY_AUTH_TOKEN" \
+            --site "$SITE_ID" \
+            --message "Deploy from GitHub Actions"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

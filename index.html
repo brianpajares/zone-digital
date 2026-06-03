@@ -76,7 +76,7 @@ const BOOKS = [
 
   { id:'L27', cat:'mining', lang:'en', short:'Open-Pit IoT Revolution',
     title:'Open-Pit IoT Revolution',
-    sub:'How satellites, drones, 5G and edge AI are rewiring the world's largest open-pit mines.',
+    sub:'How satellites, drones, 5G and edge AI are rewiring the world\'s largest open-pit mines.',
     asin:'B0H3CS4K38',
     formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B0H3CS4K38')} ] },
 
@@ -190,7 +190,7 @@ const BOOKS = [
 
   { id:'L15', cat:'cert', lang:'en', short:'CFA: The Certified Path',
     title:'CFA: The Certified Path to Global Financial Success',
-    sub:'The ultimate guide to passing the world's most prestigious exam.',
+    sub:'The ultimate guide to passing the world\'s most prestigious exam.',
     asin:'B0DWQM4B7Z',
     formats:[ {k:'Kindle', p:'USD 9.99', u:AMZ('B0DWQM4B7Z')} ] },
 
@@ -794,7 +794,7 @@ function LeadModal({ book, onClose, t, lang }) {
               <div className="ring"><Icon name="check" /></div>
               <h3 className="zd-h3" style={{ color: 'var(--ink)' }}>{t('Revisa tu correo.', 'Check your inbox.')}</h3>
               <p style={{ color: 'var(--stone-600)', marginTop: 10 }}>
-                {t('Enviamos tu capítulo a ', 'We sent your chapter to ')}<strong style={{ color: 'var(--ink)' }}>{form.email}</strong>{t('. Si no llega en unos minutos, mira en spam.', '. If it doesn't arrive in a few minutes, check spam.')}
+                {t('Enviamos tu capítulo a ', 'We sent your chapter to ')}<strong style={{ color: 'var(--ink)' }}>{form.email}</strong>{t('. Si no llega en unos minutos, mira en spam.', '. If it doesn\'t arrive in a few minutes, check spam.')}
               </p>
               <div style={{ marginTop: 26 }}>
                 <Button variant="ink" onClick={onClose} style={{ width: '100%', justifyContent: 'center' }}>{t('Seguir explorando', 'Keep exploring')}</Button>
@@ -865,7 +865,7 @@ function ExitIntent({ onLead, t }) {
       <button className="zd-exit-close" onClick={() => setShow(false)}><Icon name="x" size={16} /></button>
       <div className="zd-ai-chip"><span className="star">✦</span> {t('Antes de irte', 'Before you go')}</div>
       <h4 style={{ margin: '10px 0 6px', font: '600 var(--text-lg) var(--font-display)', letterSpacing: '-0.01em' }}>{t('Llévate un capítulo gratis.', 'Take a free chapter with you.')}</h4>
-      <p style={{ margin: 0, color: 'var(--zd-text-2)', fontSize: 'var(--text-sm)', lineHeight: 1.5 }}>{t('Elige tu área de interés y te lo enviamos al correo.', 'Pick your area of interest and we'll email it to you.')}</p>
+      <p style={{ margin: 0, color: 'var(--zd-text-2)', fontSize: 'var(--text-sm)', lineHeight: 1.5 }}>{t('Elige tu área de interés y te lo enviamos al correo.', 'Pick your area of interest and we\'ll email it to you.')}</p>
       <div style={{ marginTop: 14 }}>
         <Button variant="lime" size="sm" icon="download" onClick={() => { setShow(false); onLead(null); }}>{t('Quiero el capítulo', 'I want the chapter')}</Button>
       </div>

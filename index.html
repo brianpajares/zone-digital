@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Zone Digital — Books, Apps & Courses for the AI-Powered Professional</title>
+  <title>Zone Digital - Books, Apps & Courses for the AI-Powered Professional</title>
   <meta name="description" content="Libros, cursos y apps sobre IA, minería, negocios y certificaciones. Empieza con un capítulo gratis." />
-  <meta property="og:title" content="Zone Digital — Books, Apps & Courses for the AI-Powered Professional" />
+  <meta property="og:title" content="Zone Digital - Books, Apps & Courses for the AI-Powered Professional" />
   <meta property="og:description" content="27 books on AI, mining, business and certifications. Start with a free chapter." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.zone-digital.com" />
@@ -29,7 +29,7 @@
   <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 
   <script type="text/babel">
-// Zone Digital — catálogo real (Google Sheet, 27 títulos en Amazon)
+// Zone Digital - catálogo real (Google Sheet, 27 títulos en Amazon)
 // Portadas: CDN de imágenes de Amazon por ASIN, con respaldo tipográfico.
 
 const CATEGORIES = [
@@ -47,7 +47,7 @@ const LANGS = [
   { id: 'en',  label: 'English' },
 ];
 
-// Paletas de portada — todas dentro de los tokens del sistema
+// Paletas de portada - todas dentro de los tokens del sistema
 const COVERS = {
   mining:   { bg: 'linear-gradient(155deg,#11141C 0%,#0B0E14 60%,#1A1D24 100%)', fg: '#F4F1EA', accent: '#D8FF3D' },
   tech:     { bg: 'linear-gradient(155deg,#1830B0 0%,#2547F0 55%,#0B1A78 100%)', fg: '#FFFFFF', accent: '#D8FF3D' },
@@ -230,7 +230,7 @@ const COUNTRIES = ['México', 'Colombia', 'Perú', 'Chile', 'España', 'Argentin
 
 Object.assign(window, { CATEGORIES, LANGS, COVERS, CAT_LABEL, BOOKS, INTERESTS, COUNTRIES, AMZ });
 
-// components.jsx — átomos compartidos de Zone Digital
+// components.jsx - átomos compartidos de Zone Digital
 const { useState, useEffect, useRef } = React;
 
 /* ---------- Iconos (Lucide-style, stroke 1.75) ---------- */
@@ -360,7 +360,7 @@ function Reveal({ children, delay = 0, as = 'div', className = '', style }) {
 
 Object.assign(window, { Icon, AISeal, Logo, Button, BookCover, TypoCover, Reveal });
 
-// sections-top.jsx — Header (con toggle ES/EN), Hero, Strip, Books
+// sections-top.jsx - Header (con toggle ES/EN), Hero, Strip, Books
 const { useState: useStateT, useEffect: useEffectT } = React;
 
 /* ============ LANGUAGE TOGGLE ============ */
@@ -548,7 +548,7 @@ function Books({ onLead, t, lang }) {
 
 Object.assign(window, { Header, Hero, Strip, Books, LangToggle });
 
-// sections-bottom.jsx — Labs, About, Newsletter CTA, Footer (i18n)
+// sections-bottom.jsx - Labs, About, Newsletter CTA, Footer (i18n)
 const { useState: useStateB } = React;
 
 /* ============ COURSES & APPS ============ */
@@ -633,8 +633,8 @@ function About({ t }) {
               </h2>
               <p className="zd-lead" style={{ marginTop: 22 }}>
                 {t(
-                  'Una marca global creada para que profesionales de habla hispana e inglesa dominen la inteligencia artificial, la minería y los negocios — y los traduzcan en ingresos, autoridad y ventaja competitiva real.',
-                  'A global brand built so Spanish- and English-speaking professionals can master artificial intelligence, mining and business — and turn them into income, authority and a real competitive edge.'
+                  'Una marca global creada para que profesionales de habla hispana e inglesa dominen la inteligencia artificial, la minería y los negocios - y los traduzcan en ingresos, autoridad y ventaja competitiva real.',
+                  'A global brand built so Spanish- and English-speaking professionals can master artificial intelligence, mining and business - and turn them into income, authority and a real competitive edge.'
                 )}
               </p>
               <div className="zd-cred">
@@ -719,7 +719,7 @@ function Footer({ t }) {
 
 Object.assign(window, { Labs, About, NewsletterCTA, Footer });
 
-// app.jsx — LeadModal, ExitIntent, App (i18n)
+// app.jsx - LeadModal, ExitIntent, App (i18n)
 const { useState: useStateA, useEffect: useEffectA, useRef: useRefA } = React;
 
 /* ============ LEAD MODAL ============ */

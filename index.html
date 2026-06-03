@@ -558,7 +558,7 @@ function Labs({ t }) {
       <div className="zd-wrap">
         <Reveal>
           <div className="zd-sec-head">
-            <span className="zd-overline">{t('Lo que viene', 'What's next')}</span>
+            <span className="zd-overline">{t('Lo que viene', 'What\'s next')}</span>
             <h2 className="zd-h2">{t('Cursos y apps en construcción.', 'Courses and apps in the works.')}</h2>
             <p>{t('Próximos lanzamientos con lista de espera, preventa y acceso anticipado para la comunidad.', 'Upcoming launches with waitlists, pre-sales and early access for the community.')}</p>
           </div>
@@ -592,7 +592,7 @@ function Soon({ tag, title, desc, icon, t }) {
       </div>
       <p>{desc}</p>
       {sent ? (
-        <div className="zd-ai-chip" style={{ color: 'var(--zd-lime)', marginTop: 4 }}><Icon name="checkCircle" size={18} /> {t('Estás en la lista. Te avisamos primero.', 'You're on the list. We'll tell you first.')}</div>
+        <div className="zd-ai-chip" style={{ color: 'var(--zd-lime)', marginTop: 4 }}><Icon name="checkCircle" size={18} /> {t('Estás en la lista. Te avisamos primero.', 'You\'re on the list. We\'ll tell you first.')}</div>
       ) : (
         <form className="zd-waitlist" onSubmit={(e) => { e.preventDefault(); if (email.includes('@')) setSent(true); }}>
           <input className="zd-input" type="email" placeholder={t('tu@email.com', 'you@email.com')} value={email} onChange={e => setEmail(e.target.value)} required />
@@ -781,8 +781,8 @@ function LeadModal({ book, onClose, t, lang }) {
             <h3 className="zd-h3" style={{ color: 'var(--bone)' }}>{book ? book.title : t('Elige por dónde empezar', 'Choose where to start')}</h3>
             <p style={{ color: 'var(--zd-text-2)', fontSize: 'var(--text-sm)', marginTop: 10, lineHeight: 1.5 }}>
               {book
-                ? t('Te enviamos un capítulo gratis de este libro. Solo necesitamos a dónde mandarlo.', 'We'll send you a free chapter of this book. We just need where to send it.')
-                : t('Te enviamos un capítulo gratis según el área que más te interese.', 'We'll send you a free chapter based on the area you care about most.')}
+                ? t('Te enviamos un capítulo gratis de este libro. Solo necesitamos a dónde mandarlo.', 'We\'ll send you a free chapter of this book. We just need where to send it.')
+                : t('Te enviamos un capítulo gratis según el área que más te interese.', 'We\'ll send you a free chapter based on the area you care about most.')}
             </p>
           </div>
         </aside>
@@ -804,7 +804,7 @@ function LeadModal({ book, onClose, t, lang }) {
             <form onSubmit={submit}>
               <div style={{ marginBottom: 20 }}>
                 <span className="zd-overline" style={{ color: 'var(--stone-500)' }}>{t('Descarga gratis', 'Free download')}</span>
-                <h3 className="zd-h3" style={{ color: 'var(--ink)', marginTop: 10 }}>{t('Te lo enviamos al correo.', 'We'll email it to you.')}</h3>
+                <h3 className="zd-h3" style={{ color: 'var(--ink)', marginTop: 10 }}>{t('Te lo enviamos al correo.', 'We\'ll email it to you.')}</h3>
               </div>
               <div className="zd-field">
                 <label>{t('Nombre', 'Name')}</label>

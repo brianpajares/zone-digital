@@ -1,3 +1,23 @@
 .DS_Store
 .image-slots.state.json
 node_modules/
+
+# Secrets - NEVER commit these
+.env
+.env.*
+*.pem
+*.key
+secrets.json
+credentials.json
+
+# Netlify local
+.netlify/
+
+# Logs
+*.log
+npm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp

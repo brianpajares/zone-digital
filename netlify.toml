@@ -28,10 +28,3 @@
   [headers.values]
     Content-Type = "text/plain"
     Cache-Control = "public, max-age=3600"
-
-# Force HTTPS + canonical (apex -> www)
-[[redirects]]
-  from = "https://zone-digital.com/*"
-  to = "https://www.zone-digital.com/:splat"
-  status = 301
-  force = true

@@ -730,8 +730,11 @@ function LeadModal({ book, onClose, t, lang }) {
   );
   const countries = t(COUNTRIES, ['Mexico', 'Colombia', 'Peru', 'Chile', 'Spain', 'Argentina', 'United States', 'Other']);
   const CAT_TO_IDX = { mining: 0, tech: 1, business: 2, cert: 3, startup: 4 };
+  const IDX_TO_CAT = { 0: 'mining', 1: 'tech', 2: 'business', 3: 'cert', 4: 'startup' };
   const initInterest = book ? interests[CAT_TO_IDX[book.cat]] : interests[0];
-  const [form, setForm] = useStateA({ name: '', email: '', interest: initInterest, country: countries[0], consent: false });
+  const initCat = book ? book.cat : 'mining';
+  const booksOf = (cat) => BOOKS.filter(b => b.cat === cat);
+  const [form, setForm] = useStateA({ name: '', email: '', interest: initInterest, country: countries[0], consent: false, bookTitle: book ? book.title : (booksOf(initCat)[0] ? booksOf(initCat)[0].title : '') });
   const [done, setDone] = useStateA(false);
   const [err, setErr] = useStateA('');
   const set = (k, v) => setForm(f => ({ ...f, [k]: v }));
@@ -758,10 +761,17 @@ function LeadModal({ book, onClose, t, lang }) {
         email: form.email,
         interest: form.interest,
         country: form.country,
-        book: book ? book.title : '',
+        book: book ? book.title : (form.bookTitle || ''),
       }).toString()
     }).catch(() => {});
     setDone(true);
+  };
+
+  const onInterestChange = (newInterest) => {
+    const idx = interests.indexOf(newInterest);
+    const cat = IDX_TO_CAT[idx];
+    const first = booksOf(cat)[0];
+    setForm(f => ({ ...f, interest: newInterest, bookTitle: first ? first.title : '' }));
   };
 
   return (
@@ -817,7 +827,7 @@ function LeadModal({ book, onClose, t, lang }) {
               <div className="zd-row2">
                 <div className="zd-field">
                   <label>{t('Interés', 'Interest')}</label>
-                  <select className="zd-input on-light" value={form.interest} onChange={e => set('interest', e.target.value)}>
+                  <select className="zd-input on-light" value={form.interest} onChange={e => book ? set('interest', e.target.value) : onInterestChange(e.target.value)} disabled={!!book}>
                     {interests.map(i => <option key={i}>{i}</option>)}
                   </select>
                 </div>
@@ -828,6 +838,14 @@ function LeadModal({ book, onClose, t, lang }) {
                   </select>
                 </div>
               </div>
+              {!book && (
+                <div className="zd-field">
+                  <label>{t('Libro', 'Book')}</label>
+                  <select className="zd-input on-light" value={form.bookTitle} onChange={e => set('bookTitle', e.target.value)}>
+                    {booksOf(IDX_TO_CAT[interests.indexOf(form.interest)]).map(b => <option key={b.id} value={b.title}>{b.title}</option>)}
+                  </select>
+                </div>
+              )}
               <label className="zd-check" style={{ marginTop: 4, marginBottom: 18 }}>
                 <input type="checkbox" checked={form.consent} onChange={e => set('consent', e.target.checked)} />
                 <span>{t('Acepto recibir el capítulo y emails de Zone Digital. Me doy de baja cuando quiera.', 'I agree to receive the chapter and emails from Zone Digital. I can unsubscribe anytime.')}</span>

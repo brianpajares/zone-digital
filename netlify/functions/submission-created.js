@@ -6,11 +6,13 @@ exports.handler = async (event) => {
   try {
     const body = JSON.parse(event.body);
     const payload = body.payload || {};
-    const { name, email, data } = payload;
+    const { name, email, data, form_name } = payload;
+    const formName = form_name || (payload.form_name) || '';
     const book = (data && data.book) || '';
     const interest = (data && data.interest) || '';
+    const isNewsletter = formName === 'newsletter';
 
-    console.log('Sending auto-reply to:', email, 'book:', book, 'interest:', interest);
+    console.log('Form:', formName, 'Sending auto-reply to:', email);
 
     if (!email) {
       console.error('No email in payload');
@@ -22,7 +24,9 @@ exports.handler = async (event) => {
       return { statusCode: 200, body: 'Missing credentials' };
     }
 
-    const subject = `Tu capítulo gratuito está en camino · Zone Digital`;
+    const subject = isNewsletter
+      ? `Bienvenido al newsletter de Zone Digital`
+      : `Tu capítulo gratuito está en camino · Zone Digital`;
 
     const transporter = nodemailer.createTransport({
       host: 'smtppro.zoho.com',
@@ -34,9 +38,17 @@ exports.handler = async (event) => {
       },
     });
 
-    const topicLine = book
-      ? `Hemos recibido tu solicitud del libro <strong style="color:#FFFFFF;">${book}</strong>. Te enviaremos el capítulo gratuito a la brevedad.`
-      : `Hemos recibido tu solicitud. Te enviaremos el capítulo gratuito sobre <strong style="color:#FFFFFF;">${interest}</strong> a la brevedad.`;
+    const heading = isNewsletter
+      ? `Bienvenido al newsletter.`
+      : `Tu capítulo está en camino.`;
+
+    const topicLine = isNewsletter
+      ? `Gracias por suscribirte al newsletter de <strong style="color:#FFFFFF;">Zone Digital</strong>. Cada semana recibirás un email con ideas sobre IA, minería y negocios, además de avisos de capítulos y lanzamientos antes que nadie.`
+      : (book
+          ? `Hemos recibido tu solicitud del libro <strong style="color:#FFFFFF;">${book}</strong>. Te enviaremos el capítulo gratuito a la brevedad.`
+          : `Hemos recibido tu solicitud. Te enviaremos el capítulo gratuito sobre <strong style="color:#FFFFFF;">${interest}</strong> a la brevedad.`);
+
+    const overline = isNewsletter ? 'Newsletter' : 'Capítulo gratuito';
 
     const html = `
 <!DOCTYPE html>
@@ -53,9 +65,9 @@ exports.handler = async (event) => {
         </tr>
         <tr>
           <td style="padding:36px 40px;">
-            <p style="margin:0 0 8px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#D8FF3D;">Capítulo gratuito</p>
+            <p style="margin:0 0 8px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#D8FF3D;">${overline}</p>
             <h1 style="margin:0 0 20px;font-size:26px;font-weight:700;color:#FFFFFF;line-height:1.2;">
-              Hola, ${name || 'amig@'}.<br/>Tu capítulo está en camino.
+              Hola, ${name || 'amig@'}.<br/>${heading}
             </h1>
             <p style="margin:0 0 24px;font-size:15px;color:#A0A4B0;line-height:1.6;">${topicLine}</p>
             <p style="margin:0 0 32px;font-size:15px;color:#A0A4B0;line-height:1.6;">

@@ -85,13 +85,17 @@
 <body>
   <div id="root"></div>
 
-  <!-- Hidden form for Netlify Forms detection -->
+  <!-- Hidden forms for Netlify Forms detection -->
   <form name="lead-capture" data-netlify="true" netlify-honeypot="bot-field" hidden>
     <input type="text" name="name" />
     <input type="email" name="email" />
     <input type="text" name="interest" />
     <input type="text" name="country" />
     <input type="text" name="book" />
+  </form>
+  <form name="newsletter" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="email" name="email" />
+    <input type="text" name="source" />
   </form>
 
   <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
@@ -739,7 +743,20 @@ function NewsletterCTA({ t }) {
                   <Icon name="checkCircle" size={22} /> {t('Listo. Revisa tu correo para confirmar.', 'Done. Check your inbox to confirm.')}
                 </div>
               ) : (
-                <form className="zd-cta-form" onSubmit={(e) => { e.preventDefault(); if (email.includes('@')) setSent(true); }}>
+                <form className="zd-cta-form" onSubmit={(e) => {
+                  e.preventDefault();
+                  if (!email.includes('@')) return;
+                  fetch('/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams({
+                      'form-name': 'newsletter',
+                      email: email,
+                      source: 'newsletter-cta'
+                    }).toString()
+                  }).catch(() => {});
+                  setSent(true);
+                }}>
                   <input className="zd-input" type="email" placeholder={t('tu@email.com', 'you@email.com')} value={email} onChange={e => setEmail(e.target.value)} required />
                   <Button variant="lime" type="submit" iconRight="send">{t('Suscribirme', 'Subscribe')}</Button>
                 </form>

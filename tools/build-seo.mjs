@@ -410,6 +410,9 @@ html = replaceBetween(
   '<!-- SEO-FALLBACK:END -->',
   homeFallback(books),
 );
+// mapa ASIN -> slug que consume la app React para enlazar "Ver ficha"
+const slugMap = books.map((b) => `    '${b.asin}': '${b.slug}',`).join('\n');
+html = replaceBetween(html, '/* SEO-SLUGS:START */', '/* SEO-SLUGS:END */', slugMap);
 fs.writeFileSync(FILE, html);
 
 // 2) páginas por libro (regenera desde cero para no dejar fichas obsoletas)

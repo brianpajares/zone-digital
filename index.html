@@ -1763,7 +1763,50 @@ const BOOKS = [
 const INTERESTS = ['Minería', 'IA & Tecnología', 'Negocios', 'Certificaciones', 'Start Ups'];
 const COUNTRIES = ['México', 'Colombia', 'Perú', 'Chile', 'España', 'Argentina', 'Estados Unidos', 'Otro'];
 
-Object.assign(window, { CATEGORIES, LANGS, COVERS, CAT_LABEL, BOOKS, INTERESTS, COUNTRIES, AMZ });
+// Mapa ASIN -> slug de ficha (auto-generado por tools/build-seo.mjs, no editar)
+const BOOK_SLUGS = {
+  /* SEO-SLUGS:START */
+    'B0H381YN82': 'the-digital-twin-mine',
+    'B0H3891219': 'designing-robots-for-mining',
+    'B0H3CS4K38': 'open-pit-iot-revolution',
+    'B0H3CDGH5F': 'battery-electric-underground-mining',
+    'B0H2KJ15ZX': 'the-ai-growth-operating-system',
+    'B0GYZYK1G7': 'chief-ai-officer',
+    'B0GYTJ466Y': 'ceo-aumentado',
+    'B0F5NV8NY5': 'domina-la-era-de-la-ia-generativa',
+    'B0F59MNMN2': 'tecnologia-minera-en-accion',
+    'B0DWPB9MML': 'la-ruta-maestra-hacia-la-certificacion-pmp',
+    'B0DWT17LCJ': 'cfa-el-camino-certificado-al-exito-financiero-global',
+    'B0DWT8XXXD': 'aws-solutions-architect-associate',
+    'B0F5QR9FNZ': 'mba-redisenado',
+    'B0F5NWGYNY': 'arquitectura-de-soluciones-para-lideres-tecnologicos',
+    'B08W8G9J9J': 'el-abc-de-la-innovacion-minera',
+    'B08XGDJWF6': 'la-transformacion-digital-y-la-mineria-4-0',
+    'B08XHDW2P5': 'liderando-start-ups-del-futuro',
+    'B08XLMDF6S': 'abc-of-the-mining-innovation',
+    'B08XLMLDQW': 'all-about-digital-transformation-and-mining-4-0',
+    'B08XJV1222': 'leading-start-ups-of-the-future',
+    'B0DWM13M4P': 'the-master-path-to-pmp-certification',
+    'B0DWQM4B7Z': 'cfa-the-certified-path-to-global-financial-success',
+    'B0F3VB8K2N': 'mining-technology-in-action',
+    'B0F5NTJ55Q': 'master-the-age-of-generative-ai',
+    'B0F5QKYCJV': 'solutions-architecture-for-technology-leaders',
+    'B0F4ZMBB8W': 'mba-redesigned',
+    'B0DWTB2V3R': 'aws-solutions-architect-associate-b0dwtb2v3r',
+    'B0H482Q8VW': 'el-ingeniero-mlops',
+    'B0H47SNCWQ': 'el-manual-del-arquitecto-cloud',
+    'B0H47SQ4SK': 'el-ingeniero-de-ia',
+    'B0H486RBQS': 'arquitecturas-de-ia-para-mineria',
+    'B0GXSXT8BN': 'from-control-room-to-autonomous-mine',
+    'B0GX377FKH': 'the-underground-connected-mine',
+    'B0H2SY42BP': 'centro-integrado-de-operaciones-para-mineria',
+    'B0H1MQ27TL': 'the-ai-digital-wealth-factory',
+    'B0H4HPWHMG': 'google-cloud-engineer',
+    'B0H4HS7VKJ': 'domina-azure-y-certificate-rapido',
+  /* SEO-SLUGS:END */
+};
+
+Object.assign(window, { CATEGORIES, LANGS, COVERS, CAT_LABEL, BOOKS, INTERESTS, COUNTRIES, AMZ, BOOK_SLUGS });
 
 // components.jsx - átomos compartidos de Zone Digital
 const { useState, useEffect, useRef } = React;
@@ -2067,6 +2110,11 @@ function Books({ onLead, t, lang }) {
                     <Button variant="ghost" size="sm" icon="download" style={{ width: '100%', justifyContent: 'center' }}
                       onClick={() => onLead(b)}>{t('Capítulo gratis', 'Free chapter')}</Button>
                   </div>
+                  {BOOK_SLUGS[b.asin] && (
+                    <a className="zd-book-detail" href={`/libros/${BOOK_SLUGS[b.asin]}/`}>
+                      {t('Ver ficha del libro', 'View book details')} →
+                    </a>
+                  )}
                 </div>
               </article>
             </Reveal>

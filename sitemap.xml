@@ -15,4 +15,374 @@
       <image:title>Zone Digital — Libros, apps y cursos de IA, minería y negocios</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/the-digital-twin-mine/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H381YN82.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>The Digital Twin Mine</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/designing-robots-for-mining/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H3891219.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>Designing Robots for Mining</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/open-pit-iot-revolution/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H3CS4K38.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>Open-Pit IoT Revolution</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/battery-electric-underground-mining/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H3CDGH5F.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>Battery-Electric Underground Mining</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/the-ai-growth-operating-system/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H2KJ15ZX.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>The AI Growth Operating System</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/chief-ai-officer/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0GYZYK1G7.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>Chief AI Officer</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/ceo-aumentado/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0GYTJ466Y.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>CEO Aumentado</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/domina-la-era-de-la-ia-generativa/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0F5NV8NY5.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>Domina la Era de la IA Generativa</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/tecnologia-minera-en-accion/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0F59MNMN2.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>Tecnología Minera en Acción</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/la-ruta-maestra-hacia-la-certificacion-pmp/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0DWPB9MML.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>La Ruta Maestra hacia la Certificación PMP</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/cfa-el-camino-certificado-al-exito-financiero-global/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0DWT17LCJ.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>CFA: El Camino Certificado al Éxito Financiero Global</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/aws-solutions-architect-associate/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0DWT8XXXD.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>AWS Solutions Architect Associate</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/mba-redisenado/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0F5QR9FNZ.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>MBA Rediseñado</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/arquitectura-de-soluciones-para-lideres-tecnologicos/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0F5NWGYNY.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>Arquitectura de Soluciones para Líderes Tecnológicos</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/el-abc-de-la-innovacion-minera/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B08W8G9J9J.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>El ABC de la Innovación Minera</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/la-transformacion-digital-y-la-mineria-4-0/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B08XGDJWF6.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>La Transformación Digital y la Minería 4.0</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/liderando-start-ups-del-futuro/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B08XHDW2P5.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>Liderando Start Ups del Futuro</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/abc-of-the-mining-innovation/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B08XLMDF6S.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>ABC of the Mining Innovation</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/all-about-digital-transformation-and-mining-4-0/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B08XLMLDQW.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>All About Digital Transformation and Mining 4.0</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/leading-start-ups-of-the-future/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B08XJV1222.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>Leading Start Ups of the Future</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/the-master-path-to-pmp-certification/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0DWM13M4P.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>The Master Path to PMP Certification</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/cfa-the-certified-path-to-global-financial-success/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0DWQM4B7Z.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>CFA: The Certified Path to Global Financial Success</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/mining-technology-in-action/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0F3VB8K2N.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>Mining Technology in Action</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/master-the-age-of-generative-ai/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0F5NTJ55Q.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>Master the Age of Generative AI</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/solutions-architecture-for-technology-leaders/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0F5QKYCJV.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>Solutions Architecture for Technology Leaders</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/mba-redesigned/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0F4ZMBB8W.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>MBA Redesigned</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/aws-solutions-architect-associate-b0dwtb2v3r/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0DWTB2V3R.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>AWS Solutions Architect Associate</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/el-ingeniero-mlops/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H482Q8VW.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>El Ingeniero MLOps</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/el-manual-del-arquitecto-cloud/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H47SNCWQ.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>El Manual del Arquitecto Cloud</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/el-ingeniero-de-ia/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H47SQ4SK.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>El Ingeniero de IA</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/arquitecturas-de-ia-para-mineria/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H486RBQS.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>Arquitecturas de IA para Minería</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/from-control-room-to-autonomous-mine/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0GXSXT8BN.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>From Control Room to Autonomous Mine</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/the-underground-connected-mine/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0GX377FKH.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>The Underground Connected Mine</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/centro-integrado-de-operaciones-para-mineria/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H2SY42BP.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>Centro Integrado de Operaciones para Minería</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/the-ai-digital-wealth-factory/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H1MQ27TL.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>The AI Digital Wealth Factory</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/google-cloud-engineer/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H4HPWHMG.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>Google Cloud Engineer</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/domina-azure-y-certificate-rapido/</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H4HS7VKJ.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>Domina Azure y Certifícate Rápido</image:title>
+    </image:image>
+  </url>
 </urlset>

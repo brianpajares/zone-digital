@@ -24,7 +24,7 @@
   <meta property="og:description" content="27 libros sobre IA, minería, negocios y certificaciones. Empieza con un capítulo gratis." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.zone-digital.com/" />
-  <meta property="og:image" content="https://www.zone-digital.com/og-image.png" />
+  <meta property="og:image" content="https://www.zone-digital.com/logo.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="es_ES" />
@@ -34,13 +34,14 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Zone Digital | Libros, Apps y Cursos de IA y Minería" />
   <meta name="twitter:description" content="27 libros sobre IA, minería, negocios y certificaciones. Empieza con un capítulo gratis." />
-  <meta name="twitter:image" content="https://www.zone-digital.com/og-image.png" />
+  <meta name="twitter:image" content="https://www.zone-digital.com/logo.webp" />
 
   <!-- Theme -->
   <meta name="theme-color" content="#0B0E14" />
   <meta name="apple-mobile-web-app-title" content="Zone Digital" />
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'><circle cx='22' cy='22' r='20' fill='%230B0E14'/><circle cx='22' cy='22' r='8' fill='%232547F0'/><path d='M22 11 a11 11 0 0 1 11 11' fill='none' stroke='%23D8FF3D' stroke-width='3' stroke-linecap='round'/><circle cx='33' cy='22' r='2.6' fill='%23D8FF3D'/></svg>" />
+  <link rel="icon" type="image/webp" href="/logo.webp" />
+  <link rel="apple-touch-icon" href="/logo.webp" />
   <link rel="stylesheet" href="zone-digital/styles.css" />
 
   <!-- Preconnect for performance -->
@@ -54,7 +55,7 @@
     "@type": "Organization",
     "name": "Zone Digital",
     "url": "https://www.zone-digital.com",
-    "logo": "https://www.zone-digital.com/logo.png",
+    "logo": "https://www.zone-digital.com/logo.webp",
     "description": "Editorial digital de libros, cursos y apps sobre IA, minería, negocios y certificaciones.",
     "sameAs": [
       "https://www.amazon.com/stores/Zone-Digital/author"
@@ -342,12 +343,13 @@ function Logo({ height = 30, light = true }) {
   const ink = '#F4F1EA';
   return (
     <div className="zd-brand">
-      <svg width={height} height={height} viewBox="0 0 44 44" aria-label="Zone Digital">
-        <circle cx="22" cy="22" r="20" fill="none" stroke={light ? 'rgba(244,241,234,0.35)' : '#0B0E14'} strokeWidth="2.5"/>
-        <circle cx="22" cy="22" r="8" fill="#2547F0"/>
-        <path d="M22 11 a11 11 0 0 1 11 11" fill="none" stroke="#D8FF3D" strokeWidth="3" strokeLinecap="round"/>
-        <circle cx="33" cy="22" r="2.6" fill="#D8FF3D"/>
-      </svg>
+      <img
+        src="/logo.webp"
+        alt="Zone Digital"
+        width={height * 1.2}
+        height={height * 1.2}
+        style={{ display: 'block', objectFit: 'contain' }}
+      />
       <span className="zd-brand-name" style={{ color: light ? ink : '#0B0E14' }}>
         Zone<span className="dim"> Digital</span>
       </span>

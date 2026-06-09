@@ -47,6 +47,18 @@ const slugify = (s) => String(s)
 const coverUrl = (asin) =>
   `https://images-na.ssl-images-amazon.com/images/P/${asin}.01._SCLZZZZZZZ_.jpg`;
 
+// Potencial de venta mundial (mayor = se muestra primero).
+// IMPORTANTE: mantener idéntico al ZD_SCORE de index.html.
+const CAT_DEMAND = { tech: 50, cert: 42, business: 30, startup: 24, mining: 20 };
+const HOT = /(\bIA\b|\bAI\b|GenAI|generativ|\bLLM\b|agent|MLOps|machine learning|cloud|AWS|Azure|Google Cloud|kubernetes|wealth|growth|chief|officer|PMP|CFA)/i;
+const salesScore = (b) => {
+  let s = CAT_DEMAND[b.cat] || 0;
+  s += b.lang === 'en' ? 18 : 10;
+  if (HOT.test(`${b.title} ${b.sub}`)) s += 12;
+  if (b.featured) s += 8;
+  return s;
+};
+
 const buyUrl = (b) => b.formats?.[0]?.u || `https://www.amazon.com/dp/${b.asin}`;
 const priceLabel = (b) => b.formats?.[0]?.p || 'USD 9.99';
 const priceNum = (b) => (priceLabel(b).replace(/[^\d.]/g, '') || '9.99');
@@ -67,6 +79,8 @@ function extractBooks(html) {
     seen.add(s);
     b.slug = s;
   }
+  // ordenar por potencial de venta mundial (estable para empates)
+  books.sort((a, b) => salesScore(b) - salesScore(a));
   return books;
 }
 

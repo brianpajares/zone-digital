@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ruta IA Aplicada | Zone Digital</title>
+  <meta name="description" content="Aprende GenAI, agentes, RAG, automatizacion y estrategia para convertir IA en ventaja profesional." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://www.zone-digital.com/rutas/ia/" />
+  <meta property="og:site_name" content="Zone Digital" />
+  <meta property="og:title" content="Ruta IA Aplicada" />
+  <meta property="og:description" content="Aprende GenAI, agentes, RAG, automatizacion y estrategia para convertir IA en ventaja profesional." />
+  <meta property="og:url" content="https://www.zone-digital.com/rutas/ia/" />
+  <meta property="og:image" content="https://www.zone-digital.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#000918" />
+  <link rel="icon" type="image/webp" href="/logo.webp" />
+  <link rel="stylesheet" href="/zone-digital/styles.css" />
+  <style>
+  :root{--bg:#000918;--panel:#0B0E14;--ink:#F4F1EA;--dim:#9aa3b2;--gold:#D9A93C;--blue:#2547F0;--lime:#D8FF3D;--line:rgba(244,241,234,.12)}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+  a{color:inherit}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+  header.site{border-bottom:1px solid var(--line);padding:18px 0}
+  header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:700;letter-spacing:.3px}
+  .brand img{display:block;width:40px;height:40px;object-fit:contain}
+  .brand .dim{color:var(--dim);font-weight:500}
+  .nav{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .nav a{color:var(--dim);text-decoration:none;font-size:14px}
+  .nav a:hover{color:var(--ink)}
+  nav.crumb{font-size:13px;color:var(--dim);padding:22px 0 0}
+  nav.crumb a{color:var(--dim);text-decoration:none}
+  nav.crumb a:hover{color:var(--ink)}
+  .hero{display:grid;grid-template-columns:300px 1fr;gap:42px;align-items:start;padding:30px 0 14px}
+  @media(max-width:760px){.hero{grid-template-columns:1fr;gap:26px}}
+  .cover{background:linear-gradient(155deg,#11141C,#0B0E14);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;align-items:center;justify-content:center}
+  .cover img{width:100%;height:auto;border-radius:8px;box-shadow:0 18px 50px rgba(0,0,0,.5)}
+  .badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+  .badge{font-size:12px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;padding:5px 11px;border-radius:999px;border:1px solid var(--line);color:var(--dim)}
+  .badge.cat{color:#06210a;background:var(--lime);border-color:var(--lime)}
+  h1{font-size:34px;line-height:1.18;margin:0 0 14px;font-weight:800}
+  .sub{font-size:18px;color:#c9cfda;margin:0 0 22px}
+  .price{font-size:20px;font-weight:700;color:var(--gold);margin:0 0 20px}
+  .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;padding:14px 22px;border-radius:10px;font-size:15px}
+  .btn.primary{background:var(--gold);color:#1a1206}
+  .btn.primary:hover{filter:brightness(1.06)}
+  .btn.ghost{border:1px solid var(--line);color:var(--ink)}
+  .btn.ghost:hover{border-color:var(--ink)}
+  section.more{border-top:1px solid var(--line);margin-top:46px;padding:34px 0 10px}
+  section.more h2{font-size:20px;margin:0 0 18px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+  .card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--panel);transition:border-color .2s,transform .2s}
+  .card:hover{border-color:var(--gold);transform:translateY(-2px)}
+  .card h3{font-size:15px;margin:0 0 6px;color:var(--ink)}
+  .card p{font-size:13px;color:var(--dim);margin:0}
+  .sales-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:34px 0}
+  @media(max-width:760px){.sales-grid{grid-template-columns:1fr}}
+  .panel{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:22px}
+  .panel h2{margin:0 0 12px;font-size:20px}
+  .panel p,.panel li{color:#c9cfda}
+  .chapters{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+  .chapters span{display:block;border:1px solid var(--line);border-radius:10px;padding:12px;color:#c9cfda;background:rgba(255,255,255,.03)}
+  .faq{display:grid;gap:10px}
+  .faq details{border:1px solid var(--line);border-radius:10px;padding:14px;background:var(--panel)}
+  .faq summary{cursor:pointer;font-weight:700}
+  .lead-box{display:grid;gap:12px}
+  .lead-box label{display:grid;gap:6px;color:var(--dim);font-size:14px}
+  .lead-box input,.lead-box select{width:100%;border:1px solid var(--line);border-radius:10px;background:#050812;color:var(--ink);padding:13px 14px;font:inherit}
+  .lead-box button{border:0;cursor:pointer;justify-content:center}
+  .final-cta{border:1px solid var(--line);border-radius:14px;background:linear-gradient(135deg,rgba(217,169,60,.12),rgba(37,71,240,.10));padding:28px;margin-top:42px}
+  .final-cta h2{margin:0 0 18px;font-size:24px}
+  footer.site{border-top:1px solid var(--line);margin-top:40px;padding:26px 0;color:var(--dim);font-size:13px}
+</style>
+</head>
+<body>
+  <header class="site"><div class="wrap"><a class="brand" href="/"><img src="/logo.webp" alt="Zone Digital" /><span>Zone<span class="dim"> Digital</span></span></a><nav class="nav"><a href="/tiktok/">TikTok</a><a href="/gratis/">Gratis</a><a href="/#books">Biblioteca</a></nav></div></header>
+      <main class="wrap"><section class="hero"><div><div class="badges"><span class="badge cat">Ruta profesional</span><span class="badge">30 dias</span></div><h1>Ruta IA Aplicada</h1><p class="sub">Aprende GenAI, agentes, RAG, automatizacion y estrategia para convertir IA en ventaja profesional.</p><div class="cta"><a class="btn primary" href="#books">Ver libros recomendados</a><a class="btn ghost" href="#lead">Capitulo gratis</a></div></div><div class="panel"><h2>Roadmap de 30 dias</h2><ol><li>Fundamentos y lenguaje</li><li>Casos aplicados</li><li>Libro principal</li><li>Practica y checklist</li><li>Compra/lectura guiada</li></ol></div></section><section class="more" id="books"><h2>Libros recomendados</h2><div class="grid"><article class="card">
+    <h3>El Ingeniero de IA</h3>
+    <p>Construye aplicaciones GenAI de producción con LLMs, RAG y agentes.</p>
+    <p><small>IA &amp; Tech · Español · USD 9.99</small></p>
+    <p><a class="btn ghost" href="/libros/el-ingeniero-de-ia/" data-track-route="IA Aplicada">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0H47SQ4SK" target="_blank" rel="noopener" data-amazon data-item-id="L30" data-item-name="El Ingeniero de IA" data-format="kindle">Amazon</a></p>
+  </article><article class="card">
+    <h3>Chief AI Officer</h3>
+    <p>El nuevo líder de la empresa inteligente. Gobernanza, estrategia y adopción real de IA.</p>
+    <p><small>IA &amp; Tech · Español · USD 9.99</small></p>
+    <p><a class="btn ghost" href="/libros/chief-ai-officer/" data-track-route="IA Aplicada">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0GYZYK1G7" target="_blank" rel="noopener" data-amazon data-item-id="L22" data-item-name="Chief AI Officer" data-format="kindle">Amazon</a></p>
+  </article><article class="card">
+    <h3>CEO Aumentado</h3>
+    <p>Cómo líderes y profesionales convierten la IA en estrategia, productividad y ventaja competitiva.</p>
+    <p><small>Negocios · Español · USD 9.99</small></p>
+    <p><a class="btn ghost" href="/libros/ceo-aumentado/" data-track-route="IA Aplicada">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0GYTJ466Y" target="_blank" rel="noopener" data-amazon data-item-id="L21" data-item-name="CEO Aumentado" data-format="kindle">Amazon</a></p>
+  </article><article class="card">
+    <h3>The AI Digital Wealth Factory</h3>
+    <p>How to build, automate and monetize digital products with agentic AI.</p>
+    <p><small>IA &amp; Tech · English · USD 9.99</small></p>
+    <p><a class="btn ghost" href="/libros/the-ai-digital-wealth-factory/" data-track-route="IA Aplicada">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0H1MQ27TL" target="_blank" rel="noopener" data-amazon data-item-id="L35" data-item-name="The AI Digital Wealth Factory" data-format="kindle">Amazon</a></p>
+  </article><article class="card">
+    <h3>The AI Growth Operating System</h3>
+    <p>How leaders build agentic workflows, data foundations and new revenue engines.</p>
+    <p><small>IA &amp; Tech · English · USD 9.99</small></p>
+    <p><a class="btn ghost" href="/libros/the-ai-growth-operating-system/" data-track-route="IA Aplicada">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0H2KJ15ZX" target="_blank" rel="noopener" data-amazon data-item-id="L23" data-item-name="The AI Growth Operating System" data-format="kindle">Amazon</a></p>
+  </article></div></section><section class="sales-grid" id="lead"><div class="panel"><h2>Descarga el recurso de esta ruta</h2><p>Te ayuda a decidir por donde empezar y que libro comprar primero.</p></div><div class="panel"><form class="lead-box" method="POST" action="/gracias/" data-netlify="true" name="lead-capture" data-lead-form data-lead-type="free_guide">
+    <input type="hidden" name="form-name" value="lead-capture" />
+    <input type="hidden" name="book" value="" />
+    <label>Nombre<input name="name" required placeholder="Tu nombre" /></label>
+    <label>Email<input type="email" name="email" required placeholder="tu@email.com" /></label>
+    <label>Interes principal<select name="interest"><option>IA Aplicada</option><option>IA Aplicada</option><option>AWS & Cloud</option><option>Mineria 4.0</option><option>Certificaciones</option><option>Liderazgo tecnologico</option></select></label>
+    <button class="btn primary" type="submit">Enviar guia gratis</button>
+  </form></div></section></main><footer class="site"><div class="wrap">© Zone Digital</div></footer>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function zdSource(){ try { var q = new URLSearchParams(location.search); ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){ if(q.get(k)) localStorage.setItem('zd_'+k,q.get(k)); }); return q.get('utm_source') || localStorage.getItem('zd_utm_source') || 'direct'; } catch(e){ return 'direct'; } }
+    function zdTrack(eventName, params){ var payload = Object.assign({source_page: location.pathname, traffic_source: zdSource()}, params || {}); window.dataLayer.push(Object.assign({event:eventName}, payload)); if (typeof gtag === 'function') gtag('event', eventName, payload); if(window.ttq && window.ttq.track){ var m={click_amazon:'ClickButton',generate_lead:'SubmitForm',sign_up:'CompleteRegistration',select_item:'ViewContent'}; if(m[eventName]) ttq.track(m[eventName], payload); } }
+    document.querySelectorAll('[data-track-route]').forEach(function(a){ a.addEventListener('click', function(){ zdTrack('select_route', { route_id:a.dataset.trackRoute, route_name:a.textContent.trim() }); }); });
+    document.querySelectorAll('[data-amazon]').forEach(function(a){ a.addEventListener('click', function(){ zdTrack('click_amazon', { item_id:a.dataset.itemId, item_name:a.dataset.itemName, amazon_marketplace:'amazon.com', format:a.dataset.format || 'kindle', outbound_url:a.href }); }); });
+    document.querySelectorAll('form[data-lead-form]').forEach(function(form){ form.addEventListener('submit', function(){ zdTrack('generate_lead', { lead_type:form.dataset.leadType || 'free_resource', interest:(form.querySelector('[name=interest]')||{}).value || '', book_id:(form.querySelector('[name=book]')||{}).value || '' }); zdTrack('sign_up', { method:'email', interest:(form.querySelector('[name=interest]')||{}).value || '' }); }); });
+    
+  </script>
+</body>
+</html>

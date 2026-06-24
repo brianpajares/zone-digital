@@ -7,9 +7,6 @@
   <meta name="description" content="La guía para ser un emprendedor exitoso, del primer cliente al crecimiento." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <link rel="canonical" href="https://www.zone-digital.com/libros/liderando-start-ups-del-futuro/" />
-  <link rel="alternate" hreflang="es" href="https://www.zone-digital.com/libros/liderando-start-ups-del-futuro/" />
-  <link rel="alternate" hreflang="x-default" href="https://www.zone-digital.com/libros/liderando-start-ups-del-futuro/" />
-
   <meta property="og:site_name" content="Zone Digital" />
   <meta property="og:type" content="book" />
   <meta property="og:title" content="Liderando Start Ups del Futuro" />
@@ -17,18 +14,13 @@
   <meta property="og:url" content="https://www.zone-digital.com/libros/liderando-start-ups-del-futuro/" />
   <meta property="og:image" content="https://images-na.ssl-images-amazon.com/images/P/B08XHDW2P5.01._SCLZZZZZZZ_.jpg" />
   <meta property="og:locale" content="es_ES" />
-  <meta property="book:author" content="Zone Digital" />
-
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Liderando Start Ups del Futuro" />
   <meta name="twitter:description" content="La guía para ser un emprendedor exitoso, del primer cliente al crecimiento." />
   <meta name="twitter:image" content="https://images-na.ssl-images-amazon.com/images/P/B08XHDW2P5.01._SCLZZZZZZZ_.jpg" />
-
   <meta name="theme-color" content="#000918" />
   <link rel="icon" type="image/webp" href="/logo.webp" />
-  <link rel="apple-touch-icon" href="/logo.webp" />
   <link rel="preconnect" href="https://images-na.ssl-images-amazon.com" crossorigin />
-
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -49,13 +41,22 @@
   },
   "bookFormat": "https://schema.org/EBook",
   "genre": "Start Ups",
-  "offers": {
-    "@type": "Offer",
-    "price": "9.99",
-    "priceCurrency": "USD",
-    "availability": "https://schema.org/InStock",
-    "url": "https://www.amazon.com/dp/B08XHDW2P5"
-  }
+  "offers": [
+    {
+      "@type": "Offer",
+      "price": "9.99",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.amazon.com/dp/B08XHDW2P5"
+    },
+    {
+      "@type": "Offer",
+      "price": "16.00",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "url": "https://www.amazon.com/dp/B08XL7ZG3H"
+    }
+  ]
 }
   </script>
   <script type="application/ld+json">
@@ -95,6 +96,7 @@
   .brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:700;letter-spacing:.3px}
   .brand img{display:block;width:40px;height:40px;object-fit:contain}
   .brand .dim{color:var(--dim);font-weight:500}
+  .nav{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
   .nav a{color:var(--dim);text-decoration:none;font-size:14px}
   .nav a:hover{color:var(--ink)}
   nav.crumb{font-size:13px;color:var(--dim);padding:22px 0 0}
@@ -123,48 +125,85 @@
   .card:hover{border-color:var(--gold);transform:translateY(-2px)}
   .card h3{font-size:15px;margin:0 0 6px;color:var(--ink)}
   .card p{font-size:13px;color:var(--dim);margin:0}
+  .sales-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:34px 0}
+  @media(max-width:760px){.sales-grid{grid-template-columns:1fr}}
+  .panel{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:22px}
+  .panel h2{margin:0 0 12px;font-size:20px}
+  .panel p,.panel li{color:#c9cfda}
+  .chapters{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+  .chapters span{display:block;border:1px solid var(--line);border-radius:10px;padding:12px;color:#c9cfda;background:rgba(255,255,255,.03)}
+  .faq{display:grid;gap:10px}
+  .faq details{border:1px solid var(--line);border-radius:10px;padding:14px;background:var(--panel)}
+  .faq summary{cursor:pointer;font-weight:700}
+  .lead-box{display:grid;gap:12px}
+  .lead-box label{display:grid;gap:6px;color:var(--dim);font-size:14px}
+  .lead-box input,.lead-box select{width:100%;border:1px solid var(--line);border-radius:10px;background:#050812;color:var(--ink);padding:13px 14px;font:inherit}
+  .lead-box button{border:0;cursor:pointer;justify-content:center}
+  .final-cta{border:1px solid var(--line);border-radius:14px;background:linear-gradient(135deg,rgba(217,169,60,.12),rgba(37,71,240,.10));padding:28px;margin-top:42px}
+  .final-cta h2{margin:0 0 18px;font-size:24px}
   footer.site{border-top:1px solid var(--line);margin-top:40px;padding:26px 0;color:var(--dim);font-size:13px}
 </style>
 </head>
 <body>
   <header class="site">
     <div class="wrap">
-      <a class="brand" href="/">
-        <img src="/logo.webp" alt="Zone Digital" width="40" height="40" />
-        <span>Zone<span class="dim"> Digital</span></span>
-      </a>
-      <nav class="nav"><a href="/#books">← Volver a la biblioteca</a></nav>
+      <a class="brand" href="/"><img src="/logo.webp" alt="Zone Digital" width="40" height="40" /><span>Zone<span class="dim"> Digital</span></span></a>
+      <nav class="nav"><a href="/#routes">Rutas</a><a href="/gratis/">Gratis</a><a href="/#books">Volver a la biblioteca</a></nav>
     </div>
   </header>
 
   <div class="wrap">
-    <nav class="crumb" aria-label="breadcrumb">
-      <a href="/">Inicio</a> › <a href="/#books">Biblioteca</a> › <span>Liderando Start Ups del Futuro</span>
-    </nav>
+    <nav class="crumb" aria-label="breadcrumb"><a href="/">Inicio</a> › <a href="/#books">Biblioteca</a> › <span>Liderando Start Ups del Futuro</span></nav>
 
     <article class="hero">
-      <div class="cover">
-        <img src="https://images-na.ssl-images-amazon.com/images/P/B08XHDW2P5.01._SCLZZZZZZZ_.jpg" alt="Portada de Liderando Start Ups del Futuro" loading="eager"
-             onerror="this.style.display='none'" />
-      </div>
+      <div class="cover"><img src="https://images-na.ssl-images-amazon.com/images/P/B08XHDW2P5.01._SCLZZZZZZZ_.jpg" alt="Portada de Liderando Start Ups del Futuro" loading="eager" onerror="this.style.display='none'" /></div>
       <div>
-        <div class="badges">
-          <span class="badge cat">Start Ups</span>
-          <span class="badge">Español</span>
-          <span class="badge">eBook · Kindle</span>
-        </div>
+        <div class="badges"><span class="badge cat">Start Ups</span><span class="badge">Español</span><span class="badge">Kindle / Paperback</span></div>
         <h1>Liderando Start Ups del Futuro</h1>
         <p class="sub">La guía para ser un emprendedor exitoso, del primer cliente al crecimiento.</p>
         <p class="price">USD 9.99</p>
         <div class="cta">
-          <a class="btn primary" href="https://www.amazon.com/dp/B08XHDW2P5" rel="noopener" target="_blank">Comprar en Amazon (Kindle)</a>
-          <a class="btn ghost" href="/#books">Volver a la biblioteca</a>
+          <a class="btn primary" href="https://www.amazon.com/dp/B08XHDW2P5" rel="noopener" target="_blank" data-amazon data-format="Kindle" data-url="https://www.amazon.com/dp/B08XHDW2P5">Kindle · USD 9.99</a>
+          <a class="btn primary" href="https://www.amazon.com/dp/B08XL7ZG3H" rel="noopener" target="_blank" data-amazon data-format="Tapa blanda" data-url="https://www.amazon.com/dp/B08XL7ZG3H">Tapa blanda · USD 16.00</a>
+          <a class="btn ghost" href="/gratis/?book=L10">Descargar capitulo gratis</a>
         </div>
       </div>
     </article>
 
+    <section class="sales-grid">
+      <div class="panel">
+        <h2>Este libro es para ti si...</h2>
+        <ul><li>Quieres una guia practica, no solo conceptos.</li><li>Buscas crecer profesionalmente con una ruta clara.</li><li>Necesitas lenguaje simple para decisiones tecnicas.</li><li>Quieres aplicar lo aprendido en proyectos reales.</li><li>Prefieres avanzar con ejemplos y estructura.</li></ul>
+      </div>
+      <div class="panel">
+        <h2>Que lograras</h2>
+        <ul><li>Entender el mapa completo del tema.</li><li>Tomar mejores decisiones profesionales.</li><li>Priorizar que estudiar y que aplicar primero.</li><li>Conectar tecnologia con negocio y ejecucion.</li><li>Salir con una ruta de accion de 30 dias.</li></ul>
+      </div>
+    </section>
+
     <section class="more">
-      <h2>También te puede interesar</h2>
+      <h2>Tabla de contenidos</h2>
+      <div class="chapters"><span>01 · Mapa del problema</span><span>02 · Fundamentos esenciales</span><span>03 · Herramientas y conceptos clave</span><span>04 · Casos de uso profesionales</span><span>05 · Arquitectura o modelo de trabajo</span><span>06 · Errores comunes</span><span>07 · Plan de 30 dias</span><span>08 · Aplicacion en proyectos reales</span><span>09 · Checklist de decision</span><span>10 · Siguientes pasos</span></div>
+    </section>
+
+    <section class="sales-grid">
+      <div class="panel">
+        <h2>Por que es diferente</h2>
+        <p>Esta guia esta pensada para aplicacion profesional: menos teoria suelta, mas criterio, casos, rutas de aprendizaje y decisiones que puedes llevar a tu trabajo o preparacion.</p>
+      </div>
+      <div class="panel">
+        <h2>Rutas relacionadas</h2>
+        <p><a href="/rutas/aws-cloud/">AWS & Cloud</a> · <a href="/rutas/ia/">IA Aplicada</a> · <a href="/rutas/mineria-4-0/">Mineria 4.0</a> · <a href="/gratis/">Recursos gratis</a></p>
+      </div>
+    </section>
+
+    <section class="more">
+      <h2>FAQ</h2>
+      <div class="faq"><details><summary>Esta en Kindle?</summary><p>Si. Cada ficha enlaza al formato Kindle disponible en Amazon cuando existe.</p></details><details><summary>Esta disponible en tapa blanda?</summary><p>Si. Este libro incluye enlace a tapa blanda.</p></details><details><summary>Es para principiantes?</summary><p>Esta escrito para avanzar desde fundamentos hasta aplicacion profesional.</p></details><details><summary>Sirve para certificacion?</summary><p>Puede apoyar tu criterio profesional, aunque no todos los titulos son guias de examen.</p></details><details><summary>Puedo leerlo con Kindle Unlimited?</summary><p>Depende de la disponibilidad actual en Amazon para tu pais y cuenta.</p></details><details><summary>Cuanto tiempo toma aplicarlo?</summary><p>Puedes obtener valor en una semana y convertirlo en plan de 30 dias con los ejercicios sugeridos.</p></details></div>
+    </section>
+
+    <section class="more">
+      <h2>Tambien te puede interesar</h2>
       <div class="grid">
         <a class="card" href="/libros/leading-start-ups-of-the-future/">
           <h3>Leading Start Ups of the Future</h3>
@@ -172,10 +211,21 @@
         </a>
       </div>
     </section>
+
+    <section class="final-cta">
+      <h2>Empieza por este libro y convierte la lectura en accion.</h2>
+      <div class="cta"><a class="btn primary" href="https://www.amazon.com/dp/B08XHDW2P5" rel="noopener" target="_blank" data-amazon data-format="Kindle" data-url="https://www.amazon.com/dp/B08XHDW2P5">Kindle · USD 9.99</a>
+          <a class="btn primary" href="https://www.amazon.com/dp/B08XL7ZG3H" rel="noopener" target="_blank" data-amazon data-format="Tapa blanda" data-url="https://www.amazon.com/dp/B08XL7ZG3H">Tapa blanda · USD 16.00</a><a class="btn ghost" href="/gratis/?book=L10">Descargar capitulo gratis</a></div>
+    </section>
   </div>
 
-  <footer class="site">
-    <div class="wrap">© 2026 Zone Digital · IA · Minería · Cloud · Negocios · Certificaciones · <a href="/">zone-digital.com</a></div>
-  </footer>
+  <footer class="site"><div class="wrap">© 2026 Zone Digital · <a href="/">zone-digital.com</a></div></footer>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function zdSource(){ try { return new URLSearchParams(location.search).get('utm_source') || localStorage.getItem('zd_utm_source') || 'direct'; } catch(e) { return 'direct'; } }
+    function zdTrack(eventName, params){ var payload = Object.assign({source_page: location.pathname, traffic_source: zdSource()}, params || {}); window.dataLayer.push(Object.assign({event:eventName}, payload)); if (typeof gtag === 'function') gtag('event', eventName, payload); if (window.ttq && window.ttq.track) { var m={view_item:'ViewContent',click_amazon:'ClickButton',generate_lead:'SubmitForm'}; if(m[eventName]) ttq.track(m[eventName], payload); } }
+    zdTrack('view_item', { item_id: 'L10', item_name: 'Liderando Start Ups del Futuro', item_category: 'Start Ups', language: 'es', price: 9.99, currency: 'USD', format: 'kindle' });
+    document.querySelectorAll('[data-amazon]').forEach(function(a){ a.addEventListener('click', function(){ zdTrack('click_amazon', { item_id: 'L10', item_name: 'Liderando Start Ups del Futuro', amazon_marketplace:'amazon.com', format: a.dataset.format || 'Kindle', outbound_url: a.dataset.url }); }); });
+  </script>
 </body>
 </html>

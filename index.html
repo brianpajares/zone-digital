@@ -1775,6 +1775,104 @@ const ZD_SCORE = (b) => {
   return s;
 };
 
+const ZD_ROUTES = [
+  {
+    id: 'aws-cloud',
+    icon: 'layers',
+    title: 'AWS & Cloud',
+    desc: 'Certificacion, arquitectura, Google Cloud y Azure para crecer como lider tecnico.',
+    href: '/rutas/aws-cloud/',
+    books: ['L20', 'L03', 'L29', 'L05', 'L18'],
+  },
+  {
+    id: 'ia-aplicada',
+    icon: 'target',
+    title: 'IA Aplicada',
+    desc: 'GenAI, agentes, RAG, MLOps y productos digitales con inteligencia artificial.',
+    href: '/rutas/ia/',
+    books: ['L30', 'L22', 'L21', 'L35', 'L23'],
+  },
+  {
+    id: 'mineria-4-0',
+    icon: 'trending',
+    title: 'Mineria 4.0',
+    desc: 'IoT, operaciones remotas, gemelos digitales, automatizacion y seguridad minera.',
+    href: '/rutas/mineria-4-0/',
+    books: ['L09', 'L12', 'L07', 'L16', 'L31'],
+  },
+];
+
+const ZD_FEATURED_IDS = ['L35', 'L30', 'L05', 'L03', 'L09', 'L12', 'L22', 'L29'];
+const ZD_GET_BOOK = (id) => BOOKS.find((b) => b.id === id);
+const ZD_BOOK_URL = (b) => `/libros/${BOOK_SLUGS[b.asin] || b.asin.toLowerCase()}/`;
+const ZD_FORMAT_KIND = (fmt) => (fmt?.k || 'Kindle').toLowerCase().replace(/\s+/g, '-');
+const ZD_PRICE_NUM = (fmt) => Number(String(fmt?.p || '').replace(/[^\d.]/g, '')) || 9.99;
+
+const ZD_CURRENT_SOURCE = () => {
+  try {
+    const q = new URLSearchParams(window.location.search);
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach((key) => {
+      const value = q.get(key);
+      if (value) localStorage.setItem(`zd_${key}`, value);
+    });
+    return q.get('utm_source') || localStorage.getItem('zd_utm_source') || document.referrer || 'direct';
+  } catch (_) {
+    return 'direct';
+  }
+};
+
+const ZD_ATTRIBUTION_URL = (url, book, fmt, listName = 'library') => {
+  try {
+    const u = new URL(url);
+    const q = new URLSearchParams(window.location.search);
+    const campaign = q.get('utm_campaign') || `zone_${book?.id || 'book'}`;
+    if (!u.searchParams.get('tag')) u.searchParams.set('tag', 'zonedigital-20');
+    u.searchParams.set('utm_source', q.get('utm_source') || 'zone-digital');
+    u.searchParams.set('utm_medium', q.get('utm_medium') || listName);
+    u.searchParams.set('utm_campaign', campaign);
+    u.searchParams.set('utm_content', `${book?.id || 'book'}_${ZD_FORMAT_KIND(fmt)}`);
+    return u.toString();
+  } catch (_) {
+    return url;
+  }
+};
+
+const zdBookPayload = (book, fmt, listName) => ({
+  item_id: book?.id,
+  item_name: book?.title,
+  item_category: CAT_LABEL[book?.cat] || book?.cat,
+  item_list_name: listName,
+  language: book?.lang,
+  format: fmt?.k || 'Kindle',
+  price: ZD_PRICE_NUM(fmt),
+  currency: 'USD',
+  source_page: window.location.pathname,
+  traffic_source: ZD_CURRENT_SOURCE(),
+});
+
+function zdTrack(eventName, params = {}) {
+  const payload = { source_page: window.location.pathname, traffic_source: ZD_CURRENT_SOURCE(), ...params };
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: eventName, ...payload });
+  if (typeof window.gtag === 'function') window.gtag('event', eventName, payload);
+  if (window.ttq?.track) {
+    const map = { view_item: 'ViewContent', select_item: 'ViewContent', click_amazon: 'ClickButton', generate_lead: 'SubmitForm', sign_up: 'CompleteRegistration' };
+    if (map[eventName]) window.ttq.track(map[eventName], payload);
+  }
+}
+
+function zdOpenAmazon(book, fmt, listName = 'library') {
+  if (!book || !fmt) return;
+  const outbound = ZD_ATTRIBUTION_URL(fmt.u, book, fmt, listName);
+  zdTrack('click_amazon', { ...zdBookPayload(book, fmt, listName), amazon_marketplace: 'amazon.com', outbound_url: outbound });
+  window.open(outbound, '_blank', 'noopener,noreferrer');
+}
+
+function zdSelectBook(book, listName = 'library') {
+  if (!book) return;
+  zdTrack('select_item', { ...zdBookPayload(book, book.formats?.[0], listName), item_url: ZD_BOOK_URL(book) });
+}
+
 // Mapa ASIN -> slug de ficha (auto-generado por tools/build-seo.mjs, no editar)
 const BOOK_SLUGS = {
   /* SEO-SLUGS:START */
@@ -1818,7 +1916,7 @@ const BOOK_SLUGS = {
   /* SEO-SLUGS:END */
 };
 
-Object.assign(window, { CATEGORIES, LANGS, COVERS, CAT_LABEL, BOOKS, INTERESTS, COUNTRIES, AMZ, BOOK_SLUGS, ZD_SCORE });
+Object.assign(window, { CATEGORIES, LANGS, COVERS, CAT_LABEL, BOOKS, INTERESTS, COUNTRIES, AMZ, BOOK_SLUGS, ZD_SCORE, ZD_ROUTES, zdTrack, zdOpenAmazon, zdSelectBook });
 
 // components.jsx - átomos compartidos de Zone Digital
 const { useState, useEffect, useRef } = React;
@@ -1976,16 +2074,18 @@ function Header({ onLead, t, lang, setLang }) {
   return (
     <header className={`zd-header ${scrolled ? 'scrolled' : ''}`}>
       <div className="zd-wrap">
-        <a href="#top"><Logo height={30} /></a>
+        <a href="/#top"><Logo height={30} /></a>
         <nav className="zd-nav">
+          <a href="#routes">{t('Rutas', 'Paths')}</a>
+          <a href="/tiktok/">{t('TikTok', 'TikTok')}</a>
+          <a href="/gratis/">{t('Gratis', 'Free')}</a>
           <a href="#books">{t('Libros', 'Books')}</a>
-          <a href="#labs">{t('Cursos & Apps', 'Courses & Apps')}</a>
           <a href="#about">{t('Brian', 'About Brian')}</a>
         </nav>
         <div className="zd-header-cta">
           <LangToggle lang={lang} setLang={setLang} />
-          <Button variant="ghost" size="sm" onClick={() => onLead(null)}>{t('Capítulo gratis', 'Free chapter')}</Button>
-          <Button variant="lime" size="sm" icon="cart" onClick={() => document.getElementById('books').scrollIntoView({ behavior: 'smooth' })}>{t('Ver libros', 'Browse')}</Button>
+          <Button variant="ghost" size="sm" onClick={() => onLead(null)}>{t('Capitulo gratis', 'Free chapter')}</Button>
+          <Button variant="lime" size="sm" icon="target" onClick={() => document.getElementById('routes').scrollIntoView({ behavior: 'smooth' })}>{t('Elegir ruta', 'Choose path')}</Button>
         </div>
       </div>
     </header>
@@ -2000,40 +2100,40 @@ function Hero({ onLead, t }) {
       <div className="zd-hero-grid"></div>
       <div className="zd-wrap zd-hero-inner">
         <div className="zd-hero-badge">
-          <span className="pill">{t(`${BOOKS.length} títulos`, `${BOOKS.length} titles`)}</span>
-          <span>{t('Libros, cursos y apps para el profesional potenciado por IA', 'Books, apps & courses for the AI-powered professional')}</span>
+          <span className="pill">{t(`${BOOKS.length} libros`, `${BOOKS.length} books`)}</span>
+          <span>{t('Rutas practicas para IA, Cloud, Mineria 4.0 y certificaciones', 'Practical paths for AI, Cloud, Mining 4.0 and certifications')}</span>
         </div>
         <h1 className="zd-h1">
-          {t('Convierte conocimiento técnico', 'Turn deep technical know-how')}<br/>
-          {t('en ', 'into a real ')}<span className="zd-serif zd-lime-text">{t('ventaja', 'competitive')}</span> <span className="accent">{t('competitiva.', 'edge.')}</span>
+          {t('Convierte conocimiento tecnico', 'Turn technical know-how')}<br/>
+          {t('en una ', 'into a ')}<span className="zd-serif zd-lime-text">{t('ventaja profesional', 'career advantage')}</span>
         </h1>
         <p className="zd-hero-sub">
           {t(
-            'Zone Digital publica libros, cursos y herramientas sobre inteligencia artificial, minería, negocios y certificaciones. Empieza con un capítulo gratis y avanza a tu ritmo.',
-            'Zone Digital publishes books, courses and tools on artificial intelligence, mining, business and certifications. Start with a free chapter and move at your own pace.'
+            'Libros y rutas practicas sobre IA, Cloud, Mineria 4.0, Negocios Digitales y Certificaciones para profesionales que quieren crecer mas rapido.',
+            'Practical books and learning paths on AI, Cloud, Mining 4.0, Digital Business and Certifications for professionals who want to grow faster.'
           )}
         </p>
         <div className="zd-hero-actions">
-          <Button variant="lime" size="lg" icon="book" onClick={() => document.getElementById('books').scrollIntoView({ behavior: 'smooth' })}>
-            {t('Explorar la biblioteca', 'Explore the library')}
+          <Button variant="lime" size="lg" icon="target" onClick={() => document.getElementById('routes').scrollIntoView({ behavior: 'smooth' })}>
+            {t('Elige tu ruta', 'Choose your path')}
           </Button>
           <Button variant="ghost" size="lg" icon="download" onClick={() => onLead(null)}>
-            {t('Descargar capítulo gratis', 'Get a free chapter')}
+            {t('Descarga un capitulo gratis', 'Get a free chapter')}
           </Button>
         </div>
 
         <div className="zd-hero-metrics">
           <div className="zd-metric">
             <div className="num">{BOOKS.length}</div>
-            <div className="lbl">{t('libros publicados en Amazon y Gumroad', 'books published on Amazon and Gumroad')}</div>
+            <div className="lbl">{t('libros publicados con rutas por objetivo profesional', 'books organized by career goal')}</div>
           </div>
           <div className="zd-metric">
             <div className="num">5</div>
-            <div className="lbl">{t('áreas: minería, IA, negocios, certificación y start ups', 'areas: mining, AI, business, certification and start ups')}</div>
+            <div className="lbl">{t('rutas: AWS, IA, mineria, liderazgo y certificaciones', 'paths: AWS, AI, mining, leadership and certifications')}</div>
           </div>
           <div className="zd-metric">
-            <div className="num cobalt">2</div>
-            <div className="lbl">{t('idiomas para una audiencia global', 'languages for a global audience')}</div>
+            <div className="num cobalt">GA4</div>
+            <div className="lbl">{t('eventos listos para medir leads y clics a Amazon', 'events ready to measure leads and Amazon clicks')}</div>
           </div>
         </div>
       </div>
@@ -2056,6 +2156,81 @@ function Strip({ t }) {
         ))}
       </div>
     </div>
+  );
+}
+
+/* ============ CONVERSION ROUTES ============ */
+function RoutesSection({ onLead, t }) {
+  return (
+    <section className="zd-section zd-routes" id="routes">
+      <div className="zd-wrap">
+        <Reveal>
+          <div className="zd-sec-top">
+            <div className="zd-sec-head">
+              <span className="zd-overline">{t('Elige tu ruta', 'Choose your path')}</span>
+              <h2 className="zd-h2">{t('No empieces por el catalogo. Empieza por tu objetivo.', 'Do not start with the catalog. Start with your goal.')}</h2>
+              <p>{t('Cada ruta ordena los libros por nivel, problema y resultado esperado para llevarte de interes a compra con menos friccion.', 'Each path organizes books by level, problem and expected outcome so visitors move from interest to purchase with less friction.')}</p>
+            </div>
+          </div>
+        </Reveal>
+        <div className="zd-route-grid">
+          {ZD_ROUTES.map((route, i) => {
+            const book = ZD_GET_BOOK(route.books[0]);
+            return (
+              <Reveal key={route.id} delay={(i % 3) * 70}>
+                <article className="zd-route-card">
+                  <div className="zd-route-icon"><Icon name={route.icon} size={20} /></div>
+                  <span className="zd-book-cat">{t('Ruta profesional', 'Career path')}</span>
+                  <h3 className="zd-h3">{route.title}</h3>
+                  <p>{route.desc}</p>
+                  {book && <div className="zd-route-book">{t('Libro recomendado:', 'Recommended book:')} <strong>{book.title}</strong></div>}
+                  <div className="zd-route-actions">
+                    <a className="zd-btn zd-btn-lime zd-btn-sm" href={route.href} onClick={() => zdTrack('select_route', { route_id: route.id, route_name: route.title })}>{t('Ver ruta', 'View path')}</a>
+                    <button className="zd-btn zd-btn-ghost zd-btn-sm" onClick={() => onLead(book || null)}>{t('Capitulo gratis', 'Free chapter')}</button>
+                  </div>
+                </article>
+              </Reveal>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FeaturedBooks({ onLead, t }) {
+  const books = ZD_FEATURED_IDS.map(ZD_GET_BOOK).filter(Boolean);
+  return (
+    <section className="zd-section zd-featured" id="featured">
+      <div className="zd-wrap">
+        <Reveal>
+          <div className="zd-sec-head">
+            <span className="zd-overline">{t('Libros destacados', 'Featured books')}</span>
+            <h2 className="zd-h2">{t('Los 8 mejores puntos de entrada para convertir interes en accion.', 'The 8 strongest entry points to turn interest into action.')}</h2>
+            <p>{t('Priorizados para AWS, arquitectura, IA aplicada y Mineria 4.0: las categorias con mayor intencion de compra.', 'Prioritized for AWS, architecture, applied AI and Mining 4.0: the categories with highest buying intent.')}</p>
+          </div>
+        </Reveal>
+        <div className="zd-featured-grid">
+          {books.map((b, i) => (
+            <Reveal key={b.id} delay={(i % 4) * 60}>
+              <article className="zd-featured-book">
+                <div className="zd-mini-cover"><BookCover book={b} /></div>
+                <div>
+                  <span className="zd-book-cat">{CAT_LABEL[b.cat]} · {b.lang.toUpperCase()}</span>
+                  <h3>{b.title}</h3>
+                  <p>{b.sub}</p>
+                  <div className="zd-inline-actions">
+                    <a href={ZD_BOOK_URL(b)} onClick={() => zdSelectBook(b, 'featured_books')}>{t('Ver ficha', 'View details')}</a>
+                    <button onClick={() => zdOpenAmazon(b, b.formats[0], 'featured_books')}>{t('Amazon', 'Amazon')}</button>
+                    <button onClick={() => onLead(b)}>{t('Gratis', 'Free')}</button>
+                  </div>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -2114,19 +2289,20 @@ function Books({ onLead, t, lang }) {
                   <p className="zd-book-desc">{b.sub}</p>
                   <div className="zd-book-formats">
                     {b.formats.map((f) => (
-                      <a key={f.k} className="zd-fmt" href={f.u} target="_blank" rel="noopener">
+                      <a key={f.k} className="zd-fmt" href={ZD_ATTRIBUTION_URL(f.u, b, f, 'library_grid')} target="_blank" rel="noopener"
+                         onClick={() => zdTrack('click_amazon', { ...zdBookPayload(b, f, 'library_grid'), amazon_marketplace: 'amazon.com', outbound_url: ZD_ATTRIBUTION_URL(f.u, b, f, 'library_grid') })}>
                         {f.k} · <span className="zd-mono">{f.p}</span>
                       </a>
                     ))}
                   </div>
                   <div className="zd-book-actions">
                     <Button variant="light" size="sm" icon="cart" style={{ width: '100%', justifyContent: 'center' }}
-                      onClick={() => window.open(b.formats[0].u, '_blank')}>{t('Comprar en Amazon', 'Buy on Amazon')}</Button>
+                      onClick={() => zdOpenAmazon(b, b.formats[0], 'library_grid')}>{t('Comprar en Amazon', 'Buy on Amazon')}</Button>
                     <Button variant="ghost" size="sm" icon="download" style={{ width: '100%', justifyContent: 'center' }}
                       onClick={() => onLead(b)}>{t('Capítulo gratis', 'Free chapter')}</Button>
                   </div>
                   {BOOK_SLUGS[b.asin] && (
-                    <a className="zd-book-detail" href={`/libros/${BOOK_SLUGS[b.asin]}/`}>
+                    <a className="zd-book-detail" href={`/libros/${BOOK_SLUGS[b.asin]}/`} onClick={() => zdSelectBook(b, 'library_grid')}>
                       {t('Ver ficha del libro', 'View book details')} →
                     </a>
                   )}
@@ -2145,7 +2321,7 @@ function Books({ onLead, t, lang }) {
   );
 }
 
-Object.assign(window, { Header, Hero, Strip, Books, LangToggle });
+Object.assign(window, { Header, Hero, Strip, RoutesSection, FeaturedBooks, Books, LangToggle });
 
 // sections-bottom.jsx - Labs, About, Newsletter CTA, Footer (i18n)
 const { useState: useStateB } = React;
@@ -2277,9 +2453,14 @@ function NewsletterCTA({ t }) {
                     body: new URLSearchParams({
                       'form-name': 'newsletter',
                       email: email,
-                      source: 'newsletter-cta'
+                      source: 'newsletter-cta',
+                      lead_type: 'newsletter',
+                      source_page: window.location.pathname,
+                      utm_source: ZD_CURRENT_SOURCE()
                     }).toString()
                   }).catch(() => {});
+                  zdTrack('generate_lead', { lead_type: 'newsletter', interest: 'newsletter' });
+                  zdTrack('sign_up', { method: 'email', interest: 'newsletter' });
                   setSent(true);
                 }}>
                   <input className="zd-input" type="email" placeholder={t('tu@email.com', 'you@email.com')} value={email} onChange={e => setEmail(e.target.value)} required />
@@ -2374,8 +2555,19 @@ function LeadModal({ book, onClose, t, lang }) {
         interest: form.interest,
         country: form.country,
         book: book ? book.title : (form.bookTitle || ''),
+        lead_type: book ? 'book_chapter' : 'free_chapter',
+        source_page: window.location.pathname,
+        utm_source: ZD_CURRENT_SOURCE(),
       }).toString()
     }).catch(() => {});
+    zdTrack('generate_lead', {
+      lead_type: book ? 'book_chapter' : 'free_chapter',
+      interest: form.interest,
+      country: form.country,
+      book_id: book?.id || '',
+      book_title: book ? book.title : (form.bookTitle || ''),
+    });
+    zdTrack('sign_up', { method: 'email', interest: form.interest });
     setDone(true);
   };
 
@@ -2523,6 +2715,8 @@ function App() {
       <main>
         <Hero onLead={openLead} t={t} />
         <Strip t={t} />
+        <RoutesSection onLead={openLead} t={t} />
+        <FeaturedBooks onLead={openLead} t={t} />
         <Books onLead={openLead} t={t} lang={lang} />
         <Labs t={t} />
         <About t={t} />

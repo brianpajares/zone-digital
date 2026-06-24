@@ -4,20 +4,53 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.zone-digital.com/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.zone-digital.com/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.zone-digital.com/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.zone-digital.com/" />
     <image:image>
       <image:loc>https://www.zone-digital.com/logo.webp</image:loc>
-      <image:title>Zone Digital — Libros, apps y cursos de IA, minería y negocios</image:title>
+      <image:title>Zone Digital - Libros, apps y cursos de IA, mineria y negocios</image:title>
     </image:image>
   </url>
   <url>
+    <loc>https://www.zone-digital.com/tiktok/</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/rutas/aws-cloud/</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/rutas/ia/</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/rutas/mineria-4-0/</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/gratis/</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/gracias/</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://www.zone-digital.com/libros/the-ai-growth-operating-system/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -27,7 +60,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/the-ai-digital-wealth-factory/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -37,7 +70,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/chief-ai-officer/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -47,7 +80,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/master-the-age-of-generative-ai/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -57,7 +90,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/el-ingeniero-de-ia/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -67,7 +100,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/la-ruta-maestra-hacia-la-certificacion-pmp/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -77,7 +110,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/the-master-path-to-pmp-certification/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -87,7 +120,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/cfa-the-certified-path-to-global-financial-success/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -97,7 +130,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/aws-solutions-architect-associate-b0dwtb2v3r/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -107,7 +140,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/el-ingeniero-mlops/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -117,7 +150,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/el-manual-del-arquitecto-cloud/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -127,7 +160,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/cfa-el-camino-certificado-al-exito-financiero-global/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -137,7 +170,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/aws-solutions-architect-associate/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -147,7 +180,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/google-cloud-engineer/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -157,7 +190,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/domina-azure-y-certificate-rapido/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -167,7 +200,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/ceo-aumentado/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -177,7 +210,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/the-digital-twin-mine/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -187,7 +220,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/leading-start-ups-of-the-future/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -197,7 +230,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/domina-la-era-de-la-ia-generativa/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -207,7 +240,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/open-pit-iot-revolution/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -217,7 +250,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/mining-technology-in-action/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -227,7 +260,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/arquitecturas-de-ia-para-mineria/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -237,7 +270,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/solutions-architecture-for-technology-leaders/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -247,7 +280,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/mba-redesigned/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -257,7 +290,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/designing-robots-for-mining/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -267,7 +300,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/mba-redisenado/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -277,7 +310,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/arquitectura-de-soluciones-para-lideres-tecnologicos/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -287,7 +320,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/battery-electric-underground-mining/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -297,7 +330,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/abc-of-the-mining-innovation/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -307,7 +340,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/all-about-digital-transformation-and-mining-4-0/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -317,7 +350,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/from-control-room-to-autonomous-mine/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -327,7 +360,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/the-underground-connected-mine/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -337,7 +370,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/liderando-start-ups-del-futuro/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -347,7 +380,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/tecnologia-minera-en-accion/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -357,7 +390,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/el-abc-de-la-innovacion-minera/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -367,7 +400,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/la-transformacion-digital-y-la-mineria-4-0/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -377,7 +410,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/centro-integrado-de-operaciones-para-mineria/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>

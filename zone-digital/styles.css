@@ -449,24 +449,28 @@ button { font-family: inherit; }
   color: var(--zd-lime); border: 1px solid rgba(216,255,61,0.22); border-radius: var(--radius-full);
   padding: 7px 10px; background: rgba(216,255,61,0.08);
 }
-.zd-route-shelf { min-height: 176px; position: relative; margin: 4px 0 10px; }
+.zd-route-shelf { min-height: 206px; position: relative; margin: 4px 0 10px; }
 .zd-route-shelf::after {
   content:""; position:absolute; left: 9%; right: 9%; bottom: 8px; height: 22px;
   background: radial-gradient(60% 100% at 50% 0%, rgba(0,0,0,0.42), transparent 72%);
 }
 .zd-route-cover {
-  position:absolute; bottom: 16px; width: 34%; max-width: 132px; aspect-ratio: 4 / 5;
+  position:absolute; bottom: 16px; width: 27%; max-width: 112px; aspect-ratio: 4 / 5;
   border-radius: 8px; overflow: hidden; background: var(--ink);
   box-shadow: 0 18px 34px -16px rgba(0,0,0,0.85);
   transition: transform var(--duration-base) var(--ease-out), filter var(--duration-base);
 }
 .zd-route-cover .zd-cover-stage { padding: 16px 14px 0; }
-.zd-route-cover.c1 { left: 4%; transform: rotate(-7deg); z-index: 1; filter: saturate(.85) brightness(.82); }
-.zd-route-cover.c2 { left: 50%; transform: translateX(-50%) translateY(-8px); z-index: 3; width: 38%; filter: saturate(1.05); }
-.zd-route-cover.c3 { right: 4%; transform: rotate(7deg); z-index: 2; filter: saturate(.9) brightness(.9); }
-.zd-route-card:hover .zd-route-cover.c1 { transform: rotate(-9deg) translateY(-3px); }
-.zd-route-card:hover .zd-route-cover.c2 { transform: translateX(-50%) translateY(-14px); }
-.zd-route-card:hover .zd-route-cover.c3 { transform: rotate(9deg) translateY(-3px); }
+.zd-route-cover.c1 { left: 0; bottom: 28px; transform: rotate(-12deg); z-index: 1; filter: saturate(.78) brightness(.76); }
+.zd-route-cover.c2 { left: 18%; bottom: 20px; transform: rotate(-6deg); z-index: 2; filter: saturate(.88) brightness(.86); }
+.zd-route-cover.c3 { left: 50%; bottom: 14px; transform: translateX(-50%) translateY(-10px); z-index: 5; width: 32%; max-width: 128px; filter: saturate(1.08); }
+.zd-route-cover.c4 { right: 18%; bottom: 20px; transform: rotate(6deg); z-index: 2; filter: saturate(.9) brightness(.88); }
+.zd-route-cover.c5 { right: 0; bottom: 28px; transform: rotate(12deg); z-index: 1; filter: saturate(.8) brightness(.78); }
+.zd-route-card:hover .zd-route-cover.c1 { transform: rotate(-14deg) translateY(-3px); }
+.zd-route-card:hover .zd-route-cover.c2 { transform: rotate(-8deg) translateY(-5px); }
+.zd-route-card:hover .zd-route-cover.c3 { transform: translateX(-50%) translateY(-17px); }
+.zd-route-card:hover .zd-route-cover.c4 { transform: rotate(8deg) translateY(-5px); }
+.zd-route-card:hover .zd-route-cover.c5 { transform: rotate(14deg) translateY(-3px); }
 .zd-route-quote {
   margin: 0; padding: 14px; border-radius: var(--radius-md);
   background: rgba(255,255,255,0.045); border: 1px solid var(--zd-line-soft);

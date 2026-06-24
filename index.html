@@ -1788,7 +1788,7 @@ const ZD_ROUTES = [
     freebie: 'Capitulo gratis: checklist de arquitecto cloud',
     outcome: ['Certificacion con foco', 'Arquitectura aplicada', 'Lenguaje ejecutivo'],
     href: '/rutas/aws-cloud/',
-    books: ['L20', 'L03', 'L29', 'L05', 'L18'],
+    books: ['L20', 'L03', 'L29', 'L05', 'L18', 'L36', 'L37'],
   },
   {
     id: 'ia-aplicada',
@@ -1802,7 +1802,7 @@ const ZD_ROUTES = [
     freebie: 'Capitulo gratis: ruta de IA aplicada en 30 dias',
     outcome: ['Prompts y agentes', 'RAG y automatizacion', 'Productos monetizables'],
     href: '/rutas/ia/',
-    books: ['L30', 'L22', 'L21', 'L35', 'L23'],
+    books: ['L30', 'L22', 'L21', 'L35', 'L23', 'L17', 'L28', 'L31', 'L06'],
   },
   {
     id: 'mineria-4-0',
@@ -1816,7 +1816,49 @@ const ZD_ROUTES = [
     freebie: 'Capitulo gratis: mapa de casos Mineria 4.0',
     outcome: ['IoT industrial', 'Operacion remota', 'Gemelos digitales'],
     href: '/rutas/mineria-4-0/',
-    books: ['L09', 'L12', 'L07', 'L16', 'L31'],
+    books: ['L09', 'L12', 'L07', 'L16', 'L31', 'L25', 'L27', 'L24', 'L32', 'L33', 'L34', 'L08', 'L11', 'L26'],
+  },
+  {
+    id: 'certificaciones',
+    icon: 'gauge',
+    title: 'Certificaciones Globales',
+    badge: 'Credencial profesional',
+    quote: 'La disciplina es el puente entre metas y logros.',
+    quoteBy: 'Jim Rohn',
+    desc: 'PMP, CFA, AWS, Google Cloud y Azure para estudiar con foco y demostrar valor.',
+    promise: 'Ordena tu preparacion, gana confianza y convierte una certificacion en oportunidad profesional.',
+    freebie: 'Capitulo gratis: plan de estudio de 21 dias',
+    outcome: ['Plan de estudio', 'Certificacion con estrategia', 'Confianza de examen'],
+    href: '/rutas/certificaciones/',
+    books: ['L01', 'L14', 'L02', 'L15', 'L03', 'L20', 'L36', 'L37'],
+  },
+  {
+    id: 'liderazgo-tech',
+    icon: 'sparkles',
+    title: 'Liderazgo Tech & Negocios',
+    badge: 'Decision ejecutiva',
+    quote: 'La estrategia sin ejecucion es una ilusion.',
+    quoteBy: 'Thomas Edison',
+    desc: 'Arquitectura, MBA, liderazgo con IA y decisiones para dirigir tecnologia con impacto.',
+    promise: 'Aprende a explicar tecnologia, priorizar inversiones y liderar conversaciones de negocio con criterio.',
+    freebie: 'Capitulo gratis: decisiones tech que si importan',
+    outcome: ['Lenguaje ejecutivo', 'Estrategia aplicable', 'Mejores decisiones'],
+    href: '/rutas/liderazgo-tech/',
+    books: ['L21', 'L05', 'L18', 'L04', 'L19', 'L22', 'L35', 'L23'],
+  },
+  {
+    id: 'startups-negocios',
+    icon: 'book',
+    title: 'Startups & Productos Digitales',
+    badge: 'Constructor digital',
+    quote: 'Las ideas valen poco sin ejecucion constante.',
+    quoteBy: 'Zone Digital',
+    desc: 'Startups, productos con IA, crecimiento digital y modelos para convertir conocimiento en oferta.',
+    promise: 'Transforma lectura en una propuesta concreta: producto, servicio, contenido o negocio digital.',
+    freebie: 'Capitulo gratis: de idea a producto vendible',
+    outcome: ['Producto digital', 'Modelo de crecimiento', 'Oferta clara'],
+    href: '/rutas/startups-negocios/',
+    books: ['L10', 'L13', 'L35', 'L23', 'L04', 'L19', 'L06', 'L17'],
   },
 ];
 
@@ -2190,7 +2232,7 @@ function RoutesSection({ onLead, t }) {
               <p>{t('No tienes que adivinar que leer. Elige una ruta, revisa la calidad del contenido y compra el libro correcto cuando sientas que encaja contigo.', 'You do not have to guess what to read. Choose a path, review the quality of the content and buy the right book when it feels aligned with your goal.')}</p>
             </div>
             <div className="zd-route-proof">
-              <span>{t('Capitulos gratis', 'Free chapters')}</span>
+              <span>{t('6 rutas guiadas', '6 guided paths')}</span>
               <strong>{t('Prueba la calidad antes de comprar', 'Preview the quality before you buy')}</strong>
               <small>{t('lee primero, decide con confianza y avanza con una ruta clara', 'read first, decide with confidence and move with a clear path')}</small>
             </div>
@@ -2208,7 +2250,7 @@ function RoutesSection({ onLead, t }) {
                     <span className="zd-route-badge">{route.badge}</span>
                   </div>
                   <div className="zd-route-shelf" aria-label={t('Libros de la ruta', 'Books in this path')}>
-                    {routeBooks.slice(0, 3).map((b, idx) => (
+                    {routeBooks.slice(0, 5).map((b, idx) => (
                       <a key={b.id} className={`zd-route-cover c${idx + 1}`} href={ZD_BOOK_URL(b)} onClick={() => zdSelectBook(b, `route_${route.id}`)}>
                         <BookCover book={b} />
                       </a>

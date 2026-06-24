@@ -112,6 +112,9 @@ const LANDING_PAGES = [
   { path: '/rutas/aws-cloud/', title: 'Ruta AWS & Cloud', priority: '0.9' },
   { path: '/rutas/ia/', title: 'Ruta IA Aplicada', priority: '0.9' },
   { path: '/rutas/mineria-4-0/', title: 'Ruta Mineria 4.0', priority: '0.9' },
+  { path: '/rutas/certificaciones/', title: 'Ruta Certificaciones Globales', priority: '0.9' },
+  { path: '/rutas/liderazgo-tech/', title: 'Ruta Liderazgo Tech & Negocios', priority: '0.9' },
+  { path: '/rutas/startups-negocios/', title: 'Ruta Startups & Productos Digitales', priority: '0.9' },
   ...BUNDLES.map((b) => ({ path: b.path, title: b.title, priority: '0.86' })),
   { path: '/gratis/', title: 'Recursos gratis', priority: '0.85' },
   { path: '/gracias/', title: 'Gracias', priority: '0.4' },
@@ -280,11 +283,13 @@ const PAGE_CSS = `
   .route-hero{display:grid;grid-template-columns:1fr 340px;gap:34px;align-items:center;padding:34px 0 18px}
   @media(max-width:820px){.route-hero{grid-template-columns:1fr}}
   .route-visual{border:1px solid var(--line);border-radius:16px;background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));padding:18px}
-  .book-stack{position:relative;min-height:260px}
-  .book-stack img{position:absolute;bottom:22px;width:36%;max-height:230px;object-fit:contain;background:#050812;border-radius:8px;padding:10px;box-shadow:0 22px 38px -18px rgba(0,0,0,.9)}
-  .book-stack img:nth-child(1){left:3%;transform:rotate(-8deg);filter:saturate(.85) brightness(.86)}
-  .book-stack img:nth-child(2){left:50%;transform:translateX(-50%) translateY(-12px);width:42%;z-index:3}
-  .book-stack img:nth-child(3){right:3%;transform:rotate(8deg);filter:saturate(.9) brightness(.9)}
+  .book-stack{position:relative;min-height:280px}
+  .book-stack img{position:absolute;bottom:22px;width:28%;max-height:230px;object-fit:contain;background:#050812;border-radius:8px;padding:10px;box-shadow:0 22px 38px -18px rgba(0,0,0,.9)}
+  .book-stack img:nth-child(1){left:0;bottom:34px;transform:rotate(-12deg);filter:saturate(.78) brightness(.78);z-index:1}
+  .book-stack img:nth-child(2){left:18%;bottom:26px;transform:rotate(-6deg);filter:saturate(.88) brightness(.86);z-index:2}
+  .book-stack img:nth-child(3){left:50%;bottom:20px;transform:translateX(-50%) translateY(-12px);width:34%;z-index:5}
+  .book-stack img:nth-child(4){right:18%;bottom:26px;transform:rotate(6deg);filter:saturate(.9) brightness(.88);z-index:2}
+  .book-stack img:nth-child(5){right:0;bottom:34px;transform:rotate(12deg);filter:saturate(.8) brightness(.78);z-index:1}
   .quote{border-left:3px solid var(--lime);padding:12px 0 12px 16px;margin:14px 0 0;color:#fff;font-weight:700}
   .quote cite{display:block;margin-top:6px;color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.06em;font-style:normal}
   .route-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:18px}
@@ -687,7 +692,7 @@ function byId(books, ids) {
 }
 
 function routeBookStack(books) {
-  return `<div class="book-stack">${books.slice(0, 3).map((b) => `<img src="${coverUrl(b.asin)}" alt="Portada de ${esc(b.title)}" loading="lazy" />`).join('')}</div>`;
+  return `<div class="book-stack">${books.slice(0, 5).map((b) => `<img src="${coverUrl(b.asin)}" alt="Portada de ${esc(b.title)}" loading="lazy" />`).join('')}</div>`;
 }
 
 function bundleBookImages(bundle, books) {
@@ -790,9 +795,12 @@ function landingBody({ eyebrow, title, description, primary, secondary, cards, f
 
 function buildFunnelPages(books) {
   const routes = [
-    { path: '/rutas/aws-cloud/', title: 'Ruta AWS & Cloud', badge: 'Arquitecto cloud', desc: 'Roadmap de 30 dias para certificar, pensar como arquitecto cloud y crecer como lider tecnico.', promise: 'Pasa de estudiar servicios sueltos a pensar, disenar y defender arquitecturas reales.', quote: 'La mejor forma de predecir el futuro es crearlo.', quoteBy: 'Peter Drucker', freebie: 'Capitulo gratis: checklist de arquitecto cloud', interest: 'AWS & Cloud', ids: ['L20','L03','L29','L05','L18'], steps: ['Fundamentos cloud', 'Certificacion con foco', 'Arquitectura aplicada', 'Casos y decision', 'Compra/lectura guiada'] },
-    { path: '/rutas/ia/', title: 'Ruta IA Aplicada', badge: 'Constructor de IA', desc: 'Aprende GenAI, agentes, RAG, automatizacion y estrategia para convertir IA en ventaja profesional.', promise: 'Convierte curiosidad por IA en criterio, automatizaciones, productos y ventaja profesional.', quote: 'La imaginacion es mas importante que el conocimiento.', quoteBy: 'Albert Einstein', freebie: 'Capitulo gratis: ruta de IA aplicada en 30 dias', interest: 'IA Aplicada', ids: ['L30','L22','L21','L35','L23'], steps: ['Panorama GenAI', 'Prompts y agentes', 'RAG y conocimiento', 'MLOps y produccion', 'Producto monetizable'] },
-    { path: '/rutas/mineria-4-0/', title: 'Ruta Mineria 4.0', badge: 'Mina inteligente', desc: 'Libros para aplicar datos, IoT, IA, seguridad, productividad y operacion remota en mineria.', promise: 'Une tecnologia, operaciones y negocio para explicar y ejecutar transformacion minera.', quote: 'Sin datos, solo eres otra persona con una opinion.', quoteBy: 'W. Edwards Deming', freebie: 'Capitulo gratis: mapa de casos Mineria 4.0', interest: 'Mineria 4.0', ids: ['L09','L12','L07','L16','L31','L08'], steps: ['Datos operacionales', 'IoT industrial', 'Operacion remota', 'Gemelo digital', 'Caso de negocio'] },
+    { path: '/rutas/aws-cloud/', title: 'Ruta AWS & Cloud', badge: 'Arquitecto cloud', desc: 'Roadmap de 30 dias para certificar, pensar como arquitecto cloud y crecer como lider tecnico.', promise: 'Pasa de estudiar servicios sueltos a pensar, disenar y defender arquitecturas reales.', quote: 'La mejor forma de predecir el futuro es crearlo.', quoteBy: 'Peter Drucker', freebie: 'Capitulo gratis: checklist de arquitecto cloud', interest: 'AWS & Cloud', ids: ['L20','L03','L29','L05','L18','L36','L37'], steps: ['Fundamentos cloud', 'Certificacion con foco', 'Arquitectura aplicada', 'Casos y decision', 'Compra/lectura guiada'] },
+    { path: '/rutas/ia/', title: 'Ruta IA Aplicada', badge: 'Constructor de IA', desc: 'Aprende GenAI, agentes, RAG, automatizacion y estrategia para convertir IA en ventaja profesional.', promise: 'Convierte curiosidad por IA en criterio, automatizaciones, productos y ventaja profesional.', quote: 'La imaginacion es mas importante que el conocimiento.', quoteBy: 'Albert Einstein', freebie: 'Capitulo gratis: ruta de IA aplicada en 30 dias', interest: 'IA Aplicada', ids: ['L30','L22','L21','L35','L23','L17','L28','L31','L06'], steps: ['Panorama GenAI', 'Prompts y agentes', 'RAG y conocimiento', 'MLOps y produccion', 'Producto monetizable'] },
+    { path: '/rutas/mineria-4-0/', title: 'Ruta Mineria 4.0', badge: 'Mina inteligente', desc: 'Libros para aplicar datos, IoT, IA, seguridad, productividad y operacion remota en mineria.', promise: 'Une tecnologia, operaciones y negocio para explicar y ejecutar transformacion minera.', quote: 'Sin datos, solo eres otra persona con una opinion.', quoteBy: 'W. Edwards Deming', freebie: 'Capitulo gratis: mapa de casos Mineria 4.0', interest: 'Mineria 4.0', ids: ['L09','L12','L07','L16','L31','L25','L27','L24','L32','L33','L34','L08','L11','L26'], steps: ['Datos operacionales', 'IoT industrial', 'Operacion remota', 'Gemelo digital', 'Caso de negocio'] },
+    { path: '/rutas/certificaciones/', title: 'Ruta Certificaciones Globales', badge: 'Credencial profesional', desc: 'PMP, CFA, AWS, Google Cloud y Azure para estudiar con foco y demostrar valor.', promise: 'Ordena tu preparacion, gana confianza y convierte una certificacion en oportunidad profesional.', quote: 'La disciplina es el puente entre metas y logros.', quoteBy: 'Jim Rohn', freebie: 'Capitulo gratis: plan de estudio de 21 dias', interest: 'Certificaciones', ids: ['L01','L14','L02','L15','L03','L20','L36','L37'], steps: ['Meta clara', 'Plan de estudio', 'Dominios clave', 'Practica guiada', 'Examen con confianza'] },
+    { path: '/rutas/liderazgo-tech/', title: 'Ruta Liderazgo Tech & Negocios', badge: 'Decision ejecutiva', desc: 'Arquitectura, MBA, liderazgo con IA y decisiones para dirigir tecnologia con impacto.', promise: 'Aprende a explicar tecnologia, priorizar inversiones y liderar conversaciones de negocio con criterio.', quote: 'La estrategia sin ejecucion es una ilusion.', quoteBy: 'Thomas Edison', freebie: 'Capitulo gratis: decisiones tech que si importan', interest: 'Negocios', ids: ['L21','L05','L18','L04','L19','L22','L35','L23'], steps: ['Lenguaje ejecutivo', 'Estrategia tech', 'IA para lideres', 'Modelos de negocio', 'Decision y accion'] },
+    { path: '/rutas/startups-negocios/', title: 'Ruta Startups & Productos Digitales', badge: 'Constructor digital', desc: 'Startups, productos con IA, crecimiento digital y modelos para convertir conocimiento en oferta.', promise: 'Transforma lectura en una propuesta concreta: producto, servicio, contenido o negocio digital.', quote: 'Las ideas valen poco sin ejecucion constante.', quoteBy: 'Zone Digital', freebie: 'Capitulo gratis: de idea a producto vendible', interest: 'Start Ups', ids: ['L10','L13','L35','L23','L04','L19','L06','L17'], steps: ['Idea con mercado', 'Oferta clara', 'Producto digital', 'Crecimiento con IA', 'Venta inicial'] },
   ];
 
   const tiktokCards = routes.map(r => routeTeaserCard(r, byId(books, r.ids))).join('');

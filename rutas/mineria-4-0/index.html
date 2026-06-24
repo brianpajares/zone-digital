@@ -60,11 +60,13 @@
   .route-hero{display:grid;grid-template-columns:1fr 340px;gap:34px;align-items:center;padding:34px 0 18px}
   @media(max-width:820px){.route-hero{grid-template-columns:1fr}}
   .route-visual{border:1px solid var(--line);border-radius:16px;background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));padding:18px}
-  .book-stack{position:relative;min-height:260px}
-  .book-stack img{position:absolute;bottom:22px;width:36%;max-height:230px;object-fit:contain;background:#050812;border-radius:8px;padding:10px;box-shadow:0 22px 38px -18px rgba(0,0,0,.9)}
-  .book-stack img:nth-child(1){left:3%;transform:rotate(-8deg);filter:saturate(.85) brightness(.86)}
-  .book-stack img:nth-child(2){left:50%;transform:translateX(-50%) translateY(-12px);width:42%;z-index:3}
-  .book-stack img:nth-child(3){right:3%;transform:rotate(8deg);filter:saturate(.9) brightness(.9)}
+  .book-stack{position:relative;min-height:280px}
+  .book-stack img{position:absolute;bottom:22px;width:28%;max-height:230px;object-fit:contain;background:#050812;border-radius:8px;padding:10px;box-shadow:0 22px 38px -18px rgba(0,0,0,.9)}
+  .book-stack img:nth-child(1){left:0;bottom:34px;transform:rotate(-12deg);filter:saturate(.78) brightness(.78);z-index:1}
+  .book-stack img:nth-child(2){left:18%;bottom:26px;transform:rotate(-6deg);filter:saturate(.88) brightness(.86);z-index:2}
+  .book-stack img:nth-child(3){left:50%;bottom:20px;transform:translateX(-50%) translateY(-12px);width:34%;z-index:5}
+  .book-stack img:nth-child(4){right:18%;bottom:26px;transform:rotate(6deg);filter:saturate(.9) brightness(.88);z-index:2}
+  .book-stack img:nth-child(5){right:0;bottom:34px;transform:rotate(12deg);filter:saturate(.8) brightness(.78);z-index:1}
   .quote{border-left:3px solid var(--lime);padding:12px 0 12px 16px;margin:14px 0 0;color:#fff;font-weight:700}
   .quote cite{display:block;margin-top:6px;color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.06em;font-style:normal}
   .route-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:18px}
@@ -109,7 +111,7 @@
 </head>
 <body>
   <header class="site"><div class="wrap"><a class="brand" href="/"><img src="/logo.webp" alt="Zone Digital" /><span>Zone<span class="dim"> Digital</span></span></a><nav class="nav"><a href="/tiktok/">TikTok</a><a href="/gratis/">Gratis</a><a href="/#books">Biblioteca</a></nav></div></header>
-      <main class="wrap"><section class="route-hero"><div><div class="badges"><span class="badge cat">Mina inteligente</span><span class="badge">30 dias</span><span class="badge">Capitulo gratis</span></div><h1>Ruta Mineria 4.0</h1><p class="sub">Libros para aplicar datos, IoT, IA, seguridad, productividad y operacion remota en mineria.</p><p>Une tecnologia, operaciones y negocio para explicar y ejecutar transformacion minera.</p><blockquote class="quote">"Sin datos, solo eres otra persona con una opinion."<cite>W. Edwards Deming</cite></blockquote><div class="cta"><a class="btn primary" href="#lead">Descargar capitulo gratis</a><a class="btn ghost" href="#books">Ver libros recomendados</a></div></div><div class="route-visual"><div class="book-stack"><img src="https://images-na.ssl-images-amazon.com/images/P/B08XGDJWF6.01._SCLZZZZZZZ_.jpg" alt="Portada de La Transformación Digital y la Minería 4.0" loading="lazy" /><img src="https://images-na.ssl-images-amazon.com/images/P/B08XLMLDQW.01._SCLZZZZZZZ_.jpg" alt="Portada de All About Digital Transformation and Mining 4.0" loading="lazy" /><img src="https://images-na.ssl-images-amazon.com/images/P/B08W8G9J9J.01._SCLZZZZZZZ_.jpg" alt="Portada de El ABC de la Innovación Minera" loading="lazy" /></div><div class="freebie-note"><strong>Capitulo gratis: mapa de casos Mineria 4.0</strong><br/>Lee una muestra, valida el estilo y compra el libro correcto cuando sientas que esta ruta es para ti.</div></div></section><section class="more"><h2>Tu roadmap de lectura</h2><div class="route-steps"><span>Datos operacionales</span><span>IoT industrial</span><span>Operacion remota</span><span>Gemelo digital</span><span>Caso de negocio</span></div></section><section class="more" id="books"><h2>Libros recomendados</h2><div class="grid"><article class="card">
+      <main class="wrap"><section class="route-hero"><div><div class="badges"><span class="badge cat">Mina inteligente</span><span class="badge">30 dias</span><span class="badge">Capitulo gratis</span></div><h1>Ruta Mineria 4.0</h1><p class="sub">Libros para aplicar datos, IoT, IA, seguridad, productividad y operacion remota en mineria.</p><p>Une tecnologia, operaciones y negocio para explicar y ejecutar transformacion minera.</p><blockquote class="quote">"Sin datos, solo eres otra persona con una opinion."<cite>W. Edwards Deming</cite></blockquote><div class="cta"><a class="btn primary" href="#lead">Descargar capitulo gratis</a><a class="btn ghost" href="#books">Ver libros recomendados</a></div></div><div class="route-visual"><div class="book-stack"><img src="https://images-na.ssl-images-amazon.com/images/P/B08XGDJWF6.01._SCLZZZZZZZ_.jpg" alt="Portada de La Transformación Digital y la Minería 4.0" loading="lazy" /><img src="https://images-na.ssl-images-amazon.com/images/P/B08XLMLDQW.01._SCLZZZZZZZ_.jpg" alt="Portada de All About Digital Transformation and Mining 4.0" loading="lazy" /><img src="https://images-na.ssl-images-amazon.com/images/P/B08W8G9J9J.01._SCLZZZZZZZ_.jpg" alt="Portada de El ABC de la Innovación Minera" loading="lazy" /><img src="https://images-na.ssl-images-amazon.com/images/P/B0F3VB8K2N.01._SCLZZZZZZZ_.jpg" alt="Portada de Mining Technology in Action" loading="lazy" /><img src="https://images-na.ssl-images-amazon.com/images/P/B0H486RBQS.01._SCLZZZZZZZ_.jpg" alt="Portada de Arquitecturas de IA para Minería" loading="lazy" /></div><div class="freebie-note"><strong>Capitulo gratis: mapa de casos Mineria 4.0</strong><br/>Lee una muestra, valida el estilo y compra el libro correcto cuando sientas que esta ruta es para ti.</div></div></section><section class="more"><h2>Tu roadmap de lectura</h2><div class="route-steps"><span>Datos operacionales</span><span>IoT industrial</span><span>Operacion remota</span><span>Gemelo digital</span><span>Caso de negocio</span></div></section><section class="more" id="books"><h2>Libros recomendados</h2><div class="grid"><article class="card">
     <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B08XGDJWF6.01._SCLZZZZZZZ_.jpg" alt="Portada de La Transformación Digital y la Minería 4.0" loading="lazy" />
     <h3>La Transformación Digital y la Minería 4.0</h3>
     <p>La guía de todo profesional del futuro para entender la minería conectada.</p>
@@ -145,12 +147,68 @@
     <p><a class="btn ghost" href="/libros/arquitecturas-de-ia-para-mineria/" data-track-route="Mineria 4.0">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0H486RBQS" target="_blank" rel="noopener" data-amazon data-item-id="L31" data-item-name="Arquitecturas de IA para Minería" data-format="kindle">Amazon</a></p>
     <p><a href="/gratis/?book=L31">Capitulo gratis disponible</a></p>
   </article><article class="card">
+    <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B0H381YN82.01._SCLZZZZZZZ_.jpg" alt="Portada de The Digital Twin Mine" loading="lazy" />
+    <h3>The Digital Twin Mine</h3>
+    <p>How AI, real-time data and operational intelligence redefine productivity and safety in mining.</p>
+    <p><small>Minería · English · USD 9.99</small></p>
+    <p><a class="btn ghost" href="/libros/the-digital-twin-mine/" data-track-route="Mineria 4.0">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0H381YN82" target="_blank" rel="noopener" data-amazon data-item-id="L25" data-item-name="The Digital Twin Mine" data-format="kindle">Amazon</a></p>
+    <p><a href="/gratis/?book=L25">Capitulo gratis disponible</a></p>
+  </article><article class="card">
+    <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B0H3CS4K38.01._SCLZZZZZZZ_.jpg" alt="Portada de Open-Pit IoT Revolution" loading="lazy" />
+    <h3>Open-Pit IoT Revolution</h3>
+    <p>How satellites, drones, 5G and edge AI are rewiring the world's largest open-pit mines.</p>
+    <p><small>Minería · English · USD 9.99</small></p>
+    <p><a class="btn ghost" href="/libros/open-pit-iot-revolution/" data-track-route="Mineria 4.0">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0H3CS4K38" target="_blank" rel="noopener" data-amazon data-item-id="L27" data-item-name="Open-Pit IoT Revolution" data-format="kindle">Amazon</a></p>
+    <p><a href="/gratis/?book=L27">Capitulo gratis disponible</a></p>
+  </article><article class="card">
+    <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B0H3891219.01._SCLZZZZZZZ_.jpg" alt="Portada de Designing Robots for Mining" loading="lazy" />
+    <h3>Designing Robots for Mining</h3>
+    <p>The engineering handbook for autonomous drilling, hauling, inspection and underground robotics.</p>
+    <p><small>Minería · English · USD 9.99</small></p>
+    <p><a class="btn ghost" href="/libros/designing-robots-for-mining/" data-track-route="Mineria 4.0">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0H3891219" target="_blank" rel="noopener" data-amazon data-item-id="L24" data-item-name="Designing Robots for Mining" data-format="kindle">Amazon</a></p>
+    <p><a href="/gratis/?book=L24">Capitulo gratis disponible</a></p>
+  </article><article class="card">
+    <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B0GXSXT8BN.01._SCLZZZZZZZ_.jpg" alt="Portada de From Control Room to Autonomous Mine" loading="lazy" />
+    <h3>From Control Room to Autonomous Mine</h3>
+    <p>Building the Integrated Remote Operations Center that runs mines without people.</p>
+    <p><small>Minería · English · USD 9.99</small></p>
+    <p><a class="btn ghost" href="/libros/from-control-room-to-autonomous-mine/" data-track-route="Mineria 4.0">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0GXSXT8BN" target="_blank" rel="noopener" data-amazon data-item-id="L32" data-item-name="From Control Room to Autonomous Mine" data-format="kindle">Amazon</a></p>
+    <p><a href="/gratis/?book=L32">Capitulo gratis disponible</a></p>
+  </article><article class="card">
+    <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B0GX377FKH.01._SCLZZZZZZZ_.jpg" alt="Portada de The Underground Connected Mine" loading="lazy" />
+    <h3>The Underground Connected Mine</h3>
+    <p>Architecting IoT, private 5G networks, and real-time intelligence for the deepest mines on Earth.</p>
+    <p><small>Minería · English · USD 9.99</small></p>
+    <p><a class="btn ghost" href="/libros/the-underground-connected-mine/" data-track-route="Mineria 4.0">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0GX377FKH" target="_blank" rel="noopener" data-amazon data-item-id="L33" data-item-name="The Underground Connected Mine" data-format="kindle">Amazon</a></p>
+    <p><a href="/gratis/?book=L33">Capitulo gratis disponible</a></p>
+  </article><article class="card">
+    <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B0H2SY42BP.01._SCLZZZZZZZ_.jpg" alt="Portada de Centro Integrado de Operaciones para Minería" loading="lazy" />
+    <h3>Centro Integrado de Operaciones para Minería</h3>
+    <p>La revolución silenciosa que está redefiniendo la minería global.</p>
+    <p><small>Minería · Español · USD 9.99</small></p>
+    <p><a class="btn ghost" href="/libros/centro-integrado-de-operaciones-para-mineria/" data-track-route="Mineria 4.0">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0H2SY42BP" target="_blank" rel="noopener" data-amazon data-item-id="L34" data-item-name="Centro Integrado de Operaciones para Minería" data-format="kindle">Amazon</a></p>
+    <p><a href="/gratis/?book=L34">Capitulo gratis disponible</a></p>
+  </article><article class="card">
     <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B0F59MNMN2.01._SCLZZZZZZZ_.jpg" alt="Portada de Tecnología Minera en Acción" loading="lazy" />
     <h3>Tecnología Minera en Acción</h3>
     <p>Instalar, automatizar y sostener soluciones con data e inteligencia artificial.</p>
     <p><small>Minería · Español · USD 9.99</small></p>
     <p><a class="btn ghost" href="/libros/tecnologia-minera-en-accion/" data-track-route="Mineria 4.0">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0F59MNMN2" target="_blank" rel="noopener" data-amazon data-item-id="L08" data-item-name="Tecnología Minera en Acción" data-format="kindle">Amazon</a></p>
     <p><a href="/gratis/?book=L08">Capitulo gratis disponible</a></p>
+  </article><article class="card">
+    <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B08XLMDF6S.01._SCLZZZZZZZ_.jpg" alt="Portada de ABC of the Mining Innovation" loading="lazy" />
+    <h3>ABC of the Mining Innovation</h3>
+    <p>The fundamentals of technological transformation in mining, clearly explained.</p>
+    <p><small>Minería · English · USD 9.99</small></p>
+    <p><a class="btn ghost" href="/libros/abc-of-the-mining-innovation/" data-track-route="Mineria 4.0">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B08XLMDF6S" target="_blank" rel="noopener" data-amazon data-item-id="L11" data-item-name="ABC of the Mining Innovation" data-format="kindle">Amazon</a></p>
+    <p><a href="/gratis/?book=L11">Capitulo gratis disponible</a></p>
+  </article><article class="card">
+    <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B0H3CDGH5F.01._SCLZZZZZZZ_.jpg" alt="Portada de Battery-Electric Underground Mining" loading="lazy" />
+    <h3>Battery-Electric Underground Mining</h3>
+    <p>Engineering the diesel-free mine: powertrains, charging infrastructure and the new economics.</p>
+    <p><small>Minería · English · USD 9.99</small></p>
+    <p><a class="btn ghost" href="/libros/battery-electric-underground-mining/" data-track-route="Mineria 4.0">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0H3CDGH5F" target="_blank" rel="noopener" data-amazon data-item-id="L26" data-item-name="Battery-Electric Underground Mining" data-format="kindle">Amazon</a></p>
+    <p><a href="/gratis/?book=L26">Capitulo gratis disponible</a></p>
   </article></div></section><section class="sales-grid" id="lead"><div class="panel"><h2>Prueba la ruta antes de comprar</h2><p>El capitulo gratis te muestra el nivel, el estilo y la utilidad practica del contenido para decidir con confianza.</p></div><div class="panel"><form class="lead-box" method="POST" action="/gracias/" data-netlify="true" name="lead-capture" data-lead-form data-lead-type="free_guide">
     <input type="hidden" name="form-name" value="lead-capture" />
     <input type="hidden" name="book" value="" />

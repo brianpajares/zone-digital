@@ -60,11 +60,13 @@
   .route-hero{display:grid;grid-template-columns:1fr 340px;gap:34px;align-items:center;padding:34px 0 18px}
   @media(max-width:820px){.route-hero{grid-template-columns:1fr}}
   .route-visual{border:1px solid var(--line);border-radius:16px;background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));padding:18px}
-  .book-stack{position:relative;min-height:260px}
-  .book-stack img{position:absolute;bottom:22px;width:36%;max-height:230px;object-fit:contain;background:#050812;border-radius:8px;padding:10px;box-shadow:0 22px 38px -18px rgba(0,0,0,.9)}
-  .book-stack img:nth-child(1){left:3%;transform:rotate(-8deg);filter:saturate(.85) brightness(.86)}
-  .book-stack img:nth-child(2){left:50%;transform:translateX(-50%) translateY(-12px);width:42%;z-index:3}
-  .book-stack img:nth-child(3){right:3%;transform:rotate(8deg);filter:saturate(.9) brightness(.9)}
+  .book-stack{position:relative;min-height:280px}
+  .book-stack img{position:absolute;bottom:22px;width:28%;max-height:230px;object-fit:contain;background:#050812;border-radius:8px;padding:10px;box-shadow:0 22px 38px -18px rgba(0,0,0,.9)}
+  .book-stack img:nth-child(1){left:0;bottom:34px;transform:rotate(-12deg);filter:saturate(.78) brightness(.78);z-index:1}
+  .book-stack img:nth-child(2){left:18%;bottom:26px;transform:rotate(-6deg);filter:saturate(.88) brightness(.86);z-index:2}
+  .book-stack img:nth-child(3){left:50%;bottom:20px;transform:translateX(-50%) translateY(-12px);width:34%;z-index:5}
+  .book-stack img:nth-child(4){right:18%;bottom:26px;transform:rotate(6deg);filter:saturate(.9) brightness(.88);z-index:2}
+  .book-stack img:nth-child(5){right:0;bottom:34px;transform:rotate(12deg);filter:saturate(.8) brightness(.78);z-index:1}
   .quote{border-left:3px solid var(--lime);padding:12px 0 12px 16px;margin:14px 0 0;color:#fff;font-weight:700}
   .quote cite{display:block;margin-top:6px;color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.06em;font-style:normal}
   .route-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:18px}
@@ -109,7 +111,7 @@
 </head>
 <body>
   <header class="site"><div class="wrap"><a class="brand" href="/"><img src="/logo.webp" alt="Zone Digital" /><span>Zone<span class="dim"> Digital</span></span></a><nav class="nav"><a href="/tiktok/">TikTok</a><a href="/gratis/">Gratis</a><a href="/#books">Biblioteca</a></nav></div></header>
-      <main class="wrap"><section class="route-hero"><div><div class="badges"><span class="badge cat">Arquitecto cloud</span><span class="badge">30 dias</span><span class="badge">Capitulo gratis</span></div><h1>Ruta AWS &amp; Cloud</h1><p class="sub">Roadmap de 30 dias para certificar, pensar como arquitecto cloud y crecer como lider tecnico.</p><p>Pasa de estudiar servicios sueltos a pensar, disenar y defender arquitecturas reales.</p><blockquote class="quote">"La mejor forma de predecir el futuro es crearlo."<cite>Peter Drucker</cite></blockquote><div class="cta"><a class="btn primary" href="#lead">Descargar capitulo gratis</a><a class="btn ghost" href="#books">Ver libros recomendados</a></div></div><div class="route-visual"><div class="book-stack"><img src="https://images-na.ssl-images-amazon.com/images/P/B0DWTB2V3R.01._SCLZZZZZZZ_.jpg" alt="Portada de AWS Solutions Architect Associate" loading="lazy" /><img src="https://images-na.ssl-images-amazon.com/images/P/B0DWT8XXXD.01._SCLZZZZZZZ_.jpg" alt="Portada de AWS Solutions Architect Associate" loading="lazy" /><img src="https://images-na.ssl-images-amazon.com/images/P/B0H47SNCWQ.01._SCLZZZZZZZ_.jpg" alt="Portada de El Manual del Arquitecto Cloud" loading="lazy" /></div><div class="freebie-note"><strong>Capitulo gratis: checklist de arquitecto cloud</strong><br/>Lee una muestra, valida el estilo y compra el libro correcto cuando sientas que esta ruta es para ti.</div></div></section><section class="more"><h2>Tu roadmap de lectura</h2><div class="route-steps"><span>Fundamentos cloud</span><span>Certificacion con foco</span><span>Arquitectura aplicada</span><span>Casos y decision</span><span>Compra/lectura guiada</span></div></section><section class="more" id="books"><h2>Libros recomendados</h2><div class="grid"><article class="card">
+      <main class="wrap"><section class="route-hero"><div><div class="badges"><span class="badge cat">Arquitecto cloud</span><span class="badge">30 dias</span><span class="badge">Capitulo gratis</span></div><h1>Ruta AWS &amp; Cloud</h1><p class="sub">Roadmap de 30 dias para certificar, pensar como arquitecto cloud y crecer como lider tecnico.</p><p>Pasa de estudiar servicios sueltos a pensar, disenar y defender arquitecturas reales.</p><blockquote class="quote">"La mejor forma de predecir el futuro es crearlo."<cite>Peter Drucker</cite></blockquote><div class="cta"><a class="btn primary" href="#lead">Descargar capitulo gratis</a><a class="btn ghost" href="#books">Ver libros recomendados</a></div></div><div class="route-visual"><div class="book-stack"><img src="https://images-na.ssl-images-amazon.com/images/P/B0DWTB2V3R.01._SCLZZZZZZZ_.jpg" alt="Portada de AWS Solutions Architect Associate" loading="lazy" /><img src="https://images-na.ssl-images-amazon.com/images/P/B0DWT8XXXD.01._SCLZZZZZZZ_.jpg" alt="Portada de AWS Solutions Architect Associate" loading="lazy" /><img src="https://images-na.ssl-images-amazon.com/images/P/B0H47SNCWQ.01._SCLZZZZZZZ_.jpg" alt="Portada de El Manual del Arquitecto Cloud" loading="lazy" /><img src="https://images-na.ssl-images-amazon.com/images/P/B0F5NWGYNY.01._SCLZZZZZZZ_.jpg" alt="Portada de Arquitectura de Soluciones para Líderes Tecnológicos" loading="lazy" /><img src="https://images-na.ssl-images-amazon.com/images/P/B0F5QKYCJV.01._SCLZZZZZZZ_.jpg" alt="Portada de Solutions Architecture for Technology Leaders" loading="lazy" /></div><div class="freebie-note"><strong>Capitulo gratis: checklist de arquitecto cloud</strong><br/>Lee una muestra, valida el estilo y compra el libro correcto cuando sientas que esta ruta es para ti.</div></div></section><section class="more"><h2>Tu roadmap de lectura</h2><div class="route-steps"><span>Fundamentos cloud</span><span>Certificacion con foco</span><span>Arquitectura aplicada</span><span>Casos y decision</span><span>Compra/lectura guiada</span></div></section><section class="more" id="books"><h2>Libros recomendados</h2><div class="grid"><article class="card">
     <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B0DWTB2V3R.01._SCLZZZZZZZ_.jpg" alt="Portada de AWS Solutions Architect Associate" loading="lazy" />
     <h3>AWS Solutions Architect Associate</h3>
     <p>Get certified and transform your career in the cloud.</p>
@@ -144,6 +146,20 @@
     <p><small>Negocios · English · USD 9.99</small></p>
     <p><a class="btn ghost" href="/libros/solutions-architecture-for-technology-leaders/" data-track-route="AWS & Cloud">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0F5QKYCJV" target="_blank" rel="noopener" data-amazon data-item-id="L18" data-item-name="Solutions Architecture for Technology Leaders" data-format="kindle">Amazon</a></p>
     <p><a href="/gratis/?book=L18">Capitulo gratis disponible</a></p>
+  </article><article class="card">
+    <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B0H4HPWHMG.01._SCLZZZZZZZ_.jpg" alt="Portada de Google Cloud Engineer" loading="lazy" />
+    <h3>Google Cloud Engineer</h3>
+    <p>Guía completa para aprobar la certificación Associate Cloud Engineer (ACE).</p>
+    <p><small>Certificación · Español · USD 9.99</small></p>
+    <p><a class="btn ghost" href="/libros/google-cloud-engineer/" data-track-route="AWS & Cloud">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0H4HPWHMG" target="_blank" rel="noopener" data-amazon data-item-id="L36" data-item-name="Google Cloud Engineer" data-format="kindle">Amazon</a></p>
+    <p><a href="/gratis/?book=L36">Capitulo gratis disponible</a></p>
+  </article><article class="card">
+    <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B0H4HS7VKJ.01._SCLZZZZZZZ_.jpg" alt="Portada de Domina Azure y Certifícate Rápido" loading="lazy" />
+    <h3>Domina Azure y Certifícate Rápido</h3>
+    <p>La guía total para aprobar el examen AZ-104 y liderar en la nube de Microsoft.</p>
+    <p><small>Certificación · Español · USD 9.99</small></p>
+    <p><a class="btn ghost" href="/libros/domina-azure-y-certificate-rapido/" data-track-route="AWS & Cloud">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0H4HS7VKJ" target="_blank" rel="noopener" data-amazon data-item-id="L37" data-item-name="Domina Azure y Certifícate Rápido" data-format="kindle">Amazon</a></p>
+    <p><a href="/gratis/?book=L37">Capitulo gratis disponible</a></p>
   </article></div></section><section class="sales-grid" id="lead"><div class="panel"><h2>Prueba la ruta antes de comprar</h2><p>El capitulo gratis te muestra el nivel, el estilo y la utilidad practica del contenido para decidir con confianza.</p></div><div class="panel"><form class="lead-box" method="POST" action="/gracias/" data-netlify="true" name="lead-capture" data-lead-form data-lead-type="free_guide">
     <input type="hidden" name="form-name" value="lead-capture" />
     <input type="hidden" name="book" value="" />

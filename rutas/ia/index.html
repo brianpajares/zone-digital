@@ -60,11 +60,13 @@
   .route-hero{display:grid;grid-template-columns:1fr 340px;gap:34px;align-items:center;padding:34px 0 18px}
   @media(max-width:820px){.route-hero{grid-template-columns:1fr}}
   .route-visual{border:1px solid var(--line);border-radius:16px;background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));padding:18px}
-  .book-stack{position:relative;min-height:260px}
-  .book-stack img{position:absolute;bottom:22px;width:36%;max-height:230px;object-fit:contain;background:#050812;border-radius:8px;padding:10px;box-shadow:0 22px 38px -18px rgba(0,0,0,.9)}
-  .book-stack img:nth-child(1){left:3%;transform:rotate(-8deg);filter:saturate(.85) brightness(.86)}
-  .book-stack img:nth-child(2){left:50%;transform:translateX(-50%) translateY(-12px);width:42%;z-index:3}
-  .book-stack img:nth-child(3){right:3%;transform:rotate(8deg);filter:saturate(.9) brightness(.9)}
+  .book-stack{position:relative;min-height:280px}
+  .book-stack img{position:absolute;bottom:22px;width:28%;max-height:230px;object-fit:contain;background:#050812;border-radius:8px;padding:10px;box-shadow:0 22px 38px -18px rgba(0,0,0,.9)}
+  .book-stack img:nth-child(1){left:0;bottom:34px;transform:rotate(-12deg);filter:saturate(.78) brightness(.78);z-index:1}
+  .book-stack img:nth-child(2){left:18%;bottom:26px;transform:rotate(-6deg);filter:saturate(.88) brightness(.86);z-index:2}
+  .book-stack img:nth-child(3){left:50%;bottom:20px;transform:translateX(-50%) translateY(-12px);width:34%;z-index:5}
+  .book-stack img:nth-child(4){right:18%;bottom:26px;transform:rotate(6deg);filter:saturate(.9) brightness(.88);z-index:2}
+  .book-stack img:nth-child(5){right:0;bottom:34px;transform:rotate(12deg);filter:saturate(.8) brightness(.78);z-index:1}
   .quote{border-left:3px solid var(--lime);padding:12px 0 12px 16px;margin:14px 0 0;color:#fff;font-weight:700}
   .quote cite{display:block;margin-top:6px;color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.06em;font-style:normal}
   .route-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:18px}
@@ -109,7 +111,7 @@
 </head>
 <body>
   <header class="site"><div class="wrap"><a class="brand" href="/"><img src="/logo.webp" alt="Zone Digital" /><span>Zone<span class="dim"> Digital</span></span></a><nav class="nav"><a href="/tiktok/">TikTok</a><a href="/gratis/">Gratis</a><a href="/#books">Biblioteca</a></nav></div></header>
-      <main class="wrap"><section class="route-hero"><div><div class="badges"><span class="badge cat">Constructor de IA</span><span class="badge">30 dias</span><span class="badge">Capitulo gratis</span></div><h1>Ruta IA Aplicada</h1><p class="sub">Aprende GenAI, agentes, RAG, automatizacion y estrategia para convertir IA en ventaja profesional.</p><p>Convierte curiosidad por IA en criterio, automatizaciones, productos y ventaja profesional.</p><blockquote class="quote">"La imaginacion es mas importante que el conocimiento."<cite>Albert Einstein</cite></blockquote><div class="cta"><a class="btn primary" href="#lead">Descargar capitulo gratis</a><a class="btn ghost" href="#books">Ver libros recomendados</a></div></div><div class="route-visual"><div class="book-stack"><img src="https://images-na.ssl-images-amazon.com/images/P/B0H47SQ4SK.01._SCLZZZZZZZ_.jpg" alt="Portada de El Ingeniero de IA" loading="lazy" /><img src="https://images-na.ssl-images-amazon.com/images/P/B0GYZYK1G7.01._SCLZZZZZZZ_.jpg" alt="Portada de Chief AI Officer" loading="lazy" /><img src="https://images-na.ssl-images-amazon.com/images/P/B0GYTJ466Y.01._SCLZZZZZZZ_.jpg" alt="Portada de CEO Aumentado" loading="lazy" /></div><div class="freebie-note"><strong>Capitulo gratis: ruta de IA aplicada en 30 dias</strong><br/>Lee una muestra, valida el estilo y compra el libro correcto cuando sientas que esta ruta es para ti.</div></div></section><section class="more"><h2>Tu roadmap de lectura</h2><div class="route-steps"><span>Panorama GenAI</span><span>Prompts y agentes</span><span>RAG y conocimiento</span><span>MLOps y produccion</span><span>Producto monetizable</span></div></section><section class="more" id="books"><h2>Libros recomendados</h2><div class="grid"><article class="card">
+      <main class="wrap"><section class="route-hero"><div><div class="badges"><span class="badge cat">Constructor de IA</span><span class="badge">30 dias</span><span class="badge">Capitulo gratis</span></div><h1>Ruta IA Aplicada</h1><p class="sub">Aprende GenAI, agentes, RAG, automatizacion y estrategia para convertir IA en ventaja profesional.</p><p>Convierte curiosidad por IA en criterio, automatizaciones, productos y ventaja profesional.</p><blockquote class="quote">"La imaginacion es mas importante que el conocimiento."<cite>Albert Einstein</cite></blockquote><div class="cta"><a class="btn primary" href="#lead">Descargar capitulo gratis</a><a class="btn ghost" href="#books">Ver libros recomendados</a></div></div><div class="route-visual"><div class="book-stack"><img src="https://images-na.ssl-images-amazon.com/images/P/B0H47SQ4SK.01._SCLZZZZZZZ_.jpg" alt="Portada de El Ingeniero de IA" loading="lazy" /><img src="https://images-na.ssl-images-amazon.com/images/P/B0GYZYK1G7.01._SCLZZZZZZZ_.jpg" alt="Portada de Chief AI Officer" loading="lazy" /><img src="https://images-na.ssl-images-amazon.com/images/P/B0GYTJ466Y.01._SCLZZZZZZZ_.jpg" alt="Portada de CEO Aumentado" loading="lazy" /><img src="https://images-na.ssl-images-amazon.com/images/P/B0H1MQ27TL.01._SCLZZZZZZZ_.jpg" alt="Portada de The AI Digital Wealth Factory" loading="lazy" /><img src="https://images-na.ssl-images-amazon.com/images/P/B0H2KJ15ZX.01._SCLZZZZZZZ_.jpg" alt="Portada de The AI Growth Operating System" loading="lazy" /></div><div class="freebie-note"><strong>Capitulo gratis: ruta de IA aplicada en 30 dias</strong><br/>Lee una muestra, valida el estilo y compra el libro correcto cuando sientas que esta ruta es para ti.</div></div></section><section class="more"><h2>Tu roadmap de lectura</h2><div class="route-steps"><span>Panorama GenAI</span><span>Prompts y agentes</span><span>RAG y conocimiento</span><span>MLOps y produccion</span><span>Producto monetizable</span></div></section><section class="more" id="books"><h2>Libros recomendados</h2><div class="grid"><article class="card">
     <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B0H47SQ4SK.01._SCLZZZZZZZ_.jpg" alt="Portada de El Ingeniero de IA" loading="lazy" />
     <h3>El Ingeniero de IA</h3>
     <p>Construye aplicaciones GenAI de producción con LLMs, RAG y agentes.</p>
@@ -144,6 +146,34 @@
     <p><small>IA &amp; Tech · English · USD 9.99</small></p>
     <p><a class="btn ghost" href="/libros/the-ai-growth-operating-system/" data-track-route="IA Aplicada">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0H2KJ15ZX" target="_blank" rel="noopener" data-amazon data-item-id="L23" data-item-name="The AI Growth Operating System" data-format="kindle">Amazon</a></p>
     <p><a href="/gratis/?book=L23">Capitulo gratis disponible</a></p>
+  </article><article class="card">
+    <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B0F5NTJ55Q.01._SCLZZZZZZZ_.jpg" alt="Portada de Master the Age of Generative AI" loading="lazy" />
+    <h3>Master the Age of Generative AI</h3>
+    <p>The ultimate guide for data scientists of the future.</p>
+    <p><small>IA &amp; Tech · English · USD 9.99</small></p>
+    <p><a class="btn ghost" href="/libros/master-the-age-of-generative-ai/" data-track-route="IA Aplicada">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0F5NTJ55Q" target="_blank" rel="noopener" data-amazon data-item-id="L17" data-item-name="Master the Age of Generative AI" data-format="kindle">Amazon</a></p>
+    <p><a href="/gratis/?book=L17">Capitulo gratis disponible</a></p>
+  </article><article class="card">
+    <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B0H482Q8VW.01._SCLZZZZZZZ_.jpg" alt="Portada de El Ingeniero MLOps" loading="lazy" />
+    <h3>El Ingeniero MLOps</h3>
+    <p>Cómo llevar Machine Learning a producción con sistemas confiables, seguros, escalables y rentables.</p>
+    <p><small>IA &amp; Tech · Español · USD 9.99</small></p>
+    <p><a class="btn ghost" href="/libros/el-ingeniero-mlops/" data-track-route="IA Aplicada">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0H482Q8VW" target="_blank" rel="noopener" data-amazon data-item-id="L28" data-item-name="El Ingeniero MLOps" data-format="kindle">Amazon</a></p>
+    <p><a href="/gratis/?book=L28">Capitulo gratis disponible</a></p>
+  </article><article class="card">
+    <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B0H486RBQS.01._SCLZZZZZZZ_.jpg" alt="Portada de Arquitecturas de IA para Minería" loading="lazy" />
+    <h3>Arquitecturas de IA para Minería</h3>
+    <p>De datos de flota a operaciones mineras más seguras, inteligentes, productivas y sostenibles.</p>
+    <p><small>Minería · Español · USD 9.99</small></p>
+    <p><a class="btn ghost" href="/libros/arquitecturas-de-ia-para-mineria/" data-track-route="IA Aplicada">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0H486RBQS" target="_blank" rel="noopener" data-amazon data-item-id="L31" data-item-name="Arquitecturas de IA para Minería" data-format="kindle">Amazon</a></p>
+    <p><a href="/gratis/?book=L31">Capitulo gratis disponible</a></p>
+  </article><article class="card">
+    <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B0F5NV8NY5.01._SCLZZZZZZZ_.jpg" alt="Portada de Domina la Era de la IA Generativa" loading="lazy" />
+    <h3>Domina la Era de la IA Generativa</h3>
+    <p>La guía definitiva para data scientists del futuro. De la curiosidad al dominio.</p>
+    <p><small>Negocios · Español · USD 9.99</small></p>
+    <p><a class="btn ghost" href="/libros/domina-la-era-de-la-ia-generativa/" data-track-route="IA Aplicada">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/-/es/Brian-Pajares-ebook/dp/B0F5NV8NY5" target="_blank" rel="noopener" data-amazon data-item-id="L06" data-item-name="Domina la Era de la IA Generativa" data-format="kindle">Amazon</a></p>
+    <p><a href="/gratis/?book=L06">Capitulo gratis disponible</a></p>
   </article></div></section><section class="sales-grid" id="lead"><div class="panel"><h2>Prueba la ruta antes de comprar</h2><p>El capitulo gratis te muestra el nivel, el estilo y la utilidad practica del contenido para decidir con confianza.</p></div><div class="panel"><form class="lead-box" method="POST" action="/gracias/" data-netlify="true" name="lead-capture" data-lead-form data-lead-type="free_guide">
     <input type="hidden" name="form-name" value="lead-capture" />
     <input type="hidden" name="book" value="" />

@@ -60,11 +60,13 @@
   .route-hero{display:grid;grid-template-columns:1fr 340px;gap:34px;align-items:center;padding:34px 0 18px}
   @media(max-width:820px){.route-hero{grid-template-columns:1fr}}
   .route-visual{border:1px solid var(--line);border-radius:16px;background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));padding:18px}
-  .book-stack{position:relative;min-height:260px}
-  .book-stack img{position:absolute;bottom:22px;width:36%;max-height:230px;object-fit:contain;background:#050812;border-radius:8px;padding:10px;box-shadow:0 22px 38px -18px rgba(0,0,0,.9)}
-  .book-stack img:nth-child(1){left:3%;transform:rotate(-8deg);filter:saturate(.85) brightness(.86)}
-  .book-stack img:nth-child(2){left:50%;transform:translateX(-50%) translateY(-12px);width:42%;z-index:3}
-  .book-stack img:nth-child(3){right:3%;transform:rotate(8deg);filter:saturate(.9) brightness(.9)}
+  .book-stack{position:relative;min-height:280px}
+  .book-stack img{position:absolute;bottom:22px;width:28%;max-height:230px;object-fit:contain;background:#050812;border-radius:8px;padding:10px;box-shadow:0 22px 38px -18px rgba(0,0,0,.9)}
+  .book-stack img:nth-child(1){left:0;bottom:34px;transform:rotate(-12deg);filter:saturate(.78) brightness(.78);z-index:1}
+  .book-stack img:nth-child(2){left:18%;bottom:26px;transform:rotate(-6deg);filter:saturate(.88) brightness(.86);z-index:2}
+  .book-stack img:nth-child(3){left:50%;bottom:20px;transform:translateX(-50%) translateY(-12px);width:34%;z-index:5}
+  .book-stack img:nth-child(4){right:18%;bottom:26px;transform:rotate(6deg);filter:saturate(.9) brightness(.88);z-index:2}
+  .book-stack img:nth-child(5){right:0;bottom:34px;transform:rotate(12deg);filter:saturate(.8) brightness(.78);z-index:1}
   .quote{border-left:3px solid var(--lime);padding:12px 0 12px 16px;margin:14px 0 0;color:#fff;font-weight:700}
   .quote cite{display:block;margin-top:6px;color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.06em;font-style:normal}
   .route-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:18px}
@@ -140,6 +142,27 @@
     <p>Libros para aplicar datos, IoT, IA, seguridad, productividad y operacion remota en mineria.</p>
     <p class="quote">"Sin datos, solo eres otra persona con una opinion."<cite>W. Edwards Deming</cite></p>
     <p><a class="btn primary" href="/rutas/mineria-4-0/" data-track-route="Mineria 4.0">Ver ruta</a></p>
+  </article><article class="card">
+    <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B0DWPB9MML.01._SCLZZZZZZZ_.jpg" alt="Portada de La Ruta Maestra hacia la Certificación PMP" loading="lazy" />
+    <p><small>Credencial profesional &middot; Capitulo gratis</small></p>
+    <h3>Ruta Certificaciones Globales</h3>
+    <p>PMP, CFA, AWS, Google Cloud y Azure para estudiar con foco y demostrar valor.</p>
+    <p class="quote">"La disciplina es el puente entre metas y logros."<cite>Jim Rohn</cite></p>
+    <p><a class="btn primary" href="/rutas/certificaciones/" data-track-route="Certificaciones">Ver ruta</a></p>
+  </article><article class="card">
+    <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B0GYTJ466Y.01._SCLZZZZZZZ_.jpg" alt="Portada de CEO Aumentado" loading="lazy" />
+    <p><small>Decision ejecutiva &middot; Capitulo gratis</small></p>
+    <h3>Ruta Liderazgo Tech &amp; Negocios</h3>
+    <p>Arquitectura, MBA, liderazgo con IA y decisiones para dirigir tecnologia con impacto.</p>
+    <p class="quote">"La estrategia sin ejecucion es una ilusion."<cite>Thomas Edison</cite></p>
+    <p><a class="btn primary" href="/rutas/liderazgo-tech/" data-track-route="Negocios">Ver ruta</a></p>
+  </article><article class="card">
+    <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B08XHDW2P5.01._SCLZZZZZZZ_.jpg" alt="Portada de Liderando Start Ups del Futuro" loading="lazy" />
+    <p><small>Constructor digital &middot; Capitulo gratis</small></p>
+    <h3>Ruta Startups &amp; Productos Digitales</h3>
+    <p>Startups, productos con IA, crecimiento digital y modelos para convertir conocimiento en oferta.</p>
+    <p class="quote">"Las ideas valen poco sin ejecucion constante."<cite>Zone Digital</cite></p>
+    <p><a class="btn primary" href="/rutas/startups-negocios/" data-track-route="Start Ups">Ver ruta</a></p>
   </article></div></section>
     <section class="sales-grid" id="lead"><div class="panel"><h2>Recibe tu primer capitulo gratis</h2><p>Lee una muestra concreta, valida el estilo y decide cual libro comprar primero segun tu objetivo.</p></div><div class="panel"><form class="lead-box" method="POST" action="/gracias/" data-netlify="true" name="lead-capture" data-lead-form data-lead-type="free_guide">
     <input type="hidden" name="form-name" value="lead-capture" />

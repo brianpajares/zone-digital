@@ -1,8 +1,10 @@
 name: Deploy to Netlify
 
+# Netlify already deploys this site from its GitHub integration.
+# Keep this workflow manual only so an expired/limited NETLIFY_AUTH_TOKEN
+# does not mark every push as failed in GitHub Actions.
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
 
 jobs:
   deploy:

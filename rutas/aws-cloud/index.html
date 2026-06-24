@@ -54,8 +54,23 @@
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
   .card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--panel);transition:border-color .2s,transform .2s}
   .card:hover{border-color:var(--gold);transform:translateY(-2px)}
+  .card-cover{display:block;width:100%;aspect-ratio:4/5;object-fit:contain;background:#050812;border-radius:10px;margin-bottom:12px;padding:12px}
   .card h3{font-size:15px;margin:0 0 6px;color:var(--ink)}
   .card p{font-size:13px;color:var(--dim);margin:0}
+  .route-hero{display:grid;grid-template-columns:1fr 340px;gap:34px;align-items:center;padding:34px 0 18px}
+  @media(max-width:820px){.route-hero{grid-template-columns:1fr}}
+  .route-visual{border:1px solid var(--line);border-radius:16px;background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));padding:18px}
+  .book-stack{position:relative;min-height:260px}
+  .book-stack img{position:absolute;bottom:22px;width:36%;max-height:230px;object-fit:contain;background:#050812;border-radius:8px;padding:10px;box-shadow:0 22px 38px -18px rgba(0,0,0,.9)}
+  .book-stack img:nth-child(1){left:3%;transform:rotate(-8deg);filter:saturate(.85) brightness(.86)}
+  .book-stack img:nth-child(2){left:50%;transform:translateX(-50%) translateY(-12px);width:42%;z-index:3}
+  .book-stack img:nth-child(3){right:3%;transform:rotate(8deg);filter:saturate(.9) brightness(.9)}
+  .quote{border-left:3px solid var(--lime);padding:12px 0 12px 16px;margin:14px 0 0;color:#fff;font-weight:700}
+  .quote cite{display:block;margin-top:6px;color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.06em;font-style:normal}
+  .route-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:18px}
+  .route-steps span{display:block;border:1px solid var(--line);border-radius:10px;padding:12px;background:rgba(255,255,255,.03);color:#c9cfda}
+  .freebie-note{border:1px solid rgba(216,255,61,.25);background:rgba(216,255,61,.1);border-radius:12px;padding:14px;margin-top:16px}
+  .freebie-note strong{color:var(--lime)}
   .sales-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:34px 0}
   @media(max-width:760px){.sales-grid{grid-template-columns:1fr}}
   .panel{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:22px}
@@ -77,32 +92,42 @@
 </head>
 <body>
   <header class="site"><div class="wrap"><a class="brand" href="/"><img src="/logo.webp" alt="Zone Digital" /><span>Zone<span class="dim"> Digital</span></span></a><nav class="nav"><a href="/tiktok/">TikTok</a><a href="/gratis/">Gratis</a><a href="/#books">Biblioteca</a></nav></div></header>
-      <main class="wrap"><section class="hero"><div><div class="badges"><span class="badge cat">Ruta profesional</span><span class="badge">30 dias</span></div><h1>Ruta AWS &amp; Cloud</h1><p class="sub">Roadmap de 30 dias para certificar, pensar como arquitecto cloud y crecer como lider tecnico.</p><div class="cta"><a class="btn primary" href="#books">Ver libros recomendados</a><a class="btn ghost" href="#lead">Capitulo gratis</a></div></div><div class="panel"><h2>Roadmap de 30 dias</h2><ol><li>Fundamentos y lenguaje</li><li>Casos aplicados</li><li>Libro principal</li><li>Practica y checklist</li><li>Compra/lectura guiada</li></ol></div></section><section class="more" id="books"><h2>Libros recomendados</h2><div class="grid"><article class="card">
+      <main class="wrap"><section class="route-hero"><div><div class="badges"><span class="badge cat">Arquitecto cloud</span><span class="badge">30 dias</span><span class="badge">Capitulo gratis</span></div><h1>Ruta AWS &amp; Cloud</h1><p class="sub">Roadmap de 30 dias para certificar, pensar como arquitecto cloud y crecer como lider tecnico.</p><p>Pasa de estudiar servicios sueltos a pensar, disenar y defender arquitecturas reales.</p><blockquote class="quote">"La mejor forma de predecir el futuro es crearlo."<cite>Peter Drucker</cite></blockquote><div class="cta"><a class="btn primary" href="#lead">Descargar capitulo gratis</a><a class="btn ghost" href="#books">Ver libros recomendados</a></div></div><div class="route-visual"><div class="book-stack"><img src="https://images-na.ssl-images-amazon.com/images/P/B0DWTB2V3R.01._SCLZZZZZZZ_.jpg" alt="Portada de AWS Solutions Architect Associate" loading="lazy" /><img src="https://images-na.ssl-images-amazon.com/images/P/B0DWT8XXXD.01._SCLZZZZZZZ_.jpg" alt="Portada de AWS Solutions Architect Associate" loading="lazy" /><img src="https://images-na.ssl-images-amazon.com/images/P/B0H47SNCWQ.01._SCLZZZZZZZ_.jpg" alt="Portada de El Manual del Arquitecto Cloud" loading="lazy" /></div><div class="freebie-note"><strong>Capitulo gratis: checklist de arquitecto cloud</strong><br/>Empieza sin friccion: pide el recurso, abre la ficha y compra el libro correcto cuando estes listo.</div></div></section><section class="more"><h2>Tu roadmap de lectura</h2><div class="route-steps"><span>Fundamentos cloud</span><span>Certificacion con foco</span><span>Arquitectura aplicada</span><span>Casos y decision</span><span>Compra/lectura guiada</span></div></section><section class="more" id="books"><h2>Libros recomendados</h2><div class="grid"><article class="card">
+    <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B0DWTB2V3R.01._SCLZZZZZZZ_.jpg" alt="Portada de AWS Solutions Architect Associate" loading="lazy" />
     <h3>AWS Solutions Architect Associate</h3>
     <p>Get certified and transform your career in the cloud.</p>
     <p><small>Certificación · English · USD 9.99</small></p>
     <p><a class="btn ghost" href="/libros/aws-solutions-architect-associate-b0dwtb2v3r/" data-track-route="AWS & Cloud">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0DWTB2V3R" target="_blank" rel="noopener" data-amazon data-item-id="L20" data-item-name="AWS Solutions Architect Associate" data-format="kindle">Amazon</a></p>
+    <p><a href="/gratis/?book=L20">Capitulo gratis disponible</a></p>
   </article><article class="card">
+    <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B0DWT8XXXD.01._SCLZZZZZZZ_.jpg" alt="Portada de AWS Solutions Architect Associate" loading="lazy" />
     <h3>AWS Solutions Architect Associate</h3>
     <p>Certifícate y transforma tu carrera en la nube.</p>
     <p><small>Certificación · Español · USD 9.99</small></p>
     <p><a class="btn ghost" href="/libros/aws-solutions-architect-associate/" data-track-route="AWS & Cloud">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0DWT8XXXD" target="_blank" rel="noopener" data-amazon data-item-id="L03" data-item-name="AWS Solutions Architect Associate" data-format="kindle">Amazon</a></p>
+    <p><a href="/gratis/?book=L03">Capitulo gratis disponible</a></p>
   </article><article class="card">
+    <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B0H47SNCWQ.01._SCLZZZZZZZ_.jpg" alt="Portada de El Manual del Arquitecto Cloud" loading="lazy" />
     <h3>El Manual del Arquitecto Cloud</h3>
     <p>Diseña sistemas seguros, escalables y rentables para liderar decisiones cloud de alto impacto.</p>
     <p><small>IA &amp; Tech · Español · USD 9.99</small></p>
     <p><a class="btn ghost" href="/libros/el-manual-del-arquitecto-cloud/" data-track-route="AWS & Cloud">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0H47SNCWQ" target="_blank" rel="noopener" data-amazon data-item-id="L29" data-item-name="El Manual del Arquitecto Cloud" data-format="kindle">Amazon</a></p>
+    <p><a href="/gratis/?book=L29">Capitulo gratis disponible</a></p>
   </article><article class="card">
+    <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B0F5NWGYNY.01._SCLZZZZZZZ_.jpg" alt="Portada de Arquitectura de Soluciones para Líderes Tecnológicos" loading="lazy" />
     <h3>Arquitectura de Soluciones para Líderes Tecnológicos</h3>
     <p>Diseña, escala y transforma. El manual del líder técnico moderno.</p>
     <p><small>Negocios · Español · USD 9.99</small></p>
     <p><a class="btn ghost" href="/libros/arquitectura-de-soluciones-para-lideres-tecnologicos/" data-track-route="AWS & Cloud">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0F5NWGYNY" target="_blank" rel="noopener" data-amazon data-item-id="L05" data-item-name="Arquitectura de Soluciones para Líderes Tecnológicos" data-format="kindle">Amazon</a></p>
+    <p><a href="/gratis/?book=L05">Capitulo gratis disponible</a></p>
   </article><article class="card">
+    <img class="card-cover" src="https://images-na.ssl-images-amazon.com/images/P/B0F5QKYCJV.01._SCLZZZZZZZ_.jpg" alt="Portada de Solutions Architecture for Technology Leaders" loading="lazy" />
     <h3>Solutions Architecture for Technology Leaders</h3>
     <p>Design, scale and transform.</p>
     <p><small>Negocios · English · USD 9.99</small></p>
     <p><a class="btn ghost" href="/libros/solutions-architecture-for-technology-leaders/" data-track-route="AWS & Cloud">Ver ficha</a> <a class="btn primary" href="https://www.amazon.com/dp/B0F5QKYCJV" target="_blank" rel="noopener" data-amazon data-item-id="L18" data-item-name="Solutions Architecture for Technology Leaders" data-format="kindle">Amazon</a></p>
-  </article></div></section><section class="sales-grid" id="lead"><div class="panel"><h2>Descarga el recurso de esta ruta</h2><p>Te ayuda a decidir por donde empezar y que libro comprar primero.</p></div><div class="panel"><form class="lead-box" method="POST" action="/gracias/" data-netlify="true" name="lead-capture" data-lead-form data-lead-type="free_guide">
+    <p><a href="/gratis/?book=L18">Capitulo gratis disponible</a></p>
+  </article></div></section><section class="sales-grid" id="lead"><div class="panel"><h2>Descarga el recurso de esta ruta</h2><p>Te ayuda a decidir por donde empezar, que libro comprar primero y como convertir lectura en accion profesional.</p></div><div class="panel"><form class="lead-box" method="POST" action="/gracias/" data-netlify="true" name="lead-capture" data-lead-form data-lead-type="free_guide">
     <input type="hidden" name="form-name" value="lead-capture" />
     <input type="hidden" name="book" value="" />
     <label>Nombre<input name="name" required placeholder="Tu nombre" /></label>

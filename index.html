@@ -1780,7 +1780,13 @@ const ZD_ROUTES = [
     id: 'aws-cloud',
     icon: 'layers',
     title: 'AWS & Cloud',
+    badge: 'Arquitecto cloud',
+    quote: 'La mejor forma de predecir el futuro es crearlo.',
+    quoteBy: 'Peter Drucker',
     desc: 'Certificacion, arquitectura, Google Cloud y Azure para crecer como lider tecnico.',
+    promise: 'Pasa de estudiar servicios sueltos a pensar, disenar y defender arquitecturas reales.',
+    freebie: 'Capitulo gratis: checklist de arquitecto cloud',
+    outcome: ['Certificacion con foco', 'Arquitectura aplicada', 'Lenguaje ejecutivo'],
     href: '/rutas/aws-cloud/',
     books: ['L20', 'L03', 'L29', 'L05', 'L18'],
   },
@@ -1788,7 +1794,13 @@ const ZD_ROUTES = [
     id: 'ia-aplicada',
     icon: 'target',
     title: 'IA Aplicada',
+    badge: 'Constructor de IA',
+    quote: 'La imaginacion es mas importante que el conocimiento.',
+    quoteBy: 'Albert Einstein',
     desc: 'GenAI, agentes, RAG, MLOps y productos digitales con inteligencia artificial.',
+    promise: 'Convierte curiosidad por IA en criterio, automatizaciones, productos y ventaja profesional.',
+    freebie: 'Capitulo gratis: ruta de IA aplicada en 30 dias',
+    outcome: ['Prompts y agentes', 'RAG y automatizacion', 'Productos monetizables'],
     href: '/rutas/ia/',
     books: ['L30', 'L22', 'L21', 'L35', 'L23'],
   },
@@ -1796,7 +1808,13 @@ const ZD_ROUTES = [
     id: 'mineria-4-0',
     icon: 'trending',
     title: 'Mineria 4.0',
+    badge: 'Mina inteligente',
+    quote: 'Sin datos, solo eres otra persona con una opinion.',
+    quoteBy: 'W. Edwards Deming',
     desc: 'IoT, operaciones remotas, gemelos digitales, automatizacion y seguridad minera.',
+    promise: 'Une tecnologia, operaciones y negocio para explicar y ejecutar transformacion minera.',
+    freebie: 'Capitulo gratis: mapa de casos Mineria 4.0',
+    outcome: ['IoT industrial', 'Operacion remota', 'Gemelos digitales'],
     href: '/rutas/mineria-4-0/',
     books: ['L09', 'L12', 'L07', 'L16', 'L31'],
   },
@@ -2168,22 +2186,48 @@ function RoutesSection({ onLead, t }) {
           <div className="zd-sec-top">
             <div className="zd-sec-head">
               <span className="zd-overline">{t('Elige tu ruta', 'Choose your path')}</span>
-              <h2 className="zd-h2">{t('No empieces por el catalogo. Empieza por tu objetivo.', 'Do not start with the catalog. Start with your goal.')}</h2>
-              <p>{t('Cada ruta ordena los libros por nivel, problema y resultado esperado para llevarte de interes a compra con menos friccion.', 'Each path organizes books by level, problem and expected outcome so visitors move from interest to purchase with less friction.')}</p>
+              <h2 className="zd-h2">{t('No vendas una biblioteca. Vende una transformacion.', 'Do not sell a library. Sell a transformation.')}</h2>
+              <p>{t('Cada ruta muestra el siguiente paso, el libro recomendado y un capitulo gratis para que el visitante sienta avance desde el primer clic.', 'Each path shows the next step, the recommended book and a free chapter so visitors feel progress from the first click.')}</p>
+            </div>
+            <div className="zd-route-proof">
+              <span>{t('3 rutas guiadas', '3 guided paths')}</span>
+              <strong>{t('IA + Cloud + Mineria 4.0', 'AI + Cloud + Mining 4.0')}</strong>
+              <small>{t('disenadas para convertir curiosidad en lectura y compra', 'designed to turn curiosity into reading and purchase')}</small>
             </div>
           </div>
         </Reveal>
         <div className="zd-route-grid">
           {ZD_ROUTES.map((route, i) => {
-            const book = ZD_GET_BOOK(route.books[0]);
+            const routeBooks = route.books.map(ZD_GET_BOOK).filter(Boolean);
+            const book = routeBooks[0];
             return (
               <Reveal key={route.id} delay={(i % 3) * 70}>
                 <article className="zd-route-card">
-                  <div className="zd-route-icon"><Icon name={route.icon} size={20} /></div>
-                  <span className="zd-book-cat">{t('Ruta profesional', 'Career path')}</span>
+                  <div className="zd-route-card-top">
+                    <div className="zd-route-icon"><Icon name={route.icon} size={20} /></div>
+                    <span className="zd-route-badge">{route.badge}</span>
+                  </div>
+                  <div className="zd-route-shelf" aria-label={t('Libros de la ruta', 'Books in this path')}>
+                    {routeBooks.slice(0, 3).map((b, idx) => (
+                      <a key={b.id} className={`zd-route-cover c${idx + 1}`} href={ZD_BOOK_URL(b)} onClick={() => zdSelectBook(b, `route_${route.id}`)}>
+                        <BookCover book={b} />
+                      </a>
+                    ))}
+                  </div>
+                  <blockquote className="zd-route-quote">
+                    <p>"{route.quote}"</p>
+                    <cite>{route.quoteBy}</cite>
+                  </blockquote>
                   <h3 className="zd-h3">{route.title}</h3>
-                  <p>{route.desc}</p>
-                  {book && <div className="zd-route-book">{t('Libro recomendado:', 'Recommended book:')} <strong>{book.title}</strong></div>}
+                  <p className="zd-route-promise">{route.promise}</p>
+                  <ul className="zd-route-outcomes">
+                    {route.outcome.map((item) => <li key={item}><Icon name="check" size={14} />{item}</li>)}
+                  </ul>
+                  <div className="zd-freebie">
+                    <span>{t('Gratis', 'Free')}</span>
+                    <strong>{route.freebie}</strong>
+                  </div>
+                  {book && <div className="zd-route-book">{t('Empieza por:', 'Start with:')} <strong>{book.title}</strong></div>}
                   <div className="zd-route-actions">
                     <a className="zd-btn zd-btn-lime zd-btn-sm" href={route.href} onClick={() => zdTrack('select_route', { route_id: route.id, route_name: route.title })}>{t('Ver ruta', 'View path')}</a>
                     <button className="zd-btn zd-btn-ghost zd-btn-sm" onClick={() => onLead(book || null)}>{t('Capitulo gratis', 'Free chapter')}</button>
@@ -2222,7 +2266,7 @@ function FeaturedBooks({ onLead, t }) {
                   <div className="zd-inline-actions">
                     <a href={ZD_BOOK_URL(b)} onClick={() => zdSelectBook(b, 'featured_books')}>{t('Ver ficha', 'View details')}</a>
                     <button onClick={() => zdOpenAmazon(b, b.formats[0], 'featured_books')}>{t('Amazon', 'Amazon')}</button>
-                    <button onClick={() => onLead(b)}>{t('Gratis', 'Free')}</button>
+                    <button onClick={() => onLead(b)}>{t('Capitulo gratis', 'Free chapter')}</button>
                   </div>
                 </div>
               </article>

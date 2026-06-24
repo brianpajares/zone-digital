@@ -230,8 +230,23 @@ const PAGE_CSS = `
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
   .card{display:block;text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--panel);transition:border-color .2s,transform .2s}
   .card:hover{border-color:var(--gold);transform:translateY(-2px)}
+  .card-cover{display:block;width:100%;aspect-ratio:4/5;object-fit:contain;background:#050812;border-radius:10px;margin-bottom:12px;padding:12px}
   .card h3{font-size:15px;margin:0 0 6px;color:var(--ink)}
   .card p{font-size:13px;color:var(--dim);margin:0}
+  .route-hero{display:grid;grid-template-columns:1fr 340px;gap:34px;align-items:center;padding:34px 0 18px}
+  @media(max-width:820px){.route-hero{grid-template-columns:1fr}}
+  .route-visual{border:1px solid var(--line);border-radius:16px;background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.02));padding:18px}
+  .book-stack{position:relative;min-height:260px}
+  .book-stack img{position:absolute;bottom:22px;width:36%;max-height:230px;object-fit:contain;background:#050812;border-radius:8px;padding:10px;box-shadow:0 22px 38px -18px rgba(0,0,0,.9)}
+  .book-stack img:nth-child(1){left:3%;transform:rotate(-8deg);filter:saturate(.85) brightness(.86)}
+  .book-stack img:nth-child(2){left:50%;transform:translateX(-50%) translateY(-12px);width:42%;z-index:3}
+  .book-stack img:nth-child(3){right:3%;transform:rotate(8deg);filter:saturate(.9) brightness(.9)}
+  .quote{border-left:3px solid var(--lime);padding:12px 0 12px 16px;margin:14px 0 0;color:#fff;font-weight:700}
+  .quote cite{display:block;margin-top:6px;color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.06em;font-style:normal}
+  .route-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:18px}
+  .route-steps span{display:block;border:1px solid var(--line);border-radius:10px;padding:12px;background:rgba(255,255,255,.03);color:#c9cfda}
+  .freebie-note{border:1px solid rgba(216,255,61,.25);background:rgba(216,255,61,.1);border-radius:12px;padding:14px;margin-top:16px}
+  .freebie-note strong{color:var(--lime)}
   .sales-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:34px 0}
   @media(max-width:760px){.sales-grid{grid-template-columns:1fr}}
   .panel{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:22px}
@@ -552,6 +567,26 @@ function byId(books, ids) {
   return ids.map(id => books.find(b => b.id === id)).filter(Boolean);
 }
 
+function routeBookStack(books) {
+  return `<div class="book-stack">${books.slice(0, 3).map((b) => `<img src="${coverUrl(b.asin)}" alt="Portada de ${esc(b.title)}" loading="lazy" />`).join('')}</div>`;
+}
+
+function routeSteps(items) {
+  return `<div class="route-steps">${items.map((item) => `<span>${esc(item)}</span>`).join('')}</div>`;
+}
+
+function routeTeaserCard(route, books) {
+  const first = books[0];
+  return `<article class="card">
+    ${first ? `<img class="card-cover" src="${coverUrl(first.asin)}" alt="Portada de ${esc(first.title)}" loading="lazy" />` : ''}
+    <p><small>${esc(route.badge)} &middot; Capitulo gratis</small></p>
+    <h3>${esc(route.title)}</h3>
+    <p>${esc(route.desc)}</p>
+    <p class="quote">"${esc(route.quote)}"<cite>${esc(route.quoteBy)}</cite></p>
+    <p><a class="btn primary" href="${route.path}" data-track-route="${esc(route.interest)}">Ver ruta</a></p>
+  </article>`;
+}
+
 function pageShell({ title, description, path: pagePath, body, scripts = '' }) {
   const url = `${SITE}${pagePath}`;
   return `<!doctype html>
@@ -591,10 +626,12 @@ function pageShell({ title, description, path: pagePath, body, scripts = '' }) {
 
 function bookCards(books, listName) {
   return books.map(b => `<article class="card">
+    <img class="card-cover" src="${coverUrl(b.asin)}" alt="Portada de ${esc(b.title)}" loading="lazy" />
     <h3>${esc(b.title)}</h3>
     <p>${esc(b.sub)}</p>
     <p><small>${esc(CAT[b.cat]?.es || b.cat)} · ${esc(LANG[b.lang] || b.lang)} · ${esc(priceLabel(b))}</small></p>
     <p><a class="btn ghost" href="/libros/${b.slug}/" data-track-route="${listName}">Ver ficha</a> <a class="btn primary" href="${buyUrl(b)}" target="_blank" rel="noopener" data-amazon data-item-id="${b.id}" data-item-name="${esc(b.title)}" data-format="kindle">Amazon</a></p>
+    <p><a href="/gratis/?book=${encodeURIComponent(b.id)}">Capitulo gratis disponible</a></p>
   </article>`).join('');
 }
 
@@ -629,17 +666,17 @@ function landingBody({ eyebrow, title, description, primary, secondary, cards, f
 
 function buildFunnelPages(books) {
   const routes = [
-    { path: '/rutas/aws-cloud/', title: 'Ruta AWS & Cloud', desc: 'Roadmap de 30 dias para certificar, pensar como arquitecto cloud y crecer como lider tecnico.', interest: 'AWS & Cloud', ids: ['L20','L03','L29','L05','L18'] },
-    { path: '/rutas/ia/', title: 'Ruta IA Aplicada', desc: 'Aprende GenAI, agentes, RAG, automatizacion y estrategia para convertir IA en ventaja profesional.', interest: 'IA Aplicada', ids: ['L30','L22','L21','L35','L23'] },
-    { path: '/rutas/mineria-4-0/', title: 'Ruta Mineria 4.0', desc: 'Libros para aplicar datos, IoT, IA, seguridad, productividad y operacion remota en mineria.', interest: 'Mineria 4.0', ids: ['L09','L12','L07','L16','L31','L08'] },
+    { path: '/rutas/aws-cloud/', title: 'Ruta AWS & Cloud', badge: 'Arquitecto cloud', desc: 'Roadmap de 30 dias para certificar, pensar como arquitecto cloud y crecer como lider tecnico.', promise: 'Pasa de estudiar servicios sueltos a pensar, disenar y defender arquitecturas reales.', quote: 'La mejor forma de predecir el futuro es crearlo.', quoteBy: 'Peter Drucker', freebie: 'Capitulo gratis: checklist de arquitecto cloud', interest: 'AWS & Cloud', ids: ['L20','L03','L29','L05','L18'], steps: ['Fundamentos cloud', 'Certificacion con foco', 'Arquitectura aplicada', 'Casos y decision', 'Compra/lectura guiada'] },
+    { path: '/rutas/ia/', title: 'Ruta IA Aplicada', badge: 'Constructor de IA', desc: 'Aprende GenAI, agentes, RAG, automatizacion y estrategia para convertir IA en ventaja profesional.', promise: 'Convierte curiosidad por IA en criterio, automatizaciones, productos y ventaja profesional.', quote: 'La imaginacion es mas importante que el conocimiento.', quoteBy: 'Albert Einstein', freebie: 'Capitulo gratis: ruta de IA aplicada en 30 dias', interest: 'IA Aplicada', ids: ['L30','L22','L21','L35','L23'], steps: ['Panorama GenAI', 'Prompts y agentes', 'RAG y conocimiento', 'MLOps y produccion', 'Producto monetizable'] },
+    { path: '/rutas/mineria-4-0/', title: 'Ruta Mineria 4.0', badge: 'Mina inteligente', desc: 'Libros para aplicar datos, IoT, IA, seguridad, productividad y operacion remota en mineria.', promise: 'Une tecnologia, operaciones y negocio para explicar y ejecutar transformacion minera.', quote: 'Sin datos, solo eres otra persona con una opinion.', quoteBy: 'W. Edwards Deming', freebie: 'Capitulo gratis: mapa de casos Mineria 4.0', interest: 'Mineria 4.0', ids: ['L09','L12','L07','L16','L31','L08'], steps: ['Datos operacionales', 'IoT industrial', 'Operacion remota', 'Gemelo digital', 'Caso de negocio'] },
   ];
 
-  const tiktokCards = routes.map(r => `<article class="card"><h3>${r.title}</h3><p>${r.desc}</p><p><a class="btn primary" href="${r.path}" data-track-route="${r.interest}">Ver ruta</a></p></article>`).join('');
+  const tiktokCards = routes.map(r => routeTeaserCard(r, byId(books, r.ids))).join('');
   fs.writeFileSync(ensureDirForPage('/tiktok/'), pageShell({
     path: '/tiktok/',
     title: 'Elige tu ruta para crecer con IA, Cloud y Tecnologia',
     description: 'Landing optimizada para trafico de TikTok hacia rutas profesionales, lead magnet y libros de Amazon Kindle.',
-    body: landingBody({ eyebrow: 'TikTok funnel', title: 'Elige tu ruta para crecer con IA, Cloud y Tecnologia', description: 'Libros practicos para profesionales que quieren certificar, liderar proyectos, aplicar IA y construir una carrera de alto valor.', primary: 'Descargar guia gratis', secondary: { href: '/#featured', label: 'Ver libros recomendados' }, cards: tiktokCards, formInterest: 'IA Aplicada' }),
+      body: landingBody({ eyebrow: 'TikTok funnel', title: 'Elige tu ruta para crecer con IA, Cloud y Tecnologia', description: 'Libros practicos para profesionales que quieren certificar, liderar proyectos, aplicar IA y construir una carrera de alto valor.', primary: 'Descargar capitulo gratis', secondary: { href: '/#featured', label: 'Ver libros recomendados' }, cards: tiktokCards, formInterest: 'IA Aplicada' }),
   }));
 
   for (const r of routes) {
@@ -649,7 +686,7 @@ function buildFunnelPages(books) {
       title: r.title,
       description: r.desc,
       body: `<header class="site"><div class="wrap"><a class="brand" href="/"><img src="/logo.webp" alt="Zone Digital" /><span>Zone<span class="dim"> Digital</span></span></a><nav class="nav"><a href="/tiktok/">TikTok</a><a href="/gratis/">Gratis</a><a href="/#books">Biblioteca</a></nav></div></header>
-      <main class="wrap"><section class="hero"><div><div class="badges"><span class="badge cat">Ruta profesional</span><span class="badge">30 dias</span></div><h1>${esc(r.title)}</h1><p class="sub">${esc(r.desc)}</p><div class="cta"><a class="btn primary" href="#books">Ver libros recomendados</a><a class="btn ghost" href="#lead">Capitulo gratis</a></div></div><div class="panel"><h2>Roadmap de 30 dias</h2><ol><li>Fundamentos y lenguaje</li><li>Casos aplicados</li><li>Libro principal</li><li>Practica y checklist</li><li>Compra/lectura guiada</li></ol></div></section><section class="more" id="books"><h2>Libros recomendados</h2><div class="grid">${bookCards(selected, r.interest)}</div></section><section class="sales-grid" id="lead"><div class="panel"><h2>Descarga el recurso de esta ruta</h2><p>Te ayuda a decidir por donde empezar y que libro comprar primero.</p></div><div class="panel">${leadForm(r.interest)}</div></section></main><footer class="site"><div class="wrap">© Zone Digital</div></footer>`,
+      <main class="wrap"><section class="route-hero"><div><div class="badges"><span class="badge cat">${esc(r.badge)}</span><span class="badge">30 dias</span><span class="badge">Capitulo gratis</span></div><h1>${esc(r.title)}</h1><p class="sub">${esc(r.desc)}</p><p>${esc(r.promise)}</p><blockquote class="quote">"${esc(r.quote)}"<cite>${esc(r.quoteBy)}</cite></blockquote><div class="cta"><a class="btn primary" href="#lead">Descargar capitulo gratis</a><a class="btn ghost" href="#books">Ver libros recomendados</a></div></div><div class="route-visual">${routeBookStack(selected)}<div class="freebie-note"><strong>${esc(r.freebie)}</strong><br/>Empieza sin friccion: pide el recurso, abre la ficha y compra el libro correcto cuando estes listo.</div></div></section><section class="more"><h2>Tu roadmap de lectura</h2>${routeSteps(r.steps)}</section><section class="more" id="books"><h2>Libros recomendados</h2><div class="grid">${bookCards(selected, r.interest)}</div></section><section class="sales-grid" id="lead"><div class="panel"><h2>Descarga el recurso de esta ruta</h2><p>Te ayuda a decidir por donde empezar, que libro comprar primero y como convertir lectura en accion profesional.</p></div><div class="panel">${leadForm(r.interest)}</div></section></main><footer class="site"><div class="wrap">© Zone Digital</div></footer>`,
     }));
   }
 

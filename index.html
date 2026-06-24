@@ -2150,8 +2150,8 @@ function Hero({ onLead, t }) {
             <div className="lbl">{t('rutas: AWS, IA, mineria, liderazgo y certificaciones', 'paths: AWS, AI, mining, leadership and certifications')}</div>
           </div>
           <div className="zd-metric">
-            <div className="num cobalt">GA4</div>
-            <div className="lbl">{t('eventos listos para medir leads y clics a Amazon', 'events ready to measure leads and Amazon clicks')}</div>
+            <div className="num cobalt">{t('Gratis', 'Free')}</div>
+            <div className="lbl">{t('capitulos para probar la calidad antes de comprar', 'chapters to preview the quality before buying')}</div>
           </div>
         </div>
       </div>
@@ -2185,14 +2185,14 @@ function RoutesSection({ onLead, t }) {
         <Reveal>
           <div className="zd-sec-top">
             <div className="zd-sec-head">
-              <span className="zd-overline">{t('Elige tu ruta', 'Choose your path')}</span>
-              <h2 className="zd-h2">{t('No vendas una biblioteca. Vende una transformacion.', 'Do not sell a library. Sell a transformation.')}</h2>
-              <p>{t('Cada ruta muestra el siguiente paso, el libro recomendado y un capitulo gratis para que el visitante sienta avance desde el primer clic.', 'Each path shows the next step, the recommended book and a free chapter so visitors feel progress from the first click.')}</p>
+              <span className="zd-overline">{t('Elige tu siguiente avance', 'Choose your next step')}</span>
+              <h2 className="zd-h2">{t('Empieza con un capitulo gratis y encuentra el libro que puede mover tu carrera.', 'Start with a free chapter and find the book that can move your career forward.')}</h2>
+              <p>{t('No tienes que adivinar que leer. Elige una ruta, revisa la calidad del contenido y compra el libro correcto cuando sientas que encaja contigo.', 'You do not have to guess what to read. Choose a path, review the quality of the content and buy the right book when it feels aligned with your goal.')}</p>
             </div>
             <div className="zd-route-proof">
-              <span>{t('3 rutas guiadas', '3 guided paths')}</span>
-              <strong>{t('IA + Cloud + Mineria 4.0', 'AI + Cloud + Mining 4.0')}</strong>
-              <small>{t('disenadas para convertir curiosidad en lectura y compra', 'designed to turn curiosity into reading and purchase')}</small>
+              <span>{t('Capitulos gratis', 'Free chapters')}</span>
+              <strong>{t('Prueba la calidad antes de comprar', 'Preview the quality before you buy')}</strong>
+              <small>{t('lee primero, decide con confianza y avanza con una ruta clara', 'read first, decide with confidence and move with a clear path')}</small>
             </div>
           </div>
         </Reveal>
@@ -2224,13 +2224,13 @@ function RoutesSection({ onLead, t }) {
                     {route.outcome.map((item) => <li key={item}><Icon name="check" size={14} />{item}</li>)}
                   </ul>
                   <div className="zd-freebie">
-                    <span>{t('Gratis', 'Free')}</span>
+                    <span>{t('Capitulo gratis', 'Free chapter')}</span>
                     <strong>{route.freebie}</strong>
                   </div>
-                  {book && <div className="zd-route-book">{t('Empieza por:', 'Start with:')} <strong>{book.title}</strong></div>}
+                  {book && <div className="zd-route-book">{t('Libro recomendado:', 'Recommended book:')} <strong>{book.title}</strong></div>}
                   <div className="zd-route-actions">
                     <a className="zd-btn zd-btn-lime zd-btn-sm" href={route.href} onClick={() => zdTrack('select_route', { route_id: route.id, route_name: route.title })}>{t('Ver ruta', 'View path')}</a>
-                    <button className="zd-btn zd-btn-ghost zd-btn-sm" onClick={() => onLead(book || null)}>{t('Capitulo gratis', 'Free chapter')}</button>
+                    <button className="zd-btn zd-btn-ghost zd-btn-sm" onClick={() => onLead(book || null)}>{t('Quiero el capitulo', 'I want the chapter')}</button>
                   </div>
                 </article>
               </Reveal>
@@ -2249,9 +2249,9 @@ function FeaturedBooks({ onLead, t }) {
       <div className="zd-wrap">
         <Reveal>
           <div className="zd-sec-head">
-            <span className="zd-overline">{t('Libros destacados', 'Featured books')}</span>
-            <h2 className="zd-h2">{t('Los 8 mejores puntos de entrada para convertir interes en accion.', 'The 8 strongest entry points to turn interest into action.')}</h2>
-            <p>{t('Priorizados para AWS, arquitectura, IA aplicada y Mineria 4.0: las categorias con mayor intencion de compra.', 'Prioritized for AWS, architecture, applied AI and Mining 4.0: the categories with highest buying intent.')}</p>
+            <span className="zd-overline">{t('Recomendados para empezar', 'Recommended starting points')}</span>
+            <h2 className="zd-h2">{t('Libros para aprender mas rapido, decidir mejor y avanzar esta semana.', 'Books to learn faster, decide better and move forward this week.')}</h2>
+            <p>{t('Cada titulo resuelve una pregunta concreta: certificarte, aplicar IA, liderar tecnologia o entender Mineria 4.0 con criterio.', 'Each title answers a concrete question: get certified, apply AI, lead technology or understand Mining 4.0 with judgment.')}</p>
           </div>
         </Reveal>
         <div className="zd-featured-grid">
@@ -2269,6 +2269,59 @@ function FeaturedBooks({ onLead, t }) {
                     <button onClick={() => onLead(b)}>{t('Capitulo gratis', 'Free chapter')}</button>
                   </div>
                 </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ReaderStories({ t }) {
+  const stories = [
+    {
+      initials: 'AC',
+      role: t('Profesional cloud en crecimiento', 'Growing cloud professional'),
+      title: t('De servicios sueltos a arquitectura con criterio', 'From scattered services to architecture with judgment'),
+      text: t('Empieza con el capitulo gratis, valida el nivel y usa el libro para ordenar decisiones de diseno, costos y seguridad antes de tu siguiente proyecto.', 'Start with the free chapter, validate the level and use the book to organize design, cost and security decisions before your next project.')
+    },
+    {
+      initials: 'IA',
+      role: t('Lider que quiere aplicar IA', 'Leader who wants to apply AI'),
+      title: t('De curiosidad por IA a un plan aplicable', 'From AI curiosity to an applicable plan'),
+      text: t('La muestra gratuita te deja ver si el enfoque es practico. Si encaja, el libro completo te ayuda a convertir ideas en flujos, casos y decisiones reales.', 'The free sample lets you see whether the approach is practical. If it fits, the full book helps you turn ideas into workflows, use cases and real decisions.')
+    },
+    {
+      initials: 'M4',
+      role: t('Profesional de mineria y operaciones', 'Mining and operations professional'),
+      title: t('De buzzwords a casos de uso que se pueden defender', 'From buzzwords to use cases you can defend'),
+      text: t('Lee primero una parte del contenido y comprueba si te ayuda a explicar Mineria 4.0 con lenguaje claro para operaciones, seguridad y productividad.', 'Read part of the content first and check whether it helps you explain Mining 4.0 clearly for operations, safety and productivity.')
+    }
+  ];
+  return (
+    <section className="zd-section zd-reader-stories" id="stories">
+      <div className="zd-wrap">
+        <Reveal>
+          <div className="zd-sec-head">
+            <span className="zd-overline">{t('Para quien es Zone Digital', 'Who Zone Digital is for')}</span>
+            <h2 className="zd-h2">{t('Compra cuando veas que el contenido te da claridad desde las primeras paginas.', 'Buy when you see the content gives you clarity from the first pages.')}</h2>
+            <p>{t('Estas historias muestran el tipo de avance que buscamos provocar: menos confusion, mas criterio y un siguiente paso profesional claro.', 'These stories show the kind of progress we aim to create: less confusion, better judgment and a clear professional next step.')}</p>
+          </div>
+        </Reveal>
+        <div className="zd-story-grid">
+          {stories.map((story, i) => (
+            <Reveal key={story.initials} delay={(i % 3) * 80}>
+              <article className="zd-story-card">
+                <div className="zd-story-person">
+                  <span className="zd-story-avatar" aria-hidden="true">{story.initials}</span>
+                  <div>
+                    <strong>{story.role}</strong>
+                    <span>{t('Perfil de lector ideal', 'Ideal reader profile')}</span>
+                  </div>
+                </div>
+                <h3>{story.title}</h3>
+                <p>{story.text}</p>
               </article>
             </Reveal>
           ))}
@@ -2297,11 +2350,11 @@ function Books({ onLead, t, lang }) {
         <Reveal>
           <div className="zd-sec-top">
             <div className="zd-sec-head">
-              <span className="zd-overline">{t('La biblioteca', 'The library')}</span>
+              <span className="zd-overline">{t('Biblioteca completa', 'Complete library')}</span>
               <h2 className="zd-h2">
-                {t('Cada libro, dos caminos: ', 'Every book, two ways: ')}
-                <span className="zd-serif zd-lime-text">{t('cómpralo', 'buy it')}</span>
-                {t(' o léelo gratis.', ' or read it free.')}
+                {t('Prueba un capitulo gratis. ', 'Try a free chapter. ')}
+                <span className="zd-serif zd-lime-text">{t('Compra el libro', 'Buy the book')}</span>
+                {t(' cuando veas que es para ti.', ' when you see it is right for you.')}
               </h2>
             </div>
           </div>
@@ -2365,7 +2418,7 @@ function Books({ onLead, t, lang }) {
   );
 }
 
-Object.assign(window, { Header, Hero, Strip, RoutesSection, FeaturedBooks, Books, LangToggle });
+Object.assign(window, { Header, Hero, Strip, RoutesSection, FeaturedBooks, ReaderStories, Books, LangToggle });
 
 // sections-bottom.jsx - Labs, About, Newsletter CTA, Footer (i18n)
 const { useState: useStateB } = React;
@@ -2761,6 +2814,7 @@ function App() {
         <Strip t={t} />
         <RoutesSection onLead={openLead} t={t} />
         <FeaturedBooks onLead={openLead} t={t} />
+        <ReaderStories t={t} />
         <Books onLead={openLead} t={t} lang={lang} />
         <Labs t={t} />
         <About t={t} />

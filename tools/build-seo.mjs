@@ -452,9 +452,9 @@ ${JSON.stringify(faqLd, null, 2)}
 
     <section class="magnet" id="lead">
       <div>
-        <div class="badges"><span class="badge cat">Lead magnet especifico</span><span class="badge">Gratis</span></div>
+        <div class="badges"><span class="badge cat">Prueba la calidad</span><span class="badge">Gratis</span></div>
         <h2>${esc(magnet.title)}</h2>
-        <p>Un recurso ligado a este libro, no una descarga generica. La idea es ayudarte a dar el primer paso antes de comprar o profundizar.</p>
+        <p>Antes de comprar, revisa una muestra practica del enfoque del libro. Si te aporta claridad en minutos, el libro completo es el siguiente paso natural.</p>
         <ul>${magnet.bullets.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
       </div>
       ${leadForm(CAT[b.cat]?.es || b.cat, b.id, magnet.title)}
@@ -472,11 +472,11 @@ ${JSON.stringify(faqLd, null, 2)}
     </section>
 
     <section class="more">
-      <h2>Confianza y prueba social</h2>
+      <h2>Lo que este libro puede hacer por ti</h2>
       <div class="trust-grid">
-        <div class="trust-card"><strong>Resenas reales solamente</strong><p>Este modulo esta preparado para publicar 3 testimonios con foto, nombre, rol y LinkedIn cuando los autorices. No usamos reseñas inventadas.</p></div>
-        <div class="trust-card"><strong>Compra con contexto</strong><p>Antes de ir a Amazon puedes revisar para quien es el libro, que lograras y un recurso gratis especifico.</p></div>
-        <div class="trust-card"><strong>Ruta profesional</strong><p>El libro se conecta con una ruta y, cuando aplica, con un pack para aumentar valor sin perder foco.</p></div>
+        <div class="trust-card"><strong>Claridad antes de comprar</strong><p>Empieza con el capitulo gratis, valida el estilo y confirma si el contenido responde a tu objetivo profesional.</p></div>
+        <div class="trust-card"><strong>Lectura aplicable</strong><p>No es teoria suelta: cada ficha te muestra para quien es el libro, que lograras y como llevarlo a decisiones reales.</p></div>
+        <div class="trust-card"><strong>Camino de avance</strong><p>Si el tema encaja contigo, continua con el libro o con un pack de ruta para profundizar sin perder foco.</p></div>
       </div>
     </section>
 
@@ -518,15 +518,15 @@ ${relCards}
     </section>` : ''}
 
     <section class="final-cta">
-      <h2>Empieza por este libro y convierte la lectura en accion.</h2>
+      <h2>Empieza con una muestra gratuita. Compra cuando veas que el contenido es para ti.</h2>
       <div class="cta">${fmtButtons}<a class="btn ghost" href="#lead">${esc(magnet.cta)}</a></div>
     </section>
   </div>
 
   <footer class="site"><div class="wrap">© ${new Date().getFullYear()} Zone Digital · <a href="/">zone-digital.com</a></div></footer>
   <details class="book-assistant">
-    <summary>¿Que libro me conviene?</summary>
-    <p>Si este tema encaja con tu objetivo, empieza con el recurso gratis. Si necesitas comparar, revisa las rutas IA, Cloud y Mineria 4.0.</p>
+    <summary>¿Este libro es para mi?</summary>
+    <p>Si este tema encaja con tu objetivo, empieza con el capitulo gratis. Si la muestra te da claridad, el libro completo puede ser tu siguiente paso.</p>
     <a href="#lead">${esc(magnet.cta)}</a>
     <a href="/#routes">Ver rutas profesionales</a>
   </details>
@@ -780,12 +780,12 @@ function landingBody({ eyebrow, title, description, primary, secondary, cards, f
         <p class="sub">${esc(description)}</p>
         <div class="cta"><a class="btn primary" href="#lead">${esc(primary)}</a><a class="btn ghost" href="${secondary.href}">${esc(secondary.label)}</a></div>
       </div>
-      <div class="panel"><h2>Video destacado</h2><p>Inserta aqui el video principal de tu bio de TikTok. Mientras tanto, esta landing lleva directo al recurso gratis y luego a la ruta recomendada.</p><ol><li>Capitulo gratis AWS</li><li>Ruta recomendada</li><li>Ficha del libro</li><li>Compra en Amazon</li></ol></div>
+      <div class="panel"><h2>Empieza aqui</h2><p>Mira la idea principal, descarga un capitulo gratis y elige la ruta que mas encaja con tu meta profesional.</p><ol><li>Prueba la calidad</li><li>Elige una ruta</li><li>Revisa la ficha</li><li>Compra con confianza</li></ol></div>
     </section>
     <section class="more"><h2>Rutas recomendadas</h2><div class="grid">${cards}</div></section>
-    <section class="sales-grid" id="lead"><div class="panel"><h2>Descarga gratis la Ruta de 30 dias</h2><p>Recibe una guia practica para decidir que estudiar primero y que libro usar segun tu objetivo.</p></div><div class="panel">${leadForm(formInterest)}</div></section>
+    <section class="sales-grid" id="lead"><div class="panel"><h2>Recibe tu primer capitulo gratis</h2><p>Lee una muestra concreta, valida el estilo y decide cual libro comprar primero segun tu objetivo.</p></div><div class="panel">${leadForm(formInterest)}</div></section>
   </main>
-  <footer class="site"><div class="wrap">© Zone Digital · IA · Cloud · Mineria · Amazon KDP</div></footer>`;
+  <footer class="site"><div class="wrap">© Zone Digital · IA · Cloud · Mineria · Libros Kindle</div></footer>`;
 }
 
 function buildFunnelPages(books) {
@@ -799,8 +799,8 @@ function buildFunnelPages(books) {
   fs.writeFileSync(ensureDirForPage('/tiktok/'), pageShell({
     path: '/tiktok/',
     title: 'Elige tu ruta para crecer con IA, Cloud y Tecnologia',
-    description: 'Landing optimizada para trafico de TikTok hacia rutas profesionales, lead magnet y libros de Amazon Kindle.',
-      body: landingBody({ eyebrow: 'TikTok funnel', title: 'Capitulo gratis del libro AWS + rutas para crecer', description: 'Landing directa para visitantes de TikTok: descarga el recurso AWS, revisa una ruta clara y entra a la biblioteca solo si quieres explorar mas.', primary: 'Capitulo gratis del libro AWS', secondary: { href: '/#featured', label: 'Ver biblioteca completa' }, cards: tiktokCards, formInterest: 'AWS & Cloud' }),
+    description: 'Pagina directa para trafico de TikTok hacia capitulos gratis, rutas profesionales y libros de Amazon Kindle.',
+      body: landingBody({ eyebrow: 'Desde TikTok', title: 'Prueba un capitulo gratis y descubre tu siguiente libro', description: 'Si vienes buscando claridad sobre IA, Cloud o tecnologia, empieza con una muestra de calidad y compra solo el libro que encaje con tu meta.', primary: 'Quiero el capitulo gratis', secondary: { href: '/#featured', label: 'Ver libros recomendados' }, cards: tiktokCards, formInterest: 'AWS & Cloud' }),
   }));
 
   for (const r of routes) {
@@ -810,7 +810,7 @@ function buildFunnelPages(books) {
       title: r.title,
       description: r.desc,
       body: `<header class="site"><div class="wrap"><a class="brand" href="/"><img src="/logo.webp" alt="Zone Digital" /><span>Zone<span class="dim"> Digital</span></span></a><nav class="nav"><a href="/tiktok/">TikTok</a><a href="/gratis/">Gratis</a><a href="/#books">Biblioteca</a></nav></div></header>
-      <main class="wrap"><section class="route-hero"><div><div class="badges"><span class="badge cat">${esc(r.badge)}</span><span class="badge">30 dias</span><span class="badge">Capitulo gratis</span></div><h1>${esc(r.title)}</h1><p class="sub">${esc(r.desc)}</p><p>${esc(r.promise)}</p><blockquote class="quote">"${esc(r.quote)}"<cite>${esc(r.quoteBy)}</cite></blockquote><div class="cta"><a class="btn primary" href="#lead">Descargar capitulo gratis</a><a class="btn ghost" href="#books">Ver libros recomendados</a></div></div><div class="route-visual">${routeBookStack(selected)}<div class="freebie-note"><strong>${esc(r.freebie)}</strong><br/>Empieza sin friccion: pide el recurso, abre la ficha y compra el libro correcto cuando estes listo.</div></div></section><section class="more"><h2>Tu roadmap de lectura</h2>${routeSteps(r.steps)}</section><section class="more" id="books"><h2>Libros recomendados</h2><div class="grid">${bookCards(selected, r.interest)}</div></section><section class="sales-grid" id="lead"><div class="panel"><h2>Descarga el recurso de esta ruta</h2><p>Te ayuda a decidir por donde empezar, que libro comprar primero y como convertir lectura en accion profesional.</p></div><div class="panel">${leadForm(r.interest)}</div></section></main><footer class="site"><div class="wrap">© Zone Digital</div></footer>`,
+      <main class="wrap"><section class="route-hero"><div><div class="badges"><span class="badge cat">${esc(r.badge)}</span><span class="badge">30 dias</span><span class="badge">Capitulo gratis</span></div><h1>${esc(r.title)}</h1><p class="sub">${esc(r.desc)}</p><p>${esc(r.promise)}</p><blockquote class="quote">"${esc(r.quote)}"<cite>${esc(r.quoteBy)}</cite></blockquote><div class="cta"><a class="btn primary" href="#lead">Descargar capitulo gratis</a><a class="btn ghost" href="#books">Ver libros recomendados</a></div></div><div class="route-visual">${routeBookStack(selected)}<div class="freebie-note"><strong>${esc(r.freebie)}</strong><br/>Lee una muestra, valida el estilo y compra el libro correcto cuando sientas que esta ruta es para ti.</div></div></section><section class="more"><h2>Tu roadmap de lectura</h2>${routeSteps(r.steps)}</section><section class="more" id="books"><h2>Libros recomendados</h2><div class="grid">${bookCards(selected, r.interest)}</div></section><section class="sales-grid" id="lead"><div class="panel"><h2>Prueba la ruta antes de comprar</h2><p>El capitulo gratis te muestra el nivel, el estilo y la utilidad practica del contenido para decidir con confianza.</p></div><div class="panel">${leadForm(r.interest)}</div></section></main><footer class="site"><div class="wrap">© Zone Digital</div></footer>`,
     }));
   }
 
@@ -821,7 +821,7 @@ function buildFunnelPages(books) {
       title: bundle.title,
       description: `${bundle.title}: pack PDF recomendado de Zone Digital para ${bundle.interest}.`,
       body: `<header class="site"><div class="wrap"><a class="brand" href="/"><img src="/logo.webp" alt="Zone Digital" /><span>Zone<span class="dim"> Digital</span></span></a><nav class="nav"><a href="/tiktok/">TikTok</a><a href="/gratis/">Gratis</a><a href="/#books">Biblioteca</a></nav></div></header>
-      <main class="wrap"><section class="route-hero"><div><div class="badges"><span class="badge cat">Career Path Bundle</span><span class="badge">${esc(bundle.price)}</span><span class="badge">Gumroad ready</span></div><h1>${esc(bundle.title)}</h1><p class="sub">${esc(bundle.promise)}</p><p>Compradores tecnicos compran rutas completas cuando entienden el resultado. Este pack agrupa libros que se refuerzan entre si para aumentar valor por compra.</p><div class="cta"><a class="btn primary" href="#lead">Solicitar pack PDF</a><a class="btn ghost" href="#books">Ver libros incluidos</a></div></div><div class="route-visual">${routeBookStack(selected)}<div class="freebie-note"><strong>Listo para conectar a Gumroad</strong><br/>Cuando tengas el enlace de producto, este CTA puede cambiar de solicitud a compra directa.</div></div></section><section class="more" id="books"><h2>Incluye estos libros</h2><div class="grid">${bookCards(selected, bundle.interest)}</div></section><section class="sales-grid" id="lead"><div class="panel"><h2>Solicita el pack PDF</h2><p>Captura interes antes de publicar el producto en Gumroad y mide demanda real por ruta.</p></div><div class="panel">${leadForm(bundle.interest, bundle.id, bundle.title)}</div></section></main><footer class="site"><div class="wrap">© Zone Digital · Bundle ${esc(bundle.interest)}</div></footer>`,
+      <main class="wrap"><section class="route-hero"><div><div class="badges"><span class="badge cat">Career Path Bundle</span><span class="badge">${esc(bundle.price)}</span><span class="badge">Pack recomendado</span></div><h1>${esc(bundle.title)}</h1><p class="sub">${esc(bundle.promise)}</p><p>Un pack para avanzar con continuidad: varios libros conectados por una misma meta, menos dispersion y una ruta clara para estudiar con profundidad.</p><div class="cta"><a class="btn primary" href="#lead">Quiero probar el pack</a><a class="btn ghost" href="#books">Ver libros incluidos</a></div></div><div class="route-visual">${routeBookStack(selected)}<div class="freebie-note"><strong>Empieza por una muestra gratis</strong><br/>Lee primero, valida el enfoque y compra el pack cuando confirmes que esta ruta es la que necesitas.</div></div></section><section class="more" id="books"><h2>Incluye estos libros</h2><div class="grid">${bookCards(selected, bundle.interest)}</div></section><section class="sales-grid" id="lead"><div class="panel"><h2>Prueba antes de comprar el pack</h2><p>Recibe una muestra gratuita y decide si esta ruta completa encaja con tu siguiente objetivo profesional.</p></div><div class="panel">${leadForm(bundle.interest, bundle.id, bundle.title)}</div></section></main><footer class="site"><div class="wrap">© Zone Digital · Bundle ${esc(bundle.interest)}</div></footer>`,
     }));
   }
 
@@ -829,14 +829,14 @@ function buildFunnelPages(books) {
     path: '/gratis/',
     title: 'Recursos gratuitos para IA, Cloud y Mineria 4.0',
     description: 'Descarga capitulos, checklists y roadmaps gratuitos de Zone Digital.',
-    body: `<header class="site"><div class="wrap"><a class="brand" href="/"><img src="/logo.webp" alt="Zone Digital" /><span>Zone<span class="dim"> Digital</span></span></a><nav class="nav"><a href="/tiktok/">TikTok</a><a href="/#books">Biblioteca</a></nav></div></header><main class="wrap"><section class="hero"><div><div class="badges"><span class="badge cat">Recursos gratis</span><span class="badge">Lead magnet</span></div><h1>Descarga recursos para crecer en IA, Cloud y Tecnologia</h1><p class="sub">Capitulos gratis, checklist de arquitecto cloud y roadmap de 30 dias para elegir tu siguiente paso profesional.</p></div><div class="panel">${leadForm('IA Aplicada')}</div></section><section class="more"><h2>Recursos disponibles</h2><div class="grid"><article class="card"><h3>Capitulo gratis AWS</h3><p>Para empezar una ruta cloud con foco profesional.</p></article><article class="card"><h3>Capitulo gratis IA</h3><p>Para pasar de curiosidad a aplicacion real.</p></article><article class="card"><h3>Capitulo gratis Mineria 4.0</h3><p>Para entender tecnologia minera conectada.</p></article><article class="card"><h3>Roadmap 30 dias IA + Cloud</h3><p>Una ruta simple para priorizar aprendizaje y compra.</p></article></div></section></main><footer class="site"><div class="wrap">© Zone Digital</div></footer>`,
+    body: `<header class="site"><div class="wrap"><a class="brand" href="/"><img src="/logo.webp" alt="Zone Digital" /><span>Zone<span class="dim"> Digital</span></span></a><nav class="nav"><a href="/tiktok/">TikTok</a><a href="/#books">Biblioteca</a></nav></div></header><main class="wrap"><section class="hero"><div><div class="badges"><span class="badge cat">Capitulos gratis</span><span class="badge">Prueba la calidad</span></div><h1>Prueba la calidad de Zone Digital antes de comprar</h1><p class="sub">Elige un capitulo o checklist, revisa el nivel del contenido y compra el libro que realmente conecte con tu objetivo profesional.</p></div><div class="panel">${leadForm('IA Aplicada')}</div></section><section class="more"><h2>Recursos disponibles</h2><div class="grid"><article class="card"><h3>Capitulo gratis AWS</h3><p>Para validar si la ruta cloud te ayuda a pensar como arquitecto.</p></article><article class="card"><h3>Capitulo gratis IA</h3><p>Para comprobar si el enfoque te lleva de curiosidad a aplicacion real.</p></article><article class="card"><h3>Capitulo gratis Mineria 4.0</h3><p>Para entender si el contenido te ayuda a explicar tecnologia minera conectada.</p></article><article class="card"><h3>Roadmap 30 dias IA + Cloud</h3><p>Una ruta simple para priorizar aprendizaje y elegir tu siguiente compra.</p></article></div></section></main><footer class="site"><div class="wrap">© Zone Digital</div></footer>`,
   }));
 
   fs.writeFileSync(ensureDirForPage('/gracias/'), pageShell({
     path: '/gracias/',
     title: 'Gracias por registrarte',
     description: 'Confirmacion de registro en Zone Digital con libros recomendados.',
-    body: `<header class="site"><div class="wrap"><a class="brand" href="/"><img src="/logo.webp" alt="Zone Digital" /><span>Zone<span class="dim"> Digital</span></span></a></div></header><main class="wrap"><section class="hero"><div><div class="badges"><span class="badge cat">Registro recibido</span></div><h1>Listo. Revisa tu correo y sigue con una ruta recomendada.</h1><p class="sub">Mientras llega el recurso, puedes explorar los libros con mayor intencion de compra.</p><div class="cta"><a class="btn primary" href="/rutas/ia/">Ruta IA</a><a class="btn ghost" href="/rutas/aws-cloud/">Ruta AWS</a></div></div><div class="panel"><h2>Siguiente mejor accion</h2><p>Abre una ficha, revisa si el libro encaja contigo y compra en Amazon cuando estes listo.</p></div></section></main><footer class="site"><div class="wrap">© Zone Digital</div></footer>`,
+    body: `<header class="site"><div class="wrap"><a class="brand" href="/"><img src="/logo.webp" alt="Zone Digital" /><span>Zone<span class="dim"> Digital</span></span></a></div></header><main class="wrap"><section class="hero"><div><div class="badges"><span class="badge cat">Registro recibido</span></div><h1>Listo. Revisa tu correo y sigue con una ruta recomendada.</h1><p class="sub">Mientras llega el recurso, explora los libros que pueden ayudarte a dar tu siguiente paso profesional.</p><div class="cta"><a class="btn primary" href="/rutas/ia/">Ruta IA</a><a class="btn ghost" href="/rutas/aws-cloud/">Ruta AWS</a></div></div><div class="panel"><h2>Elige con confianza</h2><p>Abre una ficha, revisa para quien es el libro y compra en Amazon cuando sientas que el contenido encaja contigo.</p></div></section></main><footer class="site"><div class="wrap">© Zone Digital</div></footer>`,
     scripts: `zdTrack('sign_up', { method:'email', interest:'free_resource' });`
   }));
 }

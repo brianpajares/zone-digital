@@ -515,3 +515,24 @@ button { font-family: inherit; }
 }
 .zd-inline-actions a:first-child { background: var(--ink); color: var(--bone); border-color: var(--ink); }
 .zd-inline-actions button:hover, .zd-inline-actions a:hover { border-color: var(--zd-cobalt); }
+
+.zd-reader-stories { background: #f7f6ef; color: var(--ink); padding-top: 92px; }
+.zd-reader-stories .zd-h2 { color: var(--ink); }
+.zd-reader-stories .zd-sec-head p, .zd-reader-stories .zd-overline { color: var(--stone-600); }
+.zd-story-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 38px; }
+@media (max-width: 880px){ .zd-story-grid { grid-template-columns: 1fr; } }
+.zd-story-card {
+  min-height: 100%; padding: 24px; border-radius: var(--radius-lg);
+  background: #fff; border: 1px solid var(--stone-200);
+  box-shadow: 0 18px 42px -34px rgba(11,14,20,0.45);
+}
+.zd-story-person { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.zd-story-avatar {
+  width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--ink); color: var(--zd-lime); font: 800 14px var(--font-mono);
+  border: 1px solid rgba(216,255,61,0.4);
+}
+.zd-story-person strong { display: block; color: var(--ink); font-size: var(--text-sm); }
+.zd-story-person span { display: block; margin-top: 3px; color: var(--stone-500); font-size: var(--text-xs); }
+.zd-story-card h3 { margin: 0 0 10px; color: var(--ink); font: 800 var(--text-xl)/1.08 var(--font-display); }
+.zd-story-card p { margin: 0; color: var(--stone-600); line-height: 1.55; font-size: var(--text-sm); }

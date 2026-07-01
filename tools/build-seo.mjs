@@ -50,7 +50,7 @@ const coverUrl = (asin) =>
 // Potencial de venta mundial (mayor = se muestra primero).
 // IMPORTANTE: mantener idéntico al ZD_SCORE de index.html.
 const CAT_DEMAND = { tech: 50, cert: 42, business: 30, startup: 24, mining: 20 };
-const HOT = /(\bIA\b|\bAI\b|GenAI|generativ|\bLLM\b|agent|MLOps|machine learning|cloud|AWS|Azure|Google Cloud|kubernetes|wealth|growth|chief|officer|PMP|CFA)/i;
+const HOT = /(\bIA\b|\bAI\b|GenAI|generativ|\bLLM\b|agent|MLOps|machine learning|cloud|AWS|Azure|Google Cloud|kubernetes|wealth|growth|chief|officer|PMP|CFA|VIBE|coding|ventas|dollars|datos|Loop|mineral exploration|computer vision|maintenance|space|deep-sea)/i;
 const salesScore = (b) => {
   let s = CAT_DEMAND[b.cat] || 0;
   s += b.lang === 'en' ? 18 : 10;
@@ -65,9 +65,9 @@ const priceNum = (b) => (priceLabel(b).replace(/[^\d.]/g, '') || '9.99');
 const pageUrl = (b) => `${SITE}/libros/${b.slug}/`;
 
 const BUNDLES = [
-  { id: 'arquitecto-cloud', path: '/bundles/arquitecto-cloud/', title: 'Pack Arquitecto Cloud', price: 'USD 19.99', interest: 'AWS & Cloud', ids: ['L29','L20','L36'], promise: 'Arquitectura + AWS + Google Cloud para avanzar como arquitecto cloud con una ruta compacta.' },
-  { id: 'constructor-ia', path: '/bundles/constructor-ia/', title: 'Pack Constructor IA', price: 'USD 19.99', interest: 'IA Aplicada', ids: ['L30','L35','L22'], promise: 'IA aplicada, productos digitales y liderazgo para pasar de usuario a constructor.' },
-  { id: 'mineria-4-0', path: '/bundles/mineria-4-0/', title: 'Pack Mineria 4.0', price: 'USD 29.99', interest: 'Mineria 4.0', ids: ['L09','L12','L07'], promise: 'Transformacion digital minera, innovacion y casos para explicar tecnologia con impacto operacional.' },
+  { id: 'arquitecto-cloud', path: '/bundles/arquitecto-cloud/', title: 'Pack Arquitecto Cloud', price: 'USD 19.99', interest: 'AWS & Cloud', ids: ['L43','L48','L29','L20','L36'], promise: 'Arquitectura + AWS + Google Cloud para avanzar como arquitecto cloud con una ruta compacta.' },
+  { id: 'constructor-ia', path: '/bundles/constructor-ia/', title: 'Pack Constructor IA', price: 'USD 19.99', interest: 'IA Aplicada', ids: ['L42','L46','L30','L44','L45'], promise: 'IA aplicada, agentes, datos y ventas para pasar de usuario a constructor.' },
+  { id: 'mineria-4-0', path: '/bundles/mineria-4-0/', title: 'Pack Mineria 4.0', price: 'USD 29.99', interest: 'Mineria 4.0', ids: ['L49','L47','L41','L40','L25'], promise: 'IA minera, seguridad, exploracion, mantenimiento y casos para explicar tecnologia con impacto operacional.' },
 ];
 
 function leadMagnetForBook(b) {
@@ -77,15 +77,15 @@ function leadMagnetForBook(b) {
     cta: 'Descargar checklist gratis',
     bullets: ['Requisitos no funcionales', 'Seguridad y costos', 'Escalabilidad y operacion'],
   };
-  if (/IA|AI|GenAI|agent|MLOps|RAG|Chief AI|CEO Aumentado|wealth|growth/i.test(text)) return {
-    title: 'Mapa IA Aplicada: de idea a automatizacion en 30 dias',
-    cta: 'Descargar mapa IA gratis',
-    bullets: ['Caso de uso correcto', 'Datos y automatizacion', 'Primer prototipo vendible'],
-  };
   if (/miner|mining|IoT|gemelo|digital twin|robot|underground|open pit/i.test(text)) return {
     title: 'Mapa Mineria 4.0: 12 casos de uso para priorizar',
     cta: 'Descargar mapa minero gratis',
     bullets: ['Productividad y seguridad', 'Datos operacionales', 'Roadmap de adopcion'],
+  };
+  if (/IA|AI|GenAI|agent|MLOps|RAG|Chief AI|CEO Aumentado|wealth|growth|VIBE|coding|Loop|ventas|dollars|datos/i.test(text)) return {
+    title: 'Mapa IA Aplicada: de idea a automatizacion en 30 dias',
+    cta: 'Descargar mapa IA gratis',
+    bullets: ['Caso de uso correcto', 'Datos y automatizacion', 'Primer prototipo vendible'],
   };
   if (/PMP|CFA|certific/i.test(text)) return {
     title: 'Plan de estudio: 21 dias para ordenar tu certificacion',
@@ -102,8 +102,8 @@ function leadMagnetForBook(b) {
 function bundleForBook(b) {
   const text = `${b.title} ${b.sub}`;
   if (/arquitectura|architect|cloud|AWS|Azure|Google Cloud/i.test(text)) return BUNDLES[0];
-  if (/IA|AI|GenAI|agent|MLOps|RAG|Chief AI|CEO Aumentado|wealth|growth/i.test(text)) return BUNDLES[1];
   if (/miner|mining|IoT|gemelo|digital twin|robot|underground|open pit/i.test(text)) return BUNDLES[2];
+  if (/IA|AI|GenAI|agent|MLOps|RAG|Chief AI|CEO Aumentado|wealth|growth|VIBE|coding|Loop|ventas|dollars|datos/i.test(text)) return BUNDLES[1];
   return null;
 }
 
@@ -115,6 +115,7 @@ const LANDING_PAGES = [
   { path: '/rutas/certificaciones/', title: 'Ruta Certificaciones Globales', priority: '0.9' },
   { path: '/rutas/liderazgo-tech/', title: 'Ruta Liderazgo Tech & Negocios', priority: '0.9' },
   { path: '/rutas/startups-negocios/', title: 'Ruta Startups & Productos Digitales', priority: '0.9' },
+  { path: '/rutas/ia-datos-ventas/', title: 'Ruta IA, Datos & Ventas', priority: '0.9' },
   ...BUNDLES.map((b) => ({ path: b.path, title: b.title, priority: '0.86' })),
   { path: '/gratis/', title: 'Recursos gratis', priority: '0.85' },
   { path: '/gracias/', title: 'Gracias', priority: '0.4' },
@@ -795,12 +796,13 @@ function landingBody({ eyebrow, title, description, primary, secondary, cards, f
 
 function buildFunnelPages(books) {
   const routes = [
-    { path: '/rutas/aws-cloud/', title: 'Ruta AWS & Cloud', badge: 'Arquitecto cloud', desc: 'Roadmap de 30 dias para certificar, pensar como arquitecto cloud y crecer como lider tecnico.', promise: 'Pasa de estudiar servicios sueltos a pensar, disenar y defender arquitecturas reales.', quote: 'La mejor forma de predecir el futuro es crearlo.', quoteBy: 'Peter Drucker', freebie: 'Capitulo gratis: checklist de arquitecto cloud', interest: 'AWS & Cloud', ids: ['L20','L03','L29','L05','L18','L36','L37'], steps: ['Fundamentos cloud', 'Certificacion con foco', 'Arquitectura aplicada', 'Casos y decision', 'Compra/lectura guiada'] },
-    { path: '/rutas/ia/', title: 'Ruta IA Aplicada', badge: 'Constructor de IA', desc: 'Aprende GenAI, agentes, RAG, automatizacion y estrategia para convertir IA en ventaja profesional.', promise: 'Convierte curiosidad por IA en criterio, automatizaciones, productos y ventaja profesional.', quote: 'La imaginacion es mas importante que el conocimiento.', quoteBy: 'Albert Einstein', freebie: 'Capitulo gratis: ruta de IA aplicada en 30 dias', interest: 'IA Aplicada', ids: ['L30','L22','L21','L35','L23','L17','L28','L31','L06'], steps: ['Panorama GenAI', 'Prompts y agentes', 'RAG y conocimiento', 'MLOps y produccion', 'Producto monetizable'] },
-    { path: '/rutas/mineria-4-0/', title: 'Ruta Mineria 4.0', badge: 'Mina inteligente', desc: 'Libros para aplicar datos, IoT, IA, seguridad, productividad y operacion remota en mineria.', promise: 'Une tecnologia, operaciones y negocio para explicar y ejecutar transformacion minera.', quote: 'Sin datos, solo eres otra persona con una opinion.', quoteBy: 'W. Edwards Deming', freebie: 'Capitulo gratis: mapa de casos Mineria 4.0', interest: 'Mineria 4.0', ids: ['L09','L12','L07','L16','L31','L25','L27','L24','L32','L33','L34','L08','L11','L26'], steps: ['Datos operacionales', 'IoT industrial', 'Operacion remota', 'Gemelo digital', 'Caso de negocio'] },
+    { path: '/rutas/aws-cloud/', title: 'Ruta AWS & Cloud', badge: 'Arquitecto cloud', desc: 'Roadmap de 30 dias para certificar, pensar como arquitecto cloud y crecer como lider tecnico.', promise: 'Pasa de estudiar servicios sueltos a pensar, disenar y defender arquitecturas reales.', quote: 'La mejor forma de predecir el futuro es crearlo.', quoteBy: 'Peter Drucker', freebie: 'Capitulo gratis: checklist de arquitecto cloud', interest: 'AWS & Cloud', ids: ['L43','L48','L20','L03','L29','L05','L18','L36','L37'], steps: ['Fundamentos cloud', 'Certificacion con foco', 'Arquitectura aplicada', 'Casos y decision', 'Compra/lectura guiada'] },
+    { path: '/rutas/ia/', title: 'Ruta IA Aplicada', badge: 'Constructor de IA', desc: 'Aprende GenAI, agentes, RAG, automatizacion y estrategia para convertir IA en ventaja profesional.', promise: 'Convierte curiosidad por IA en criterio, automatizaciones, productos y ventaja profesional.', quote: 'La imaginacion es mas importante que el conocimiento.', quoteBy: 'Albert Einstein', freebie: 'Capitulo gratis: ruta de IA aplicada en 30 dias', interest: 'IA Aplicada', ids: ['L42','L46','L30','L22','L35','L23','L44','L45','L49','L17','L28','L31','L06'], steps: ['Panorama GenAI', 'Prompts y agentes', 'RAG y conocimiento', 'MLOps y produccion', 'Producto monetizable'] },
+    { path: '/rutas/mineria-4-0/', title: 'Ruta Mineria 4.0', badge: 'Mina inteligente', desc: 'Libros para aplicar datos, IoT, IA, seguridad, productividad y operacion remota en mineria.', promise: 'Une tecnologia, operaciones y negocio para explicar y ejecutar transformacion minera.', quote: 'Sin datos, solo eres otra persona con una opinion.', quoteBy: 'W. Edwards Deming', freebie: 'Capitulo gratis: mapa de casos Mineria 4.0', interest: 'Mineria 4.0', ids: ['L49','L47','L41','L40','L38','L39','L09','L12','L07','L16','L31','L25','L27','L24','L32','L33','L34','L08','L11','L26'], steps: ['Datos operacionales', 'IoT industrial', 'Operacion remota', 'Gemelo digital', 'Caso de negocio'] },
     { path: '/rutas/certificaciones/', title: 'Ruta Certificaciones Globales', badge: 'Credencial profesional', desc: 'PMP, CFA, AWS, Google Cloud y Azure para estudiar con foco y demostrar valor.', promise: 'Ordena tu preparacion, gana confianza y convierte una certificacion en oportunidad profesional.', quote: 'La disciplina es el puente entre metas y logros.', quoteBy: 'Jim Rohn', freebie: 'Capitulo gratis: plan de estudio de 21 dias', interest: 'Certificaciones', ids: ['L01','L14','L02','L15','L03','L20','L36','L37'], steps: ['Meta clara', 'Plan de estudio', 'Dominios clave', 'Practica guiada', 'Examen con confianza'] },
-    { path: '/rutas/liderazgo-tech/', title: 'Ruta Liderazgo Tech & Negocios', badge: 'Decision ejecutiva', desc: 'Arquitectura, MBA, liderazgo con IA y decisiones para dirigir tecnologia con impacto.', promise: 'Aprende a explicar tecnologia, priorizar inversiones y liderar conversaciones de negocio con criterio.', quote: 'La estrategia sin ejecucion es una ilusion.', quoteBy: 'Thomas Edison', freebie: 'Capitulo gratis: decisiones tech que si importan', interest: 'Negocios', ids: ['L21','L05','L18','L04','L19','L22','L35','L23'], steps: ['Lenguaje ejecutivo', 'Estrategia tech', 'IA para lideres', 'Modelos de negocio', 'Decision y accion'] },
-    { path: '/rutas/startups-negocios/', title: 'Ruta Startups & Productos Digitales', badge: 'Constructor digital', desc: 'Startups, productos con IA, crecimiento digital y modelos para convertir conocimiento en oferta.', promise: 'Transforma lectura en una propuesta concreta: producto, servicio, contenido o negocio digital.', quote: 'Las ideas valen poco sin ejecucion constante.', quoteBy: 'Zone Digital', freebie: 'Capitulo gratis: de idea a producto vendible', interest: 'Start Ups', ids: ['L10','L13','L35','L23','L04','L19','L06','L17'], steps: ['Idea con mercado', 'Oferta clara', 'Producto digital', 'Crecimiento con IA', 'Venta inicial'] },
+    { path: '/rutas/liderazgo-tech/', title: 'Ruta Liderazgo Tech & Negocios', badge: 'Decision ejecutiva', desc: 'Arquitectura, MBA, liderazgo con IA y decisiones para dirigir tecnologia con impacto.', promise: 'Aprende a explicar tecnologia, priorizar inversiones y liderar conversaciones de negocio con criterio.', quote: 'La estrategia sin ejecucion es una ilusion.', quoteBy: 'Thomas Edison', freebie: 'Capitulo gratis: decisiones tech que si importan', interest: 'Negocios', ids: ['L44','L45','L21','L05','L18','L48','L04','L19','L22','L35','L23'], steps: ['Lenguaje ejecutivo', 'Estrategia tech', 'IA para lideres', 'Modelos de negocio', 'Decision y accion'] },
+    { path: '/rutas/startups-negocios/', title: 'Ruta Startups & Productos Digitales', badge: 'Constructor digital', desc: 'Startups, productos con IA, crecimiento digital y modelos para convertir conocimiento en oferta.', promise: 'Transforma lectura en una propuesta concreta: producto, servicio, contenido o negocio digital.', quote: 'Las ideas valen poco sin ejecucion constante.', quoteBy: 'Zone Digital', freebie: 'Capitulo gratis: de idea a producto vendible', interest: 'Start Ups', ids: ['L42','L44','L45','L46','L10','L13','L35','L23','L04','L19','L06','L17'], steps: ['Idea con mercado', 'Oferta clara', 'Producto digital', 'Crecimiento con IA', 'Venta inicial'] },
+    { path: '/rutas/ia-datos-ventas/', title: 'Ruta IA, Datos & Ventas', badge: 'Crecimiento con IA', desc: 'IA para ventas, datos monetizables, agentes y automatizacion de crecimiento.', promise: 'Convierte datos, procesos y contenido en sistemas que atraen clientes y generan ingresos.', quote: 'Lo que no se mide no se mejora.', quoteBy: 'Peter Drucker', freebie: 'Capitulo gratis: IA aplicada a ventas y datos', interest: 'IA Aplicada', ids: ['L44','L45','L42','L46','L35','L23','L21','L06','L17'], steps: ['Mensaje y oferta', 'Datos que importan', 'Automatizacion con agentes', 'Ventas con IA', 'Ingresos medibles'] },
   ];
 
   const tiktokCards = routes.map(r => routeTeaserCard(r, byId(books, r.ids))).join('');
@@ -837,7 +839,7 @@ function buildFunnelPages(books) {
     path: '/gratis/',
     title: 'Recursos gratuitos para IA, Cloud y Mineria 4.0',
     description: 'Descarga capitulos, checklists y roadmaps gratuitos de Zone Digital.',
-    body: `<header class="site"><div class="wrap"><a class="brand" href="/"><img src="/logo.webp" alt="Zone Digital" /><span>Zone<span class="dim"> Digital</span></span></a><nav class="nav"><a href="/tiktok/">TikTok</a><a href="/#books">Biblioteca</a></nav></div></header><main class="wrap"><section class="hero"><div><div class="badges"><span class="badge cat">Capitulos gratis</span><span class="badge">Prueba la calidad</span></div><h1>Prueba la calidad de Zone Digital antes de comprar</h1><p class="sub">Elige un capitulo o checklist, revisa el nivel del contenido y compra el libro que realmente conecte con tu objetivo profesional.</p></div><div class="panel">${leadForm('IA Aplicada')}</div></section><section class="more"><h2>Recursos disponibles</h2><div class="grid"><article class="card"><h3>Capitulo gratis AWS</h3><p>Para validar si la ruta cloud te ayuda a pensar como arquitecto.</p></article><article class="card"><h3>Capitulo gratis IA</h3><p>Para comprobar si el enfoque te lleva de curiosidad a aplicacion real.</p></article><article class="card"><h3>Capitulo gratis Mineria 4.0</h3><p>Para entender si el contenido te ayuda a explicar tecnologia minera conectada.</p></article><article class="card"><h3>Roadmap 30 dias IA + Cloud</h3><p>Una ruta simple para priorizar aprendizaje y elegir tu siguiente compra.</p></article></div></section></main><footer class="site"><div class="wrap">© Zone Digital</div></footer>`,
+    body: `<header class="site"><div class="wrap"><a class="brand" href="/"><img src="/logo.webp" alt="Zone Digital" /><span>Zone<span class="dim"> Digital</span></span></a><nav class="nav"><a href="/tiktok/">TikTok</a><a href="/#books">Biblioteca</a></nav></div></header><main class="wrap"><section class="hero"><div><div class="badges"><span class="badge cat">Capitulos gratis</span><span class="badge">Prueba la calidad</span></div><h1>Prueba la calidad de Zone Digital antes de comprar</h1><p class="sub">Elige un capitulo o checklist, revisa el nivel del contenido y compra el libro que realmente conecte con tu objetivo profesional.</p></div><div class="panel">${leadForm('IA Aplicada')}</div></section><section class="more"><h2>Recursos disponibles</h2><div class="grid"><article class="card"><h3>Capitulo gratis AWS</h3><p>Para validar si la ruta cloud te ayuda a pensar como arquitecto.</p></article><article class="card"><h3>Capitulo gratis IA</h3><p>Para comprobar si el enfoque te lleva de curiosidad a aplicacion real.</p></article><article class="card"><h3>Capitulo gratis IA, datos y ventas</h3><p>Para descubrir como convertir datos, agentes y contenido en ingresos medibles.</p></article><article class="card"><h3>Capitulo gratis Mineria 4.0</h3><p>Para entender si el contenido te ayuda a explicar tecnologia minera conectada.</p></article><article class="card"><h3>Roadmap 30 dias IA + Cloud</h3><p>Una ruta simple para priorizar aprendizaje y elegir tu siguiente compra.</p></article></div></section></main><footer class="site"><div class="wrap">© Zone Digital</div></footer>`,
   }));
 
   fs.writeFileSync(ensureDirForPage('/gracias/'), pageShell({

@@ -4,7 +4,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.zone-digital.com/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -14,79 +14,85 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/tiktok/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://www.zone-digital.com/rutas/aws-cloud/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.zone-digital.com/rutas/ia/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.zone-digital.com/rutas/mineria-4-0/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.zone-digital.com/rutas/certificaciones/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.zone-digital.com/rutas/liderazgo-tech/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.zone-digital.com/rutas/startups-negocios/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/rutas/ia-datos-ventas/</loc>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.zone-digital.com/bundles/arquitecto-cloud/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.86</priority>
   </url>
   <url>
     <loc>https://www.zone-digital.com/bundles/constructor-ia/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.86</priority>
   </url>
   <url>
     <loc>https://www.zone-digital.com/bundles/mineria-4-0/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.86</priority>
   </url>
   <url>
     <loc>https://www.zone-digital.com/gratis/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.zone-digital.com/gracias/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/the-ai-growth-operating-system/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -96,7 +102,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/the-ai-digital-wealth-factory/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -106,7 +112,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/chief-ai-officer/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -116,7 +122,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/master-the-age-of-generative-ai/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -126,7 +132,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/el-ingeniero-de-ia/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -135,8 +141,18 @@
     </image:image>
   </url>
   <url>
+    <loc>https://www.zone-digital.com/libros/vibe-coding/</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H6RB9BQM.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>VIBE CODING</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://www.zone-digital.com/libros/la-ruta-maestra-hacia-la-certificacion-pmp/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -146,7 +162,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/the-master-path-to-pmp-certification/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -156,7 +172,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/cfa-the-certified-path-to-global-financial-success/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -166,7 +182,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/aws-solutions-architect-associate-b0dwtb2v3r/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -176,7 +192,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/el-ingeniero-mlops/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -186,7 +202,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/el-manual-del-arquitecto-cloud/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -195,8 +211,38 @@
     </image:image>
   </url>
   <url>
+    <loc>https://www.zone-digital.com/libros/aws-cloud-architect-blueprint/</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H6RBYZQY.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>AWS Cloud Architect Blueprint</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/loop-engineering/</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H6RBJ8CL.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>Loop Engineering</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/arquitectura-de-soluciones-en-la-era-cloud/</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H7636BT1.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>Arquitectura de Soluciones en la Era Cloud</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://www.zone-digital.com/libros/cfa-el-camino-certificado-al-exito-financiero-global/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -206,7 +252,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/aws-solutions-architect-associate/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -216,7 +262,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/google-cloud-engineer/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -226,7 +272,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/domina-azure-y-certificate-rapido/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -236,7 +282,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/ceo-aumentado/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -246,7 +292,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/the-digital-twin-mine/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -256,7 +302,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/leading-start-ups-of-the-future/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -266,7 +312,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/domina-la-era-de-la-ia-generativa/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -275,8 +321,28 @@
     </image:image>
   </url>
   <url>
+    <loc>https://www.zone-digital.com/libros/ia-para-crecimiento-y-ventas-exponenciales/</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H6R4HYQK.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>IA para Crecimiento y Ventas Exponenciales</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/data-to-dollars/</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H6RB7VXK.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>Data to Dollars</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://www.zone-digital.com/libros/open-pit-iot-revolution/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -286,7 +352,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/mining-technology-in-action/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -296,7 +362,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/arquitecturas-de-ia-para-mineria/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -305,8 +371,68 @@
     </image:image>
   </url>
   <url>
+    <loc>https://www.zone-digital.com/libros/space-mining-engineering/</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H4N9YHCQ.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>Space Mining Engineering</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/deep-sea-mining-2030/</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H4NDH523.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>Deep-Sea Mining 2030</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/maintenance-data-scientist/</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H63XQQRJ.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>Maintenance Data Scientist</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/computer-vision-for-mine-safety/</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H63S13SL.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>Computer Vision for Mine Safety</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/ai-mineral-exploration/</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H72W5BBY.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>AI Mineral Exploration</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.zone-digital.com/libros/generative-ai-for-mining/</loc>
+    <lastmod>2026-07-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images-na.ssl-images-amazon.com/images/P/B0H7672M87.01._SCLZZZZZZZ_.jpg</image:loc>
+      <image:title>Generative AI for Mining</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://www.zone-digital.com/libros/solutions-architecture-for-technology-leaders/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -316,7 +442,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/mba-redesigned/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -326,7 +452,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/designing-robots-for-mining/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -336,7 +462,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/mba-redisenado/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -346,7 +472,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/arquitectura-de-soluciones-para-lideres-tecnologicos/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -356,7 +482,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/battery-electric-underground-mining/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -366,7 +492,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/abc-of-the-mining-innovation/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -376,7 +502,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/all-about-digital-transformation-and-mining-4-0/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -386,7 +512,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/from-control-room-to-autonomous-mine/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -396,7 +522,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/the-underground-connected-mine/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -406,7 +532,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/liderando-start-ups-del-futuro/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -416,7 +542,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/tecnologia-minera-en-accion/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -426,7 +552,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/el-abc-de-la-innovacion-minera/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -436,7 +562,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/la-transformacion-digital-y-la-mineria-4-0/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -446,7 +572,7 @@
   </url>
   <url>
     <loc>https://www.zone-digital.com/libros/centro-integrado-de-operaciones-para-mineria/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>

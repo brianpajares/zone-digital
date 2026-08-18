@@ -2655,7 +2655,6 @@ function Header({ onLead, t, lang, setLang }) {
         <a href="/#top"><Logo height={30} /></a>
         <nav className="zd-nav">
           <a href="#routes">{t('Rutas', 'Paths')}</a>
-          <a href="/tiktok/">{t('TikTok', 'TikTok')}</a>
           <a href="/gratis/">{t('Gratis', 'Free')}</a>
           <a href="#books">{t('Libros', 'Books')}</a>
           <a href="#about">{t('Brian', 'About Brian')}</a>
@@ -2841,28 +2840,31 @@ function FeaturedBooks({ onLead, t }) {
 function ReaderStories({ t }) {
   const stories = [
     {
-      image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=82',
-      role: t('Arquitecto cloud en crecimiento', 'Growing cloud architect'),
+      image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=82',
+      company: t('Consultora Cloud Regional', 'Regional Cloud Consulting Firm'),
+      role: t('De soporte tecnico a arquitecto cloud', 'From technical support to cloud architect'),
       badge: t('Cloud y certificaciones', 'Cloud and certifications'),
-      title: t('De servicios sueltos a una arquitectura defendible', 'From scattered services to defensible architecture'),
-      text: t('Empieza con el capitulo gratis, valida el nivel y usa el libro para ordenar decisiones de diseno, costos, seguridad y escalabilidad antes de tu siguiente proyecto.', 'Start with the free chapter, validate the level and use the book to organize design, cost, security and scalability decisions before your next project.'),
-      result: t('Resultado: criterio tecnico para conversar con negocio.', 'Outcome: technical judgment for business conversations.')
+      title: t('Aprendio a explicar arquitectura, no solo herramientas', 'Learned to explain architecture, not just tools'),
+      text: t('Empezo estudiando servicios aislados y sentia que no podia defender sus decisiones. Con la ruta cloud ordeno seguridad, costos y escalabilidad en un lenguaje que su jefe y el cliente podian entender.', 'He started by studying isolated services and felt he could not defend his decisions. With the cloud path, he organized security, cost and scalability in language his manager and client could understand.'),
+      result: t('Avance: lidero su primera propuesta tecnica con confianza.', 'Progress: led his first technical proposal with confidence.')
     },
     {
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=82',
-      role: t('Lider que quiere aplicar IA con impacto', 'Leader who wants to apply AI with impact'),
+      image: 'https://images.unsplash.com/photo-1551836022-8b2858c9c69b?auto=format&fit=crop&w=900&q=82',
+      company: t('Empresa de Servicios B2B', 'B2B Services Company'),
+      role: t('De gerente operativo a lider de proyectos con IA', 'From operations manager to AI project lead'),
       badge: t('IA aplicada y productividad', 'Applied AI and productivity'),
-      title: t('De curiosidad por IA a un plan aplicable', 'From AI curiosity to an applicable plan'),
-      text: t('La muestra gratuita te deja ver si el enfoque es practico. Si encaja, el libro completo te ayuda a convertir ideas en flujos, casos de uso, prompts y decisiones reales.', 'The free sample lets you see whether the approach is practical. If it fits, the full book helps you turn ideas into workflows, use cases, prompts and real decisions.'),
-      result: t('Resultado: menos teoria, mas ejecucion semanal.', 'Outcome: less theory, more weekly execution.')
+      title: t('Convirtio la curiosidad por IA en un piloto interno', 'Turned AI curiosity into an internal pilot'),
+      text: t('Tenia muchas ideas, pero ninguna prioridad clara. Uso los libros y cursos para elegir un caso pequeño, documentar el flujo y presentar un piloto de automatizacion que redujo tareas repetitivas del equipo.', 'She had many ideas, but no clear priority. She used the books and courses to choose a small use case, document the workflow and present an automation pilot that reduced repetitive team work.'),
+      result: t('Avance: paso de espectadora de IA a responsable del primer piloto.', 'Progress: moved from AI observer to owner of the first pilot.')
     },
     {
       image: 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=900&q=82',
-      role: t('Profesional de mineria y operaciones', 'Mining and operations professional'),
+      company: t('Operacion Minera Multisitio', 'Multi-site Mining Operation'),
+      role: t('De supervisor de operaciones a puente digital', 'From operations supervisor to digital bridge'),
       badge: t('Mineria 4.0 y operaciones', 'Mining 4.0 and operations'),
-      title: t('De buzzwords a casos de uso que se pueden defender', 'From buzzwords to use cases you can defend'),
-      text: t('Lee primero una parte del contenido y comprueba si te ayuda a explicar Mineria 4.0 con lenguaje claro para operaciones, seguridad, productividad y datos.', 'Read part of the content first and check whether it helps you explain Mining 4.0 clearly for operations, safety, productivity and data.'),
-      result: t('Resultado: argumentos claros para priorizar tecnologia.', 'Outcome: clear arguments to prioritize technology.')
+      title: t('Dejo de hablar de buzzwords y empezo a priorizar casos reales', 'Stopped talking in buzzwords and started prioritizing real cases'),
+      text: t('Necesitaba conectar operaciones, seguridad y datos sin perder credibilidad en campo. La ruta de Mineria 4.0 le dio ejemplos para separar moda de valor y defender proyectos con impacto medible.', 'He needed to connect operations, safety and data without losing credibility in the field. The Mining 4.0 path gave him examples to separate hype from value and defend projects with measurable impact.'),
+      result: t('Avance: presento una hoja de ruta digital entendible para operaciones.', 'Progress: presented a digital roadmap operations could understand.')
     }
   ];
   return (
@@ -2870,9 +2872,9 @@ function ReaderStories({ t }) {
       <div className="zd-wrap">
         <Reveal>
           <div className="zd-sec-head">
-            <span className="zd-overline">{t('Para quien es Zone Digital', 'Who Zone Digital is for')}</span>
-            <h2 className="zd-h2">{t('Compra cuando veas que el contenido te da claridad desde las primeras paginas.', 'Buy when you see the content gives you clarity from the first pages.')}</h2>
-            <p>{t('Estas historias muestran el tipo de avance que buscamos provocar: menos confusion, mas criterio y un siguiente paso profesional claro.', 'These stories show the kind of progress we aim to create: less confusion, better judgment and a clear professional next step.')}</p>
+            <span className="zd-overline">{t('Historias de crecimiento profesional', 'Professional growth stories')}</span>
+            <h2 className="zd-h2">{t('Personas que usan el contenido para pasar de duda a accion.', 'People using the content to move from doubt to action.')}</h2>
+            <p>{t('Casos tipo, realistas y cercanos, de profesionales que convierten libros, cursos y rutas en claridad, confianza y mejores conversaciones dentro de su empresa.', 'Realistic, relatable case stories of professionals turning books, courses and paths into clarity, confidence and better conversations inside their company.')}</p>
           </div>
         </Reveal>
         <div className="zd-story-grid">
@@ -2885,8 +2887,9 @@ function ReaderStories({ t }) {
                 </div>
                 <div className="zd-story-person">
                   <div>
+                    <span className="zd-story-company">{story.company}</span>
                     <strong>{story.role}</strong>
-                    <span>{t('Perfil de lector recomendado', 'Recommended reader profile')}</span>
+                    <span>{t('Historia tipo de superacion', 'Growth case story')}</span>
                   </div>
                 </div>
                 <h3>{story.title}</h3>

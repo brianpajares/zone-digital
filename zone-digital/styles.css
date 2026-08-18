@@ -551,6 +551,10 @@ button { font-family: inherit; }
 .zd-story-person { display: flex; align-items: center; gap: 12px; padding: 22px 24px 0; margin-bottom: 14px; }
 .zd-story-person strong { display: block; color: var(--ink); font-size: var(--text-sm); line-height: 1.25; }
 .zd-story-person span { display: block; margin-top: 4px; color: var(--stone-500); font-size: var(--text-xs); }
+.zd-story-person .zd-story-company {
+  margin: 0 0 7px; color: var(--zd-cobalt);
+  font: 800 11px/1.2 var(--font-mono); letter-spacing: .04em; text-transform: uppercase;
+}
 .zd-story-card h3 { margin: 0 24px 12px; color: var(--ink); font: 800 var(--text-xl)/1.08 var(--font-display); }
 .zd-story-card p { margin: 0 24px; color: var(--stone-600); line-height: 1.6; font-size: var(--text-sm); }
 .zd-story-result {

@@ -2841,22 +2841,28 @@ function FeaturedBooks({ onLead, t }) {
 function ReaderStories({ t }) {
   const stories = [
     {
-      initials: 'AC',
-      role: t('Profesional cloud en crecimiento', 'Growing cloud professional'),
-      title: t('De servicios sueltos a arquitectura con criterio', 'From scattered services to architecture with judgment'),
-      text: t('Empieza con el capitulo gratis, valida el nivel y usa el libro para ordenar decisiones de diseno, costos y seguridad antes de tu siguiente proyecto.', 'Start with the free chapter, validate the level and use the book to organize design, cost and security decisions before your next project.')
+      image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=82',
+      role: t('Arquitecto cloud en crecimiento', 'Growing cloud architect'),
+      badge: t('Cloud y certificaciones', 'Cloud and certifications'),
+      title: t('De servicios sueltos a una arquitectura defendible', 'From scattered services to defensible architecture'),
+      text: t('Empieza con el capitulo gratis, valida el nivel y usa el libro para ordenar decisiones de diseno, costos, seguridad y escalabilidad antes de tu siguiente proyecto.', 'Start with the free chapter, validate the level and use the book to organize design, cost, security and scalability decisions before your next project.'),
+      result: t('Resultado: criterio tecnico para conversar con negocio.', 'Outcome: technical judgment for business conversations.')
     },
     {
-      initials: 'IA',
-      role: t('Lider que quiere aplicar IA', 'Leader who wants to apply AI'),
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=82',
+      role: t('Lider que quiere aplicar IA con impacto', 'Leader who wants to apply AI with impact'),
+      badge: t('IA aplicada y productividad', 'Applied AI and productivity'),
       title: t('De curiosidad por IA a un plan aplicable', 'From AI curiosity to an applicable plan'),
-      text: t('La muestra gratuita te deja ver si el enfoque es practico. Si encaja, el libro completo te ayuda a convertir ideas en flujos, casos y decisiones reales.', 'The free sample lets you see whether the approach is practical. If it fits, the full book helps you turn ideas into workflows, use cases and real decisions.')
+      text: t('La muestra gratuita te deja ver si el enfoque es practico. Si encaja, el libro completo te ayuda a convertir ideas en flujos, casos de uso, prompts y decisiones reales.', 'The free sample lets you see whether the approach is practical. If it fits, the full book helps you turn ideas into workflows, use cases, prompts and real decisions.'),
+      result: t('Resultado: menos teoria, mas ejecucion semanal.', 'Outcome: less theory, more weekly execution.')
     },
     {
-      initials: 'M4',
+      image: 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=900&q=82',
       role: t('Profesional de mineria y operaciones', 'Mining and operations professional'),
+      badge: t('Mineria 4.0 y operaciones', 'Mining 4.0 and operations'),
       title: t('De buzzwords a casos de uso que se pueden defender', 'From buzzwords to use cases you can defend'),
-      text: t('Lee primero una parte del contenido y comprueba si te ayuda a explicar Mineria 4.0 con lenguaje claro para operaciones, seguridad y productividad.', 'Read part of the content first and check whether it helps you explain Mining 4.0 clearly for operations, safety and productivity.')
+      text: t('Lee primero una parte del contenido y comprueba si te ayuda a explicar Mineria 4.0 con lenguaje claro para operaciones, seguridad, productividad y datos.', 'Read part of the content first and check whether it helps you explain Mining 4.0 clearly for operations, safety, productivity and data.'),
+      result: t('Resultado: argumentos claros para priorizar tecnologia.', 'Outcome: clear arguments to prioritize technology.')
     }
   ];
   return (
@@ -2871,17 +2877,21 @@ function ReaderStories({ t }) {
         </Reveal>
         <div className="zd-story-grid">
           {stories.map((story, i) => (
-            <Reveal key={story.initials} delay={(i % 3) * 80}>
+            <Reveal key={story.title} delay={(i % 3) * 80}>
               <article className="zd-story-card">
+                <div className="zd-story-photo">
+                  <img src={story.image} alt={story.role} loading="lazy" />
+                  <span>{story.badge}</span>
+                </div>
                 <div className="zd-story-person">
-                  <span className="zd-story-avatar" aria-hidden="true">{story.initials}</span>
                   <div>
                     <strong>{story.role}</strong>
-                    <span>{t('Perfil de lector ideal', 'Ideal reader profile')}</span>
+                    <span>{t('Perfil de lector recomendado', 'Recommended reader profile')}</span>
                   </div>
                 </div>
                 <h3>{story.title}</h3>
                 <p>{story.text}</p>
+                <div className="zd-story-result">{story.result}</div>
               </article>
             </Reveal>
           ))}
